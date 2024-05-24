@@ -1,0 +1,184 @@
+<UserControl
+	x:Class="Laplink.Tools.Popups.MessageBoxView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:Laplink.Tools.Popups.Properties" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:vm="clr-namespace:Laplink.Tools.Popups">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:StringToVisibilityConverter
+				x:Key="StringToVisibility" />
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Canvas
+		Width="500"
+		Height="600">
+		<Border
+			Canvas.Top="15"
+			Canvas.Left="0"
+			Width="480"
+			BorderThickness="4"
+			CornerRadius="8"
+			Background="#FFFFFFFF"
+			BorderBrush="{Binding MBBorderBrush}">
+			<Grid
+				Background="#FFFFFFFF"
+				Margin="8">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="8" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					MinHeight="50">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<Image
+						Width="47"
+						Margin="0,0,20,0"
+						Source="{Binding MBIcon}"
+						Visibility="{Binding IsIconVisible, Converter={StaticResource VisibilityConverter}}" />
+					<TextBlock
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontSize="20"
+						TextWrapping="Wrap"
+						Text="{Binding MBCaption, FallbackValue=Error}" />
+				</Grid>
+				<Rectangle
+					Grid.Row="1"
+					Width="100"
+					Height="4"
+					Fill="{StaticResource MainThemeBrush2}"
+					HorizontalAlignment="Left"
+					Panel.ZIndex="1" />
+				<Rectangle
+					Grid.Row="1"
+					Width="500"
+					Height="2"
+					Fill="{StaticResource HorizontalLineBackgroundBrush}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+				<StackPanel
+					Grid.Row="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center">
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage1}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage2}"
+						Visibility="{Binding MBMessage2, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage3}"
+						Visibility="{Binding MBMessage3, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage4}"
+						Visibility="{Binding MBMessage4, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage5}"
+						Visibility="{Binding MBMessage5, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage6}"
+						Visibility="{Binding MBMessage6, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage7}"
+						Visibility="{Binding MBMessage7, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage8}"
+						Visibility="{Binding MBMessage8, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage9}"
+						Visibility="{Binding MBMessage9, Converter={StaticResource StringToVisibility}}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Grid.Row="0"
+						Margin="10,10,0,0"
+						TextWrapping="Wrap"
+						Text="{Binding MBMessage10}"
+						Visibility="{Binding MBMessage10, Converter={StaticResource StringToVisibility}}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Grid.Row="3"
+					HorizontalAlignment="Center"
+					Margin="0,12">
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.lblYes}"
+						Margin="8,0"
+						Command="{Binding OnMBYes}"
+						Visibility="{Binding IsMBYesVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.lblNo}"
+						Margin="8,0"
+						Command="{Binding OnMBNo}"
+						Visibility="{Binding IsMBNoVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.OK}"
+						Margin="8,0"
+						Command="{Binding OnMBOK}"
+						Visibility="{Binding IsMBOKVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.lblCancel}"
+						Margin="8,0"
+						Command="{Binding OnMBCancel}"
+						Visibility="{Binding IsMBCancelVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.lblContinue}"
+						Margin="8,0"
+						Command="{Binding OnMBContinue}"
+						Visibility="{Binding IsMBContinueVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Canvas>
+</UserControl>

@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="{x:Type Page}"
+		x:Key="MetroPage">
+		<Setter
+			Property="Page.Background"
+			Value="{DynamicResource WhiteBrush}" />
+		<Setter
+			Property="Page.Foreground"
+			Value="{DynamicResource BlackBrush}" />
+		<Setter
+			Property="FontSize"
+			Value="{DynamicResource ContentFontSize}" />
+	</Style>
+</ResourceDictionary>

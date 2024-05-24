@@ -1,0 +1,372 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+	<Style
+		TargetType="{x:Type Controls:ToggleSwitchButton}"
+		x:Key="MahApps.Metro.Styles.ToggleSwitchButton">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource GrayBrush4}" />
+		<Setter
+			Property="BorderThickness"
+			Value="2" />
+		<Setter
+			Property="Height"
+			Value="35" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Controls:ToggleSwitchButton.OffSwitchBrush"
+			Value="{DynamicResource GrayBrush4}" />
+		<Setter
+			Property="Controls:ToggleSwitchButton.OnSwitchBrush"
+			Value="{DynamicResource AccentColorBrush}" />
+		<Setter
+			Property="Padding"
+			Value="2" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Controls:ToggleSwitchButton}">
+					<Grid>
+						<Grid
+							Name="PART_SwitchTrack"
+							Margin="5">
+							<Border
+								Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}">
+								<Grid
+									Margin="{TemplateBinding Padding}"
+									ClipToBounds="True">
+									<Rectangle
+										Fill="{TemplateBinding Controls:OnSwitchBrush}" />
+									<Rectangle
+										Fill="{TemplateBinding Controls:OffSwitchBrush}"
+										RenderTransformOrigin="0.5,0.5">
+										<UIElement.RenderTransform>
+											<TranslateTransform
+												x:Name="PART_BackgroundTranslate" />
+										</UIElement.RenderTransform>
+									</Rectangle>
+									<Rectangle
+										Name="PART_BackgroundOverlay"
+										Fill="{DynamicResource WhiteBrush}"
+										Opacity="0" />
+								</Grid>
+							</Border>
+							<Rectangle
+								Name="PART_ThumbIndicator"
+								Width="{TemplateBinding Controls:ThumbIndicatorWidth}"
+								HorizontalAlignment="Left"
+								Fill="{TemplateBinding Controls:ThumbIndicatorBrush}">
+								<UIElement.RenderTransform>
+									<TranslateTransform
+										x:Name="PART_ThumbTranslate" />
+								</UIElement.RenderTransform>
+							</Rectangle>
+						</Grid>
+						<Thumb
+							Name="PART_DraggingThumb"
+							Background="#00FFFFFF">
+							<Control.Template>
+								<ControlTemplate>
+									<Grid
+										Background="{TemplateBinding Background}" />
+								</ControlTemplate>
+							</Control.Template>
+						</Thumb>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames
+											Storyboard.TargetName="PART_BackgroundOverlay"
+											Storyboard.TargetProperty="(UIElement.Opacity)">
+											<DiscreteDoubleKeyFrame
+												KeyTime="0"
+												Value="0.5" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames
+											Storyboard.TargetName="PART_BackgroundOverlay"
+											Storyboard.TargetProperty="(UIElement.Opacity)">
+											<DiscreteDoubleKeyFrame
+												KeyTime="0"
+												Value="0.2" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState
+									x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames
+											Storyboard.TargetName="PART_BackgroundOverlay"
+											Storyboard.TargetProperty="(UIElement.Opacity)">
+											<DiscreteDoubleKeyFrame
+												KeyTime="0"
+												Value="0.4" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="PART_ThumbIndicator"
+								Property="Fill"
+								Value="{Binding Path=ThumbIndicatorDisabledBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Controls:ToggleSwitchButton.ThumbIndicatorBrush"
+			Value="{DynamicResource BlackBrush}" />
+		<Setter
+			Property="Controls:ToggleSwitchButton.ThumbIndicatorDisabledBrush"
+			Value="{DynamicResource GrayBrush4}" />
+		<Setter
+			Property="Controls:ToggleSwitchButton.ThumbIndicatorWidth"
+			Value="13" />
+		<Setter
+			Property="Width"
+			Value="70" />
+	</Style>
+	<Style
+		TargetType="{x:Type Controls:ToggleSwitch}"
+		x:Key="MahApps.Metro.Styles.ToggleSwitch">
+		<Setter
+			Property="Controls:ToggleSwitch.ContentPadding"
+			Value="0 0 4 0" />
+		<Setter
+			Property="Controls:ControlsHelper.HeaderFontSize"
+			Value="{DynamicResource ToggleSwitchHeaderFontSize}" />
+		<Setter
+			Property="Controls:ControlsHelper.HeaderMargin"
+			Value="0 0 0 5" />
+		<Setter
+			Property="FontFamily"
+			Value="{DynamicResource ToggleSwitchFontFamily}" />
+		<Setter
+			Property="FontSize"
+			Value="{DynamicResource ToggleSwitchFontSize}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource TextBrush}" />
+		<Setter
+			Property="Controls:ToggleSwitch.HeaderFontFamily"
+			Value="{DynamicResource ToggleSwitchHeaderFontFamily}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="IsTabStop"
+			Value="True" />
+		<Setter
+			Property="Controls:ToggleSwitch.OffSwitchBrush"
+			Value="{DynamicResource GrayBrush4}" />
+		<Setter
+			Property="Controls:ToggleSwitch.OnSwitchBrush"
+			Value="{DynamicResource AccentColorBrush}" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Controls:ToggleSwitch}">
+					<Border
+						Padding="{TemplateBinding Padding}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+						<Grid
+							Background="#00FFFFFF">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="Auto" />
+								<RowDefinition
+									Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Name="firstCol"
+									Width="*" />
+								<ColumnDefinition
+									Name="secCol"
+									Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<ContentControl
+								Name="Header"
+								Grid.ColumnSpan="2"
+								Margin="{TemplateBinding Controls:HeaderMargin}"
+								Content="{TemplateBinding Header}"
+								ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+								ContentTemplate="{TemplateBinding HeaderTemplate}"
+								ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+								FontFamily="{TemplateBinding Controls:HeaderFontFamily}"
+								FontSize="{TemplateBinding Controls:HeaderFontSize}"
+								FontWeight="{TemplateBinding Controls:HeaderFontWeight}"
+								IsTabStop="False" />
+							<ContentControl
+								Name="Content"
+								Grid.Row="1"
+								Margin="{TemplateBinding Controls:ContentPadding}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Content="{TemplateBinding Content}"
+								ContentStringFormat="{TemplateBinding ContentStringFormat}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+								FontFamily="{TemplateBinding FontFamily}"
+								FontSize="{TemplateBinding FontSize}"
+								IsTabStop="False" />
+							<Controls:ToggleSwitchButton
+								Name="Switch"
+								Grid.Row="1"
+								Grid.Column="1"
+								VerticalAlignment="Center"
+								Background="{TemplateBinding Background}"
+								OffSwitchBrush="{TemplateBinding OffSwitchBrush}"
+								OnSwitchBrush="{TemplateBinding OnSwitchBrush}"
+								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								Style="{TemplateBinding ToggleSwitchButtonStyle}"
+								ThumbIndicatorBrush="{TemplateBinding ThumbIndicatorBrush}"
+								ThumbIndicatorDisabledBrush="{TemplateBinding ThumbIndicatorDisabledBrush}"
+								ThumbIndicatorWidth="{TemplateBinding ThumbIndicatorWidth}"
+								FocusVisualStyle="{x:Null}"
+								IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource TemplatedParent}}" />
+						</Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup
+								x:Name="CommonStates">
+								<VisualState
+									x:Name="Normal" />
+								<VisualState
+									x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimation
+											Storyboard.TargetName="Header"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="0.3"
+											Duration="0" />
+										<DoubleAnimation
+											Storyboard.TargetName="Content"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="0.3"
+											Duration="0" />
+										<DoubleAnimation
+											Storyboard.TargetName="Switch"
+											Storyboard.TargetProperty="(UIElement.Opacity)"
+											To="0.75"
+											Duration="0" />
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Border>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="Controls:ToggleSwitch.IsChecked"
+									Value="True" />
+								<Condition
+									Property="Content"
+									Value="{x:Null}" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="Content"
+								Property="Content"
+								Value="{Binding Mode=TwoWay, Path=OnLabel, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition
+									Property="Controls:ToggleSwitch.IsChecked"
+									Value="False" />
+								<Condition
+									Property="Content"
+									Value="{x:Null}" />
+							</MultiTrigger.Conditions>
+							<Setter
+								TargetName="Content"
+								Property="Content"
+								Value="{Binding Mode=TwoWay, Path=OffLabel, RelativeSource={RelativeSource TemplatedParent}}" />
+						</MultiTrigger>
+						<DataTrigger
+							Binding="{Binding Path=Header, RelativeSource={RelativeSource Self}}"
+							Value="{x:Null}">
+							<Setter
+								TargetName="Header"
+								Property="Visibility"
+								Value="Collapsed" />
+						</DataTrigger>
+						<Trigger
+							Property="Controls:ToggleSwitch.ContentDirection"
+							Value="RightToLeft">
+							<Setter
+								Property="Controls:ToggleSwitch.ContentPadding"
+								Value="4 0 0 0" />
+							<Setter
+								TargetName="Content"
+								Property="Column"
+								Value="1" />
+							<Setter
+								TargetName="Switch"
+								Property="Column"
+								Value="0" />
+							<Setter
+								TargetName="firstCol"
+								Property="Width"
+								Value="Auto" />
+							<Setter
+								TargetName="secCol"
+								Property="Width"
+								Value="*" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Controls:ToggleSwitch.ThumbIndicatorBrush"
+			Value="{DynamicResource BlackBrush}" />
+		<Setter
+			Property="Controls:ToggleSwitch.ThumbIndicatorDisabledBrush"
+			Value="{DynamicResource GrayBrush4}" />
+		<Setter
+			Property="Controls:ToggleSwitch.ThumbIndicatorWidth"
+			Value="13" />
+		<Setter
+			Property="Controls:ToggleSwitch.ToggleSwitchButtonStyle"
+			Value="{DynamicResource MahApps.Metro.Styles.ToggleSwitchButton}" />
+		<Setter
+			Property="Validation.ErrorTemplate"
+			Value="{DynamicResource ValidationErrorTemplate}" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+	</Style>
+</ResourceDictionary>

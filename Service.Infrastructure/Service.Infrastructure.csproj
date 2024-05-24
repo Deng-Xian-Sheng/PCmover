@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC63}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Service.Infrastructure</RootNamespace>
+    <AssemblyName>Service.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Laplink\Service\Infrastructure\CallbackReply.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\CheckRebootHelper.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\ControlCallbackManager.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\ControlCallbackStateData.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\HandleManager.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\IServiceManager.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\IUiCallbackControl.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\MonitorCallback.cs" />
+    <Compile Include="Laplink\Service\Infrastructure\MonitorCallbackManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WUApiLib\IUpdateInstaller.cs" />
+    <Compile Include="WUApiLib\IUpdateInstaller2.cs" />
+    <Compile Include="WUApiLib\UpdateInstaller.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Laplink.Service.Contracts\Laplink.Service.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC10}</Project>
+      <Name>Laplink.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

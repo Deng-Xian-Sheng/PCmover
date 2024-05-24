@@ -1,0 +1,152 @@
+<UserControl
+	x:Class="WizardModule.Views.Popups.InsufficientDriveSpace" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:WizardModule.Views.Popups">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Canvas
+		Width="800"
+		Height="600">
+		<Border
+			Canvas.Top="15"
+			Canvas.Left="0"
+			Width="800"
+			BorderThickness="4"
+			CornerRadius="8"
+			BorderBrush="#FFC0C0C0"
+			Background="#FFFFFFFF">
+			<StackPanel
+				Orientation="Vertical"
+				Margin="36,24">
+				<TextBlock
+					Style="{StaticResource LargeTextDark}"
+					Text="{x:Static p:Resources.TEPP_DriveSpaceTitle}" />
+				<Grid
+					Margin="0,12">
+					<Rectangle
+						Width="100"
+						Height="4"
+						Fill="{StaticResource MainThemeBrush2}"
+						HorizontalAlignment="Left"
+						Panel.ZIndex="1" />
+					<Rectangle
+						Width="600"
+						Height="2"
+						Fill="{StaticResource HorizontalLineBackgroundBrush}"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center" />
+				</Grid>
+				<TextBlock
+					Style="{StaticResource MediumTextDark}"
+					Text="{x:Static p:Resources.TEP_DrivespacePopupDesc}" />
+				<ListView
+					Background="#00FFFFFF"
+					BorderThickness="0"
+					Margin="0,12"
+					ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+					HorizontalContentAlignment="Stretch"
+					ItemsSource="{Binding Drives}">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								Style="{StaticResource MediumTextDark}"
+								TextWrapping="Wrap"
+								HorizontalAlignment="Left"
+								Text="{Binding ErrorText}"
+								Foreground="{Binding TextColor}" />
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ListView>
+				<TextBlock
+					Style="{StaticResource MediumTextDark}"
+					Margin="0,0,0,8"
+					Text="{x:Static p:Resources.TEP_DrivespacePopup3}" />
+				<TextBlock
+					Style="{StaticResource MediumTextDark}"
+					Margin="0,12,0,8"
+					Text="{x:Static p:Resources.TEP_DrivespacePopupSeeArticles}" />
+				<TextBlock
+					Style="{StaticResource SmallTextDark}"
+					Margin="0,0,0,0"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Visibility="{Binding HasMultipleDrives, Converter={StaticResource VisibilityConverter}}">
+					<Hyperlink
+						Style="{StaticResource HyperlinkTextStyle}"
+						CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink1}"
+						Command="{Binding OnDrivespaceInfo}">
+						<Run
+							Text="{x:Static p:Resources.TEP_DrivespacePopupLink1}" />
+					</Hyperlink>
+				</TextBlock>
+				<TextBlock
+					Style="{StaticResource SmallTextDark}"
+					Margin="0,0,0,0"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left">
+					<Hyperlink
+						Style="{StaticResource HyperlinkTextStyle}"
+						CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink2}"
+						Command="{Binding OnDrivespaceInfo}">
+						<Run
+							Text="{x:Static p:Resources.TEP_DrivespacePopupLink2}" />
+					</Hyperlink>
+				</TextBlock>
+				<TextBlock
+					Style="{StaticResource SmallTextDark}"
+					Margin="0,0,0,0"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left">
+					<Hyperlink
+						Style="{StaticResource HyperlinkTextStyle}"
+						CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink3}"
+						Command="{Binding OnDrivespaceInfo}">
+						<Run
+							Text="{x:Static p:Resources.TEP_DrivespacePopupLink3}" />
+					</Hyperlink>
+				</TextBlock>
+				<TextBlock
+					Style="{StaticResource SmallTextDark}"
+					Margin="0,0,0,12"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left">
+					<Hyperlink
+						Style="{StaticResource HyperlinkTextStyle}"
+						CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink4}"
+						Command="{Binding OnDrivespaceInfo}">
+						<Run
+							Text="{x:Static p:Resources.TEP_DrivespacePopupLink4}" />
+					</Hyperlink>
+				</TextBlock>
+				<TextBlock
+					Style="{StaticResource MediumTextDark}"
+					Text="{x:Static p:Resources.TEP_DrivespacePopupCustomize}" />
+				<StackPanel
+					Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Margin="0,12">
+					<Button
+						Content="{x:Static p:Resources.YES}"
+						Style="{StaticResource RoundedButtonSmall}"
+						Margin="8,0"
+						CommandParameter="True"
+						Command="{Binding OnClose}" />
+					<Button
+						Content="{x:Static p:Resources.NO}"
+						CommandParameter="False"
+						Style="{StaticResource RoundedButtonSmall}"
+						Margin="8,0"
+						Command="{Binding OnClose}" />
+				</StackPanel>
+			</StackPanel>
+		</Border>
+	</Canvas>
+</UserControl>

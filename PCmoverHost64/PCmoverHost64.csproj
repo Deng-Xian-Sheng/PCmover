@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC31}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Laplink.Pcmover.Hosts.ExternalProcess</RootNamespace>
+    <AssemblyName>PCmoverHost64</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <StartupObject>Laplink.Pcmover.Hosts.ExternalProcess.ManagerProcess</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ManagerProcess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DownloadService\DownloadService.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBBC6}</Project>
+      <Name>DownloadService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PcmoverService\PcmoverService.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC32}</Project>
+      <Name>PcmoverService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service.Infrastructure\Service.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC63}</Project>
+      <Name>Service.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

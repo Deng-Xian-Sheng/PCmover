@@ -1,0 +1,53 @@
+<UserControl
+	x:Class="WizardModule.Views.LetMeChoosePage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:prism="http://prismlibrary.com/" xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:inf="clr-namespace:PCmover.Infrastructure;assembly=PCmover.Infrastructure" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<mahapps:TransitioningContentControl
+			Name="DetailView"
+			HorizontalAlignment="Stretch"
+			Transition="Down"
+			prism:RegionManager.RegionName="{x:Static inf:RegionNames.RegionDetailButtons}" />
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="2"
+			HorizontalAlignment="Center"
+			Margin="0,10">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Command="{Binding OnBack}"
+				Visibility="{Binding IsBackButtonVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<Button
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Content="{Binding ButtonString}"
+				Command="{Binding OnNext}" />
+			<TextBlock
+				Style="{StaticResource SmallTextDark}"
+				TextWrapping="Wrap"
+				VerticalAlignment="Center"
+				Margin="24,0,0,0"
+				Visibility="{Binding IsCustomizeVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+				<Hyperlink
+					Style="{StaticResource HyperlinkTextStyle}"
+					Command="{Binding OnCustomizePPM}">
+					<TextBlock
+						Text="{x:Static p:Resources.LMCP_Customize}"
+						TextWrapping="Wrap" />
+				</Hyperlink>
+			</TextBlock>
+		</StackPanel>
+	</Grid>
+</UserControl>

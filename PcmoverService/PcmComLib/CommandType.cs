@@ -1,0 +1,69 @@
+﻿using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+namespace PcmComLib
+{
+	// Token: 0x02000045 RID: 69
+	[CompilerGenerated]
+	[TypeIdentifier("014D1DE2-7A0B-457C-8B9C-A20AD2BF0977", "PcmComLib.CommandType")]
+	public enum CommandType
+	{
+		// Token: 0x040000FB RID: 251
+		CMD_QUERY = 81,
+		// Token: 0x040000FC RID: 252
+		CMD_QUERY_REPLY = 113,
+		// Token: 0x040000FD RID: 253
+		CMD_PING = 80,
+		// Token: 0x040000FE RID: 254
+		CMD_PING_REPLY = 112,
+		// Token: 0x040000FF RID: 255
+		CMD_UNLOAD = 85,
+		// Token: 0x04000100 RID: 256
+		CMD_TAKESNAPSHOT = 84,
+		// Token: 0x04000101 RID: 257
+		CMD_ACCEPTJOURNAL = 74,
+		// Token: 0x04000102 RID: 258
+		CMD_FILL = 70,
+		// Token: 0x04000103 RID: 259
+		CMD_DONOTHING = 48,
+		// Token: 0x04000104 RID: 260
+		CMD_END = 69,
+		// Token: 0x04000105 RID: 261
+		CMD_ACK = 89,
+		// Token: 0x04000106 RID: 262
+		CMD_NACK = 78,
+		// Token: 0x04000107 RID: 263
+		CMD_ERROR = 0,
+		// Token: 0x04000108 RID: 264
+		CMD_NONE = 0,
+		// Token: 0x04000109 RID: 265
+		CMD_GETINFO = 73,
+		// Token: 0x0400010A RID: 266
+		CMD_INFOREPLY = 105,
+		// Token: 0x0400010B RID: 267
+		CMD_SENDPASSWORD = 76,
+		// Token: 0x0400010C RID: 268
+		CMD_SYNC = 67,
+		// Token: 0x0400010D RID: 269
+		CMD_TEST = 83,
+		// Token: 0x0400010E RID: 270
+		CMD_OPTIONALDATA = 79,
+		// Token: 0x0400010F RID: 271
+		CMD_AUTHORIZETRANSFER = 65,
+		// Token: 0x04000110 RID: 272
+		CMD_AUTHORIZETRANSFER_REPLY = 97,
+		// Token: 0x04000111 RID: 273
+		CMD_DISCOVERY = 68,
+		// Token: 0x04000112 RID: 274
+		CMD_DISCOVERY_REPLY = 100,
+		// Token: 0x04000113 RID: 275
+		CMD_EXTENDED_DISCOVERY = 88,
+		// Token: 0x04000114 RID: 276
+		CMD_EXTENDED_DISCOVERYREPLY = 120,
+		// Token: 0x04000115 RID: 277
+		CMD_SWITCH_DIRECTION = 87,
+		// Token: 0x04000116 RID: 278
+		CMD_NOTIFY_DIRECTION = 119
+	}
+}

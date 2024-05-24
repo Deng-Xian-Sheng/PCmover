@@ -1,0 +1,55 @@
+<UserControl
+	x:Class="WizardModule.Views.Popups.SelectAzureAccount" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:vm="clr-namespace:WizardModule.ViewModels.Popups" xmlns:local="clr-namespace:WizardModule.Views.Popups">
+	<Canvas
+		Width="500"
+		Height="400">
+		<Border
+			Canvas.Top="15"
+			Canvas.Left="0"
+			Width="500"
+			BorderThickness="4"
+			CornerRadius="8"
+			BorderBrush="#FFC0C0C0"
+			Background="#FFFFFFFF">
+			<StackPanel
+				Orientation="Vertical"
+				Margin="36,24">
+				<TextBlock
+					Style="{StaticResource LargeTextDark}"
+					Text="Select Azure Account" />
+				<Grid
+					Margin="0,12">
+					<Rectangle
+						Width="100"
+						Height="4"
+						Fill="{StaticResource MainThemeBrush2}"
+						HorizontalAlignment="Left"
+						Panel.ZIndex="1" />
+					<Rectangle
+						Width="600"
+						Height="2"
+						Fill="{StaticResource HorizontalLineBackgroundBrush}"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center" />
+				</Grid>
+				<TextBlock
+					Style="{StaticResource MediumTextDark}"
+					Text="Select an Azure account for the Transfer File" />
+				<ListView
+					Name="LvAccounts"
+					Margin="0,12"
+					ItemsSource="{Binding Accounts}" />
+				<StackPanel
+					Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Margin="0,12">
+					<Button
+						Content="{x:Static p:Resources.OK}"
+						Style="{StaticResource RoundedButtonSmall}"
+						Command="{Binding OnClose}"
+						CommandParameter="{Binding ElementName=LvAccounts, Path=SelectedItem}" />
+				</StackPanel>
+			</StackPanel>
+		</Border>
+	</Canvas>
+</UserControl>

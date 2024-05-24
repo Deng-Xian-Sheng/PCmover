@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile CurrentProfile="(Default)" GeneratedClassNamespace="MainUI.Properties" GeneratedClassName="Settings" xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Source" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="Destination" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="SourceDrive" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="DestinationDrive" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="FirstName" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="LastName" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+    <Setting Name="Email" Type="System.String" Scope="User">
+      <Value Profile="(Default)"></Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

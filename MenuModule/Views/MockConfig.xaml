@@ -1,0 +1,218 @@
+<UserControl
+	x:Class="MenuModule.Views.MockConfig" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:prism="http://prismlibrary.com/" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters"
+	prism:ViewModelLocator.AutoWireViewModel="True" xmlns:views="clr-namespace:MenuModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:ReverseBooleanConverter
+				x:Key="ReverseBoolConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="100" />
+			<ColumnDefinition
+				Width="50" />
+			<ColumnDefinition
+				Width="70" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="*" />
+		</Grid.ColumnDefinitions>
+		<TextBlock
+			Grid.Column="0">Configuration:</TextBlock>
+		<CheckBox
+			Grid.Column="1"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Center"
+			Content="Live"
+			IsChecked="{Binding IsLive, Mode=TwoWay}" />
+		<CheckBox
+			Grid.Column="2"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Center"
+			Content="Simulate"
+			IsChecked="{Binding IsLive, Converter={StaticResource ReverseBoolConverter}, Mode=TwoWay}" />
+		<CheckBox
+			Grid.Column="3"
+			Content="Quick Simulations"
+			IsChecked="{Binding QuickSimulations, Mode=TwoWay}" />
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="0">This Computer:</TextBlock>
+		<RadioButton
+			Name="OldRadio"
+			Grid.Row="1"
+			Grid.Column="1"
+			AutomationProperties.AutomationId="OldRadioButton"
+			IsChecked="{Binding IsOld}">Old</RadioButton>
+		<RadioButton
+			Name="NewRadio"
+			Grid.Row="1"
+			Grid.Column="2"
+			AutomationProperties.AutomationId="NewRadioButton"
+			IsChecked="{Binding IsOld, Converter={StaticResource ReverseBoolConverter}, Mode=TwoWay}">New</RadioButton>
+		<TextBlock
+			Grid.Row="2"
+			Grid.Column="0">Validation:</TextBlock>
+		<CheckBox
+			Name="Validation"
+			Grid.Row="2"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			VerticalAlignment="Center"
+			Content="Validated"
+			IsChecked="{Binding IsValidated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<CheckBox
+			Grid.Row="2"
+			Grid.Column="3"
+			Grid.ColumnSpan="2"
+			VerticalAlignment="Center"
+			Content="Task-based authorization"
+			IsChecked="{Binding UseTaskBasedValidation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<TextBlock
+			Grid.Row="3"
+			Grid.Column="0">Other Computer:</TextBlock>
+		<CheckBox
+			Name="OtherNotFound"
+			Grid.Row="3"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			VerticalAlignment="Center"
+			Content="Not Found"
+			IsChecked="{Binding SimulateOtherComputerNotFound, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<TextBlock
+			Grid.Row="3"
+			Grid.Column="3">This Computer:</TextBlock>
+		<CheckBox
+			Name="NotConnected"
+			Grid.Row="3"
+			Grid.Column="4"
+			VerticalAlignment="Center"
+			Content="Not Connected"
+			IsChecked="{Binding SimulateComputerNotOnInternet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<TextBlock
+			Grid.Row="4"
+			Grid.Column="0">Target Machine:</TextBlock>
+		<TextBlock
+			Grid.Row="4"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Right">Friendly Name:</TextBlock>
+		<TextBox
+			Grid.Row="4"
+			Grid.Column="3"
+			Width="160"
+			Text="{Binding TargetFriendlyName, Mode=TwoWay}" />
+		<TextBlock
+			Grid.Row="4"
+			Grid.Column="4"
+			HorizontalAlignment="Right">Network Name:</TextBlock>
+		<TextBox
+			Grid.Row="4"
+			Grid.Column="5"
+			Width="160"
+			Text="{Binding TargetNetName, Mode=TwoWay}" />
+		<TextBlock
+			Grid.Row="5"
+			Grid.Column="0">Estimated Size:</TextBlock>
+		<TextBox
+			Grid.Row="5"
+			Grid.Column="1"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Left"
+			Width="100"
+			Text="{Binding EstimatedSize, Mode=TwoWay}" />
+		<TextBlock
+			Grid.Row="5"
+			Grid.Column="3"
+			HorizontalAlignment="Right">Completion Time:</TextBlock>
+		<TextBox
+			Grid.Row="5"
+			Grid.Column="4"
+			Width="100"
+			Text="{Binding CompletionTime, Mode=TwoWay}" />
+		<CheckBox
+			Name="Lastest"
+			Grid.Row="6"
+			Grid.Column="0"
+			Grid.ColumnSpan="2"
+			VerticalAlignment="Center"
+			Content="Latest Version"
+			IsChecked="{Binding IsLatest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<CheckBox
+			Name="Reports"
+			Grid.Row="6"
+			Grid.Column="2"
+			Grid.ColumnSpan="2"
+			VerticalAlignment="Center"
+			Content="Show Reports"
+			IsChecked="{Binding ShowReports, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="7"
+			Grid.ColumnSpan="7">
+			<CheckBox
+				Content="Files Based Enabled"
+				Margin="0,4,8,4"
+				IsChecked="{Binding IsFilesBasedEnabled}" />
+			<CheckBox
+				Content="IA Enabled"
+				Margin="8,4"
+				IsChecked="{Binding IsIAEnabled}" />
+			<CheckBox
+				Content="UA Enabled"
+				Margin="8,4"
+				IsChecked="{Binding IsUAEnabled}" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="8"
+			Grid.ColumnSpan="7">
+			<CheckBox
+				Content="Simulate Crash on Exit"
+				Margin="0,4,8,4"
+				IsChecked="{Binding IgnoreIsComplete}" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="9"
+			Grid.ColumnSpan="7">
+			<CheckBox
+				Content="Limited engine on Old"
+				Margin="0,4,8,4"
+				IsChecked="{Binding LimitedOnOld}" />
+			<CheckBox
+				Content="Limited engine on New"
+				Margin="0,4,8,4"
+				IsChecked="{Binding LimitedOnNew}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.WindowsAPICodePack</RootNamespace>
+    <AssemblyName>Microsoft.WindowsAPICodePack</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServices\ApplicationRecoveryException.cs" />
+    <Compile Include="ApplicationServices\ApplicationRestartRecoveryManager.cs" />
+    <Compile Include="ApplicationServices\AppRestartRecoveryNativeMethods.cs" />
+    <Compile Include="ApplicationServices\BatteryState.cs" />
+    <Compile Include="ApplicationServices\EventManager.cs" />
+    <Compile Include="ApplicationServices\ExecutionStates.cs" />
+    <Compile Include="ApplicationServices\MessageManager.cs" />
+    <Compile Include="ApplicationServices\Power.cs" />
+    <Compile Include="ApplicationServices\PowerManagementNativeMethods.cs" />
+    <Compile Include="ApplicationServices\PowerManager.cs" />
+    <Compile Include="ApplicationServices\PowerManagerException.cs" />
+    <Compile Include="ApplicationServices\PowerPersonality.cs" />
+    <Compile Include="ApplicationServices\PowerPersonalityGuids.cs" />
+    <Compile Include="ApplicationServices\PowerSource.cs" />
+    <Compile Include="ApplicationServices\RecoveryCallback.cs" />
+    <Compile Include="ApplicationServices\RecoveryData.cs" />
+    <Compile Include="ApplicationServices\RecoverySettings.cs" />
+    <Compile Include="ApplicationServices\RestartRestrictions.cs" />
+    <Compile Include="ApplicationServices\RestartSettings.cs" />
+    <Compile Include="Dialogs\DialogControl.cs" />
+    <Compile Include="Dialogs\DialogControlCollection.cs" />
+    <Compile Include="Dialogs\DialogsDefaults.cs" />
+    <Compile Include="Dialogs\DialogShowState.cs" />
+    <Compile Include="Dialogs\IDialogControlHost.cs" />
+    <Compile Include="Dialogs\NativeTaskDialog.cs" />
+    <Compile Include="Dialogs\NativeTaskDialogSettings.cs" />
+    <Compile Include="Dialogs\TaskDialog.cs" />
+    <Compile Include="Dialogs\TaskDialogBar.cs" />
+    <Compile Include="Dialogs\TaskDialogButton.cs" />
+    <Compile Include="Dialogs\TaskDialogButtonBase.cs" />
+    <Compile Include="Dialogs\TaskDialogClosingEventArgs.cs" />
+    <Compile Include="Dialogs\TaskDialogCommandLink.cs" />
+    <Compile Include="Dialogs\TaskDialogControl.cs" />
+    <Compile Include="Dialogs\TaskDialogDefaults.cs" />
+    <Compile Include="Dialogs\TaskDialogExpandedDetailsLocation.cs" />
+    <Compile Include="Dialogs\TaskDialogHyperlinkClickedEventArgs.cs" />
+    <Compile Include="Dialogs\TaskDialogNativeMethods.cs" />
+    <Compile Include="Dialogs\TaskDialogProgressBar.cs" />
+    <Compile Include="Dialogs\TaskDialogProgressBarState.cs" />
+    <Compile Include="Dialogs\TaskDialogRadioButton.cs" />
+    <Compile Include="Dialogs\TaskDialogResult.cs" />
+    <Compile Include="Dialogs\TaskDialogStandardButtons.cs" />
+    <Compile Include="Dialogs\TaskDialogStandardIcon.cs" />
+    <Compile Include="Dialogs\TaskDialogStartupLocation.cs" />
+    <Compile Include="Dialogs\TaskDialogTickEventArgs.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\CoreErrorHelper.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\CoreHelpers.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\CoreNativeMethods.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\HResult.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\PropVariant.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\SafeIconHandle.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\SafeRegionHandle.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\SafeWindowHandle.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\WindowMessage.cs" />
+    <Compile Include="MS\WindowsAPICodePack\Internal\ZeroInvalidHandle.cs" />
+    <Compile Include="Net\ConnectivityStates.cs" />
+    <Compile Include="Net\DomainType.cs" />
+    <Compile Include="Net\INetwork.cs" />
+    <Compile Include="Net\INetworkConnection.cs" />
+    <Compile Include="Net\INetworkListManager.cs" />
+    <Compile Include="Net\Network.cs" />
+    <Compile Include="Net\NetworkCategory.cs" />
+    <Compile Include="Net\NetworkCollection.cs" />
+    <Compile Include="Net\NetworkConnection.cs" />
+    <Compile Include="Net\NetworkConnectionCollection.cs" />
+    <Compile Include="Net\NetworkConnectivityLevels.cs" />
+    <Compile Include="Net\NetworkListManager.cs" />
+    <Compile Include="Net\NetworkListManagerClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\LocalizedMessages.cs" />
+    <Compile Include="Shell\PropertySystem\PropertyKey.cs" />
+    <Compile Include="Shell\PropertySystem\PropVariantNativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LocalizedMessages.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

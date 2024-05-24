@@ -1,0 +1,442 @@
+<UserControl
+	x:Class="WizardModule.Views.TransferEverythingPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			VerticalAlignment="Bottom"
+			HorizontalAlignment="Center"
+			MaxWidth="600"
+			Margin="0,20,0,0"
+			Visibility="{Binding IsProfileMigrator, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Source="/WizardModule;component/Assets/PCcheckLarge.png"
+				Height="100"
+				Visibility="{Binding IsImageAssistMigration, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+			<Image
+				Source="/WizardModule;component/Assets/HardDriveOnScreen.png"
+				Height="100"
+				Visibility="{Binding IsImageAssistMigration, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<Image
+				Grid.Column="1"
+				Source="/WizardModule;component/Assets/RightArrow.png"
+				Margin="36,0"
+				Width="80"
+				HorizontalAlignment="Center" />
+			<Image
+				Grid.Column="2"
+				Source="/WizardModule;component/Assets/PCcheckLarge.png"
+				Height="100" />
+			<TextBlock
+				Grid.Row="1"
+				Text="{x:Static p:Resources.strOtherPC}"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Bottom" />
+			<TextBlock
+				Grid.Row="2"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Top"
+				Text="{Binding OtherPC, Mode=OneWay, FallbackValue=Cindys Dell}" />
+			<TextBlock
+				Grid.Row="1"
+				Text="{x:Static p:Resources.strThisPC}"
+				Grid.Column="2"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Bottom" />
+			<TextBlock
+				Grid.Row="2"
+				Grid.Column="2"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Top"
+				Text="{Binding ThisPC, Mode=OneWay, FallbackValue=xHP Pavilion X19}" />
+		</Grid>
+		<Grid
+			VerticalAlignment="Center"
+			MaxWidth="500"
+			Visibility="{Binding IsProfileMigrator, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<Image
+				Source="/WizardModule;component/Assets/ProfileLarge.png"
+				Height="140" />
+		</Grid>
+		<Grid
+			Row="1"
+			VerticalAlignment="Center"
+			Margin="0,30,0,0"
+			Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<StackPanel
+				Orientation="Horizontal"
+				Grid.ColumnSpan="2"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center">
+				<Controls:ProgressRing
+					Width="48"
+					Margin="0,0,28,0"
+					HorizontalAlignment="Right"
+					IsActive="{Binding IsBusy}" />
+				<StackPanel
+					Orientation="Vertical"
+					HorizontalAlignment="Center"
+					Grid.ColumnSpan="2">
+					<TextBlock
+						Text="{x:Static p:Resources.TEP_Calculating}"
+						Style="{DynamicResource MediumTextDark}" />
+					<StackPanel
+						Orientation="Horizontal">
+						<TextBlock
+							Text="{x:Static p:Resources.TEP_Processing}"
+							Style="{DynamicResource SmallTextDark}"
+							Margin="0,0,4,0" />
+						<TextBlock
+							Style="{DynamicResource SmallTextDark}"
+							Text="{Binding PercentDone}" />
+						<TextBlock
+							Text="%"
+							Style="{DynamicResource SmallTextDark}" />
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+		</Grid>
+		<StackPanel
+			Grid.Row="2"
+			Orientation="Vertical"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<TextBlock
+				Text="{x:Static p:Resources.TEP_Tips}"
+				Style="{StaticResource SmallTextDark}"
+				FontWeight="Bold" />
+			<StackPanel
+				Orientation="Horizontal">
+				<Button
+					Style="{StaticResource ImageButton}"
+					Command="{Binding OnPreviousTipSelected}">
+					<Image
+						Source="/WizardModule;component/Assets/larrow.png"
+						Width="40"
+						Height="40" />
+				</Button>
+				<Image
+					Height="100"
+					VerticalAlignment="Top"
+					Margin="0,8,12,0"
+					Source="{Binding TipImage, Mode=OneWay}" />
+				<TextBlock
+					Style="{StaticResource SmallTextMedium}"
+					VerticalAlignment="Top"
+					Margin="0,12,0,0"
+					Width="360"
+					Height="100"
+					Text="{Binding TipText, Mode=TwoWay}" />
+				<Button
+					Style="{StaticResource ImageButton}"
+					Command="{Binding OnNextTipSelected}">
+					<Image
+						Source="/WizardModule;component/Assets/rarrow.png"
+						Width="40"
+						Height="40" />
+				</Button>
+			</StackPanel>
+		</StackPanel>
+		<ScrollViewer
+			VerticalScrollBarVisibility="Auto"
+			Grid.Row="1"
+			Grid.RowSpan="2"
+			VerticalAlignment="Center"
+			Width="640"
+			Visibility="{Binding IsBusy, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					Margin="4,0,0,24"
+					Style="{StaticResource MediumTextMedium}"
+					Text="{Binding ReadyText, Mode=OneWay}" />
+				<TextBlock
+					Grid.Row="1"
+					Margin="4,0"
+					Style="{StaticResource MediumTextMedium}"
+					Text="{x:Static p:Resources.TEP_Ready2}" />
+				<TextBlock
+					Grid.Row="2"
+					Margin="4,0"
+					Visibility="{Binding IsAlertEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<Hyperlink
+						Style="{StaticResource MediumHyperlinkTextStyle}"
+						FontSize="16"
+						Command="{Binding OnShowAlertsPopup}">
+						<TextBlock
+							Text="{x:Static p:Resources.TEP_NotifyWhenComplete}" />
+					</Hyperlink>
+				</TextBlock>
+				<StackPanel
+					Grid.Row="3"
+					Grid.ColumnSpan="2"
+					HorizontalAlignment="Center"
+					Margin="0,24,0,0"
+					Orientation="Horizontal">
+					<TextBlock
+						Text="{x:Static p:Resources.TEP_Total}"
+						Margin="0,0,4,0"
+						Style="{StaticResource MediumTextDark}" />
+					<TextBlock
+						Style="{StaticResource MediumTextDark}"
+						Text="{Binding FormattedTransferSize, Mode=OneWay}" />
+					<TextBlock
+						Text="."
+						Margin="0,0,8,0"
+						Style="{StaticResource MediumTextDark}" />
+					<TextBlock
+						Text="{x:Static p:Resources.TEP_About}"
+						Margin="0,0,4,0"
+						Style="{StaticResource MediumTextDark}" />
+					<TextBlock
+						Style="{StaticResource MediumTextDark}"
+						Margin="0,0,4,0"
+						Text="{Binding TransferTime, Mode=OneWay}" />
+					<TextBlock
+						Text="{x:Static p:Resources.TEP_ToTransfer}"
+						Style="{StaticResource MediumTextDark}" />
+				</StackPanel>
+				<TextBlock
+					Grid.Column="1"
+					VerticalAlignment="Center"
+					Margin="8,0"
+					Visibility="{Binding ShowViewDetails, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<Hyperlink
+						Style="{StaticResource MediumHyperlinkTextStyle}"
+						Command="{Binding OnViewDetails}">
+						<TextBlock
+							Text="{x:Static p:Resources.TEP_ViewDetails}" />
+					</Hyperlink>
+				</TextBlock>
+			</Grid>
+		</ScrollViewer>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="3"
+			HorizontalAlignment="Center"
+			Margin="0,10">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="{x:Static p:Resources.TEP_Transfer}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+		<popups:AppPopup
+			Placement="Center"
+			Width="636"
+			PopupAnimation="Scroll"
+			AllowsTransparency="True"
+			StaysOpen="True"
+			IsOpen="{Binding IsDrivespacePopupOpen, Mode=TwoWay}">
+			<Canvas
+				Width="605"
+				Height="600">
+				<Border
+					Canvas.Top="15"
+					Canvas.Left="0"
+					Width="580"
+					BorderThickness="4"
+					CornerRadius="8"
+					BorderBrush="#FFC0C0C0"
+					Background="#FFFFFFFF">
+					<StackPanel
+						Orientation="Vertical"
+						Margin="36,24">
+						<TextBlock
+							Style="{StaticResource LargeTextDark}"
+							Text="{x:Static p:Resources.TEPP_DriveSpaceTitle}" />
+						<Grid
+							Margin="0,12">
+							<Rectangle
+								Width="100"
+								Height="4"
+								Fill="{StaticResource MainThemeBrush2}"
+								HorizontalAlignment="Left"
+								Panel.ZIndex="1" />
+							<Rectangle
+								Width="500"
+								Height="2"
+								Fill="{StaticResource HorizontalLineBackgroundBrush}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center" />
+						</Grid>
+						<TextBlock
+							Style="{StaticResource MediumTextDark}"
+							Text="{x:Static p:Resources.TEP_DrivespacePopupDesc}" />
+						<TextBlock
+							Style="{StaticResource MediumTextDark}"
+							TextWrapping="Wrap"
+							HorizontalAlignment="Left"
+							Margin="0,12"
+							Text="{Binding DriveSpaceError}" />
+						<TextBlock
+							Style="{StaticResource MediumTextDark}"
+							Margin="0,12,0,8"
+							Text="{x:Static p:Resources.TEP_DrivespacePopupSeeArticles}" />
+						<TextBlock
+							Style="{StaticResource SmallTextDark}"
+							Margin="0,0,0,0"
+							TextWrapping="Wrap"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left"
+							Visibility="{Binding HasMultipleDrives, Converter={StaticResource VisibilityConverter}}">
+							<Hyperlink
+								Style="{StaticResource HyperlinkTextStyle}"
+								CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink1}"
+								Command="{Binding OnDrivespaceInfo}">
+								<Run
+									Text="{x:Static p:Resources.TEP_DrivespacePopupLink1}" />
+							</Hyperlink>
+						</TextBlock>
+						<TextBlock
+							Style="{StaticResource SmallTextDark}"
+							Margin="0,0,0,0"
+							TextWrapping="Wrap"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<Hyperlink
+								Style="{StaticResource HyperlinkTextStyle}"
+								CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink2}"
+								Command="{Binding OnDrivespaceInfo}">
+								<Run
+									Text="{x:Static p:Resources.TEP_DrivespacePopupLink2}" />
+							</Hyperlink>
+						</TextBlock>
+						<TextBlock
+							Style="{StaticResource SmallTextDark}"
+							Margin="0,0,0,0"
+							TextWrapping="Wrap"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<Hyperlink
+								Style="{StaticResource HyperlinkTextStyle}"
+								CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink3}"
+								Command="{Binding OnDrivespaceInfo}">
+								<Run
+									Text="{x:Static p:Resources.TEP_DrivespacePopupLink3}" />
+							</Hyperlink>
+						</TextBlock>
+						<TextBlock
+							Style="{StaticResource SmallTextDark}"
+							Margin="0,0,0,12"
+							TextWrapping="Wrap"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left">
+							<Hyperlink
+								Style="{StaticResource HyperlinkTextStyle}"
+								CommandParameter="{x:Static Brand:Resources.URL_TEPDriveSpacePopupLink4}"
+								Command="{Binding OnDrivespaceInfo}">
+								<Run
+									Text="{x:Static p:Resources.TEP_DrivespacePopupLink4}" />
+							</Hyperlink>
+						</TextBlock>
+						<TextBlock
+							Style="{StaticResource MediumTextDark}"
+							Text="{x:Static p:Resources.TEP_DrivespacePopupCustomize}" />
+						<StackPanel
+							Orientation="Horizontal"
+							HorizontalAlignment="Center"
+							Margin="0,12">
+							<Button
+								Content="{x:Static p:Resources.YES}"
+								Style="{StaticResource RoundedButtonSmall}"
+								Margin="8,0"
+								CommandParameter="True"
+								Command="{Binding OnCustomize}" />
+							<Button
+								Content="{x:Static p:Resources.NO}"
+								CommandParameter="False"
+								Style="{StaticResource RoundedButtonSmall}"
+								Margin="8,0"
+								Command="{Binding OnCustomize}" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+				<ToggleButton
+					Canvas.Top="-4"
+					Canvas.Left="556"
+					Height="47"
+					Width="44"
+					Background="{x:Null}"
+					IsChecked="{Binding IsVersionMismatchPopupOpen}"
+					BorderBrush="{x:Null}"
+					Foreground="{x:Null}">
+					<Image
+						Source="/WizardModule;component/Assets/CloseIcon.png"
+						Height="32"
+						Width="32" />
+				</ToggleButton>
+			</Canvas>
+		</popups:AppPopup>
+	</Grid>
+</UserControl>

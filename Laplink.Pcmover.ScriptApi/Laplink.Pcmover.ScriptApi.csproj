@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Laplink.Pcmover.ScriptApi</RootNamespace>
+    <AssemblyName>Laplink.Pcmover.ScriptApi</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmaBinding.cs" />
+    <Compile Include="EmaBindingFactory.cs" />
+    <Compile Include="EmaScriptChannel.cs" />
+    <Compile Include="InvalidInterpreterException.cs" />
+    <Compile Include="IScriptChannel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScriptChannelBase.cs" />
+    <Compile Include="ScriptClientBase.cs" />
+    <Compile Include="ScriptException.cs" />
+    <Compile Include="ScriptResult.cs" />
+    <Compile Include="ServiceBindingFactories_Script.cs" />
+    <Compile Include="UnexpectedScriptException.cs" />
+    <Compile Include="WmiBinding.cs" />
+    <Compile Include="WmiBindingFactory.cs" />
+    <Compile Include="WmiScriptChannel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntelEMA\IntelEMA.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBBF3}</Project>
+      <Name>IntelEMA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers.Wcf\Laplink.Tools.Helpers.Wcf.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC12}</Project>
+      <Name>Laplink.Tools.Helpers.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCmover.Infrastructure\PCmover.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC2E}</Project>
+      <Name>PCmover.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

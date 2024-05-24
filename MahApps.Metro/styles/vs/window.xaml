@@ -1,0 +1,58 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Buttons.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		TargetType="{x:Type Controls:MetroWindow}"
+		x:Key="VSWindowStyleKey">
+		<Setter
+			Property="Controls:MetroWindow.GlowBrush"
+			Value="{DynamicResource WindowGlowBrush}" />
+		<Setter
+			Property="Controls:MetroWindow.ShowTitleBar"
+			Value="True" />
+		<Setter
+			Property="Controls:MetroWindow.TitleForeground"
+			Value="{DynamicResource WindowTitleForeground}" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource LightMetroWindowButtonStyle}"
+		TargetType="{x:Type Button}"
+		x:Key="VSWindowButtonStyle">
+		<Style.Triggers>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource BackgroundSelected}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource BlackColorBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Controls:WindowButtonCommands}"
+		x:Key="{x:Type Controls:WindowButtonCommands}">
+		<Setter
+			Property="Controls:WindowButtonCommands.DarkCloseButtonStyle"
+			Value="{StaticResource VSWindowButtonStyle}" />
+		<Setter
+			Property="Controls:WindowButtonCommands.DarkMaxButtonStyle"
+			Value="{StaticResource VSWindowButtonStyle}" />
+		<Setter
+			Property="Controls:WindowButtonCommands.DarkMinButtonStyle"
+			Value="{StaticResource VSWindowButtonStyle}" />
+		<Setter
+			Property="Controls:WindowButtonCommands.LightCloseButtonStyle"
+			Value="{StaticResource VSWindowButtonStyle}" />
+		<Setter
+			Property="Controls:WindowButtonCommands.LightMaxButtonStyle"
+			Value="{StaticResource VSWindowButtonStyle}" />
+		<Setter
+			Property="Controls:WindowButtonCommands.LightMinButtonStyle"
+			Value="{StaticResource VSWindowButtonStyle}" />
+	</Style>
+</ResourceDictionary>

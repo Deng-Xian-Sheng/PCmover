@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Reconfigurator</RootNamespace>
+    <AssemblyName>Reconfigurator</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Reconfigurator.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\SkipReplaceUserControlViewModel.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SkipReplaceUserControl.xaml.cs">
+      <DependentUpon>SkipReplaceUserControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Popups\Laplink.Tools.Popups.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC15}</Project>
+      <Name>Laplink.Tools.Popups</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Ui.Styles\Laplink.Tools.Ui.Styles.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC17}</Project>
+      <Name>Laplink.Tools.Ui.Styles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MainUI\MainUI.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC19}</Project>
+      <Name>MainUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Unity\Microsoft.Practices.Unity.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC1D}</Project>
+      <Name>Microsoft.Practices.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism.Unity.Wpf\Prism.Unity.Wpf.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3D}</Project>
+      <Name>Prism.Unity.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism.Wpf\Prism.Wpf.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3E}</Project>
+      <Name>Prism.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism\Prism.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3C}</Project>
+      <Name>Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reconfigurator.Infrastructure\Reconfigurator.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC50}</Project>
+      <Name>Reconfigurator.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="styles\custom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SkipReplaceUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\background.png" />
+    <Resource Include="resources\icon.ico" />
+    <Resource Include="resources\infoicon.png" />
+    <Resource Include="resources\logo.png" />
+    <Resource Include="resources\logox.png" />
+    <Resource Include="resources\noneicon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

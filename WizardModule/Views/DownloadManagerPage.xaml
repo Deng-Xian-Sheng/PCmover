@@ -1,0 +1,264 @@
+<UserControl
+	x:Class="WizardModule.Views.DownloadManagerPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:WizardModule.Views" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups"
+	Name="root">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+			<local:EnumToStringConverter
+				x:Key="EnumConverter" />
+			<Storyboard
+				x:Key="sbFadeIn">
+				<DoubleAnimation
+					To="1"
+					Duration="0:0:1"
+					Storyboard.TargetName="MainGrid"
+					Storyboard.TargetProperty="Opacity" />
+			</Storyboard>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Name="MainGrid"
+		Background="#00FFFFFF">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="120" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			VerticalAlignment="Bottom"
+			HorizontalAlignment="Center"
+			MaxWidth="800"
+			Margin="0,20,0,0">
+			<Image
+				Source="/WizardModule;component/Assets/PCLarge.png"
+				Height="100" />
+			<Image
+				Source="/WizardModule;component/Assets/Gears.png"
+				Height="64" />
+		</Grid>
+		<popups:AppPopup
+			Placement="Center"
+			Width="636"
+			PopupAnimation="Scroll"
+			AllowsTransparency="True"
+			StaysOpen="False"
+			IsOpen="{Binding IsCancelWarningPopupOpen, Mode=TwoWay}">
+			<Canvas
+				Width="605"
+				Height="600">
+				<Border
+					Canvas.Top="15"
+					Canvas.Left="0"
+					Width="580"
+					BorderThickness="4"
+					CornerRadius="8"
+					BorderBrush="{StaticResource HorizontalLineBackgroundBrush}"
+					Background="#FFFFFFFF">
+					<StackPanel
+						Orientation="Vertical"
+						Margin="48">
+						<TextBlock
+							Style="{StaticResource LargeTextDark}"
+							Text="{x:Static p:Resources.strWarning}" />
+						<Grid
+							Margin="0,12">
+							<Rectangle
+								Width="100"
+								Height="4"
+								Fill="{StaticResource MainThemeBrush2}"
+								HorizontalAlignment="Left"
+								Panel.ZIndex="1" />
+							<Rectangle
+								Width="500"
+								Height="2"
+								Fill="{StaticResource HorizontalLineBackgroundBrush}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center" />
+						</Grid>
+						<TextBlock
+							Style="{StaticResource SmallTextMedium}"
+							Margin="28,4,0,0"
+							Text="{x:Static p:Resources.DMP_CancelWarning}" />
+						<CheckBox
+							IsChecked="{Binding Acknowledged, Mode=TwoWay}">
+							<TextBlock
+								Style="{StaticResource SmallTextMedium}"
+								Margin="8,24"
+								Text="{x:Static p:Resources.DMP_CheckboxConfirm}" />
+						</CheckBox>
+						<StackPanel
+							Orientation="Horizontal"
+							HorizontalAlignment="Center">
+							<Button
+								Content="{x:Static p:Resources.DMP_Continue}"
+								HorizontalAlignment="Center"
+								Style="{StaticResource RoundedButton}"
+								Margin="8,24"
+								Command="{Binding OnProceed}" />
+							<Button
+								Content="{x:Static p:Resources.DMP_InstallCancelled}"
+								HorizontalAlignment="Center"
+								Style="{StaticResource RoundedButton}"
+								Margin="8,24"
+								Command="{Binding OnResume}" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+				<ToggleButton
+					Canvas.Top="-4"
+					Canvas.Left="556"
+					Height="47"
+					Width="44"
+					Background="{x:Null}"
+					IsChecked="{Binding IsCancelWarningPopupOpen}"
+					BorderBrush="{x:Null}"
+					Foreground="{x:Null}">
+					<Image
+						Source="/WizardModule;component/Assets/CloseIcon.png"
+						Height="32"
+						Width="32" />
+				</ToggleButton>
+			</Canvas>
+		</popups:AppPopup>
+		<TextBlock
+			Grid.Row="1"
+			VerticalAlignment="Center"
+			Style="{StaticResource MediumTextMedium}"
+			Text="{x:Static p:Resources.DMP_Description}"
+			Margin="16,24,16,0"
+			MaxWidth="700"
+			Visibility="{Binding IsComplete, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+		<TextBlock
+			Grid.Row="1"
+			VerticalAlignment="Center"
+			Style="{StaticResource MediumTextMedium}"
+			Text="{x:Static p:Resources.DMP_DescriptionComplete}"
+			Margin="16,24,16,0"
+			MaxWidth="700"
+			Visibility="{Binding IsComplete, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+		<ListView
+			Grid.Row="2"
+			Margin="0,48,0,0"
+			MaxWidth="780"
+			BorderBrush="{x:Null}"
+			ItemsSource="{Binding Packages}">
+			<ItemsControl.ItemContainerStyle>
+				<Style
+					TargetType="{x:Type ListBoxItem}">
+					<Setter
+						Property="HorizontalContentAlignment"
+						Value="Stretch" />
+				</Style>
+			</ItemsControl.ItemContainerStyle>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							Style="{StaticResource SmallTextDark}"
+							VerticalAlignment="Center"
+							Margin="8"
+							Text="{Binding Name}" />
+						<StackPanel
+							Orientation="Vertical"
+							HorizontalAlignment="Right"
+							VerticalAlignment="Center"
+							Margin="4,0,20,0">
+							<TextBlock
+								Style="{StaticResource SmallTextDark}"
+								Margin="0,0,0,2"
+								Text="{Binding State, Converter={StaticResource EnumConverter}, Mode=OneWay}" />
+							<ProgressBar
+								Height="8"
+								Value="{Binding DownloadProgress}"
+								Visibility="{Binding IsDownloading, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+							<mah:MetroProgressBar
+								IsIndeterminate="True"
+								Height="8"
+								Visibility="{Binding IsInstalling, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+						</StackPanel>
+						<TextBlock
+							Grid.Column="1"
+							VerticalAlignment="Center">
+							<Hyperlink
+								Style="{StaticResource HyperlinkTextStyle}"
+								Command="{Binding ElementName=root, Path=DataContext.OnCancel}"
+								CommandParameter="{Binding Id}">
+								<TextBlock
+									Text="{x:Static p:Resources.DMP_Cancel}"
+									FontSize="10" />
+							</Hyperlink>
+						</TextBlock>
+					</Grid>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListView>
+		<StackPanel
+			Grid.Row="3"
+			Orientation="Vertical"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Margin="0,8,0,0"
+			Visibility="{Binding IsRebootPending, Converter={StaticResource VisibilityConverter}}">
+			<TextBlock
+				Text="{x:Static p:Resources.DMP_RebootPending}"
+				Style="{StaticResource MediumTextMedium}" />
+			<Button
+				Content="{x:Static p:Resources.RestartNow}"
+				Style="{StaticResource RoundedButton}"
+				HorizontalAlignment="Center"
+				Margin="0,24,0,0"
+				Command="{Binding OnRebootNow}" />
+		</StackPanel>
+		<StackPanel
+			Grid.Row="3"
+			Orientation="Vertical"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Margin="0,8,0,0"
+			Visibility="{Binding IsRebootInProgress, Converter={StaticResource VisibilityConverter}}">
+			<TextBlock
+				Text="{x:Static p:Resources.DMP_Rebooting}"
+				Style="{StaticResource MediumTextMedium}" />
+			<mah:ProgressRing
+				Width="60"
+				HorizontalAlignment="Center"
+				Margin="0,24,0,0" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="4"
+			HorizontalAlignment="Center"
+			Margin="0,10">
+			<Button
+				Content="{x:Static p:Resources.FINISH}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				Command="{Binding OnFinish}"
+				Visibility="{Binding IsNextVisible, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+			<Button
+				Content="{x:Static p:Resources.NEXT}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				Command="{Binding OnNext}"
+				Visibility="{Binding IsNextVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

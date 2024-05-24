@@ -1,0 +1,102 @@
+<UserControl
+	x:Class="WizardModule.Views.Popups.UndoWarning" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:WizardModule.Views.Popups" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Canvas
+		Width="660"
+		Height="400">
+		<Border
+			Canvas.Top="15"
+			Canvas.Left="0"
+			Width="640"
+			BorderThickness="4"
+			CornerRadius="8"
+			BorderBrush="#FFC0C0C0"
+			Background="#FFFFFFFF">
+			<Grid
+				Background="#FFFFFFFF"
+				Margin="16,8,8,8">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="8" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Style="{StaticResource SmallTextMedium}"
+					Margin="0,28,0,8"
+					HorizontalAlignment="Left"
+					FontSize="24"
+					TextWrapping="Wrap"
+					Text="{x:Static p:Resources.UP_Undo}" />
+				<Rectangle
+					Grid.Row="1"
+					Width="100"
+					Height="4"
+					Fill="{StaticResource MainThemeBrush2}"
+					HorizontalAlignment="Left"
+					Panel.ZIndex="1" />
+				<Rectangle
+					Grid.Row="1"
+					Width="600"
+					Height="2"
+					Fill="{StaticResource HorizontalLineBackgroundBrush}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+				<StackPanel
+					Grid.Row="2">
+					<TextBlock
+						Margin="0,20,0,0"
+						Style="{StaticResource StandardTextStyle}"
+						Text="{x:Static p:Resources.UP_Desc1}" />
+					<TextBlock
+						Margin="0,20,0,0"
+						Style="{StaticResource StandardTextStyle}"
+						Text="{x:Static p:Resources.UP_Desc2}" />
+					<TextBlock
+						Margin="0,20,0,20"
+						Style="{StaticResource StandardTextStyle}"
+						Text="{x:Static p:Resources.UP_Desc3}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Grid.Row="3">
+					<Button
+						Content="{x:Static p:Resources.START}"
+						HorizontalAlignment="Center"
+						Style="{StaticResource RoundedButton}"
+						Margin="0,0,10,0"
+						Command="{Binding OnStart}" />
+					<Button
+						Content="{x:Static p:Resources.CANCEL}"
+						HorizontalAlignment="Center"
+						Style="{StaticResource RoundedButton}"
+						Command="{Binding OnClosePopup}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+		<Button
+			Canvas.Top="0"
+			Canvas.Left="615"
+			Style="{StaticResource ImageButton}"
+			Height="40"
+			Width="40"
+			Command="{Binding OnClosePopup}">
+			<Image
+				Source="/WizardModule;component/Assets/CloseIcon.png"
+				Height="32"
+				Width="32" />
+		</Button>
+	</Canvas>
+</UserControl>

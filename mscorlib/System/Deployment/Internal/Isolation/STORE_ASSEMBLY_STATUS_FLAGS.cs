@@ -1,0 +1,16 @@
+﻿using System;
+
+namespace System.Deployment.Internal.Isolation
+{
+	// Token: 0x02000675 RID: 1653
+	[Flags]
+	internal enum STORE_ASSEMBLY_STATUS_FLAGS
+	{
+		// Token: 0x040021DE RID: 8670
+		STORE_ASSEMBLY_STATUS_MANIFEST_ONLY = 1,
+		// Token: 0x040021DF RID: 8671
+		STORE_ASSEMBLY_STATUS_PAYLOAD_RESIDENT = 2,
+		// Token: 0x040021E0 RID: 8672
+		STORE_ASSEMBLY_STATUS_PARTIAL_INSTALL = 4
+	}
+}

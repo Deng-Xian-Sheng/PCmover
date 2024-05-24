@@ -1,0 +1,211 @@
+<UserControl
+	x:Class="WizardModule.Views.WarningPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<ScrollViewer
+			Grid.Row="0">
+			<Grid
+				Row="0"
+				Margin="20">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="auto" />
+					<RowDefinition
+						Height="auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					Row="0"
+					Column="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="50" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+					</Grid.RowDefinitions>
+					<Image
+						Source="/WizardModule;component/Assets/warning.png"
+						Width="32"
+						Height="32"
+						VerticalAlignment="Center" />
+					<TextBlock
+						Grid.Column="1"
+						Text="{x:Static p:Resources.IMPORTANT_MSG}"
+						Style="{StaticResource MediumTextMedium}"
+						VerticalAlignment="Center" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding Description}" />
+				</Grid>
+				<Grid
+					Row="2"
+					Column="0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="50" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+					</Grid.RowDefinitions>
+					<Image
+						Source="/WizardModule;component/Assets/warning.png"
+						Width="32"
+						Height="32"
+						VerticalAlignment="Center" />
+					<TextBlock
+						Grid.Column="1"
+						Text="{x:Static p:Resources.REQUIRED_PRIOR}"
+						Style="{StaticResource MediumTextMedium}"
+						VerticalAlignment="Center" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding BeforeStart1}" />
+					<TextBlock
+						Grid.Row="2"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding BeforeStart2}" />
+					<TextBlock
+						Grid.Row="3"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding BeforeStart3}" />
+					<TextBlock
+						Grid.Row="4"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding BeforeStart4}" />
+				</Grid>
+				<Grid
+					Row="0"
+					Column="1"
+					RowSpan="2">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="50" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition
+							Height="auto" />
+					</Grid.RowDefinitions>
+					<Image
+						Source="/WizardModule;component/Assets/warning.png"
+						Width="32"
+						Height="32"
+						VerticalAlignment="Center" />
+					<TextBlock
+						Grid.Column="1"
+						Text="{x:Static p:Resources.TRANSFER_LIMITATIONS}"
+						Style="{StaticResource MediumTextMedium}"
+						VerticalAlignment="Center" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding Limitation1}" />
+					<TextBlock
+						Grid.Row="2"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding Limitation2}" />
+					<TextBlock
+						Grid.Row="3"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding Limitation3}" />
+					<TextBlock
+						Grid.Row="4"
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						Margin="0,10"
+						Text="{Binding Limitation4}" />
+				</Grid>
+			</Grid>
+		</ScrollViewer>
+		<CheckBox
+			Grid.Row="1"
+			HorizontalAlignment="Right"
+			Margin="0,10,20,10"
+			IsEnabled="True"
+			IsChecked="{Binding IsChecked, Mode=TwoWay}"
+			Command="{Binding OnChecked}">
+			<TextBlock
+				Style="{StaticResource MediumTextDark}"
+				Text="{x:Static p:Resources.IDC_CONFIRM}" />
+		</CheckBox>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="2"
+			HorizontalAlignment="Center"
+			Margin="0,10">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				AutomationProperties.AutomationId="WARNING_Back"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="{x:Static p:Resources.NEXT}"
+				Style="{StaticResource RoundedButton}"
+				AutomationProperties.AutomationId="WARNING_Next"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

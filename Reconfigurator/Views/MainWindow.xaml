@@ -1,0 +1,67 @@
+<Window
+	x:Class="Reconfigurator.Views.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:local="clr-namespace:Reconfigurator.Views" xmlns:p="clr-namespace:Reconfigurator.Properties" xmlns:prism="http://prismlibrary.com/"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	Title="{x:Static p:Resources.Title}"
+	Height="750"
+	Width="800"
+	WindowStartupLocation="CenterScreen">
+	<Control.Background>
+		<ImageBrush
+			ImageSource="../Resources/background.png"
+			Stretch="UniformToFill" />
+	</Control.Background>
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Canvas
+			Background="#C0000000"
+			ZIndex="2"
+			Visibility="{Binding PopupData.IsBlackout, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+		<ContentControl
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Panel.ZIndex="99"
+			Content="{Binding PopupData.OverlayContent}"
+			Width="{Binding PopupData.Width}"
+			MinWidth="{Binding PopupData.MinWidth}"
+			Visibility="{Binding PopupData.IsOverlayOpen, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+		<popups:NoDisableAppPopup
+			Placement="{Binding PopupData.Placement}"
+			PlacementTarget="{Binding PopupData.PlacementTarget}"
+			Width="{Binding PopupData.Width}"
+			PopupAnimation="{Binding PopupData.Animation}"
+			AllowsTransparency="{Binding PopupData.AllowsTransparency}"
+			StaysOpen="{Binding PopupData.StaysOpen}"
+			IsOpen="{Binding PopupData.IsPopupOpen, Mode=OneWay}"
+			Panel.ZIndex="{Binding PopupData.ZIndex}"
+			MinWidth="{Binding PopupData.MinWidth}"
+			Child="{Binding PopupData.PopupContent}" />
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<ContentControl
+				prism:RegionManager.RegionName="HeaderRegion"
+				IsTabStop="False" />
+			<ContentControl
+				Grid.Row="1"
+				prism:RegionManager.RegionName="MainRegion"
+				IsTabStop="False" />
+			<ContentControl
+				Grid.Row="2"
+				prism:RegionManager.RegionName="FooterRegion"
+				IsTabStop="False" />
+		</Grid>
+	</Grid>
+</Window>

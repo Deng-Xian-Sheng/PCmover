@@ -1,0 +1,80 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:controls="clr-namespace:MahApps.Metro.Controls" xmlns:converters="clr-namespace:MahApps.Metro.Converters">
+	<Style
+		TargetType="{x:Type controls:ContentControlEx}"
+		x:Key="MahApps.Metro.Styles.ContentControlEx">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Focusable"
+			Value="False" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="IsTabStop"
+			Value="False" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type controls:ContentControlEx}">
+					<Grid
+						Background="#00FFFFFF">
+						<ContentPresenter
+							Name="PART_ContentPresenter"
+							Margin="{TemplateBinding Padding}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							Content="{TemplateBinding Content}"
+							ContentStringFormat="{TemplateBinding ContentStringFormat}"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+							RecognizesAccessKey="{TemplateBinding controls:RecognizesAccessKey}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+							UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="controls:ContentControlEx.ContentCharacterCasing"
+							Value="Normal">
+							<Setter
+								TargetName="PART_ContentPresenter"
+								Property="Content"
+								Value="{Binding Path=Content, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="controls:ContentControlEx.ContentCharacterCasing"
+							Value="Upper">
+							<Setter
+								TargetName="PART_ContentPresenter"
+								Property="Content"
+								Value="{Binding Path=Content, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={converters:ToUpperConverter}}" />
+						</Trigger>
+						<Trigger
+							Property="controls:ContentControlEx.ContentCharacterCasing"
+							Value="Lower">
+							<Setter
+								TargetName="PART_ContentPresenter"
+								Property="Content"
+								Value="{Binding Path=Content, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={converters:ToLowerConverter}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="VerticalAlignment"
+			Value="Stretch" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Stretch" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource MahApps.Metro.Styles.ContentControlEx}"
+		TargetType="{x:Type controls:MetroThumbContentControl}"
+		x:Key="MahApps.Metro.Styles.MetroThumbContentControl" />
+</ResourceDictionary>

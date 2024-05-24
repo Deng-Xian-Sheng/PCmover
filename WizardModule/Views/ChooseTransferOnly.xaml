@@ -1,0 +1,112 @@
+<UserControl
+	x:Class="WizardModule.Views.ChooseTransferOnly" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:views="clr-namespace:WizardModule.Views">
+	<Button
+		VerticalContentAlignment="Stretch"
+		AutomationProperties.AutomationId="NoApplications"
+		Style="{StaticResource PanelButton}"
+		Command="{Binding OnTransferOnly}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="30" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Image
+				Height="30"
+				HorizontalAlignment="Left"
+				Margin="10,0,0,0"
+				Source="{Binding Path=BoxUri}" />
+			<Grid
+				Row="1"
+				Margin="8">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="120" />
+					<RowDefinition
+						Height="10" />
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="30" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="20" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					Grid.Row="0"
+					Grid.ColumnSpan="2"
+					TextWrapping="Wrap"
+					FontSize="18"
+					FontFamily="Segoe UI Light"
+					Text="{Binding CTO_Title, FallbackValue=USER ACCOUNTS, FILES, AND SETTINGS (NO APPLICATIONS)}" />
+				<Button
+					Grid.Row="0"
+					Grid.Column="2"
+					VerticalAlignment="Top"
+					Style="{StaticResource Flat}"
+					Command="{Binding OnInfo}">
+					<Image
+						Height="20"
+						Source="/WizardModule;component/Assets/infoIcon.png" />
+				</Button>
+				<Separator
+					Grid.Row="1"
+					Grid.ColumnSpan="3"
+					Height="1"
+					Style="{StaticResource ToolBar.SeparatorStyleKey}" />
+				<Separator
+					Grid.Row="1"
+					Grid.ColumnSpan="3"
+					Height="3"
+					Width="75"
+					HorizontalAlignment="Left"
+					Style="{StaticResource ToolBar.SeparatorStyleKey}"
+					Background="{StaticResource MainThemeBrush2}" />
+				<TextBlock
+					Grid.Row="2"
+					Grid.ColumnSpan="3"
+					TextWrapping="Wrap"
+					FontSize="14"
+					FontFamily="Segoe UI Light"
+					Margin="0,20,0,0"
+					VerticalAlignment="Stretch"
+					Text="{Binding CTO_Desc}" />
+				<Grid
+					Row="3"
+					ColumnSpan="3">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="*" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<Image
+						Grid.Column="0"
+						Source="/WizardModule;component/Assets/transferIcons.png" />
+					<Image
+						Grid.Column="1"
+						Source="/WizardModule;component/Assets/RightArrow.png" />
+					<Image
+						Grid.Column="2"
+						Source="/WizardModule;component/Assets/transferIcons.png" />
+				</Grid>
+			</Grid>
+		</Grid>
+	</Button>
+</UserControl>

@@ -1,0 +1,359 @@
+<UserControl
+	x:Class="WizardModule.Views.AdvancedOptions" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:inf="clr-namespace:PCmover.Infrastructure;assembly=PCmover.Infrastructure" xmlns:regions="http://prismlibrary.com/" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Grid
+			HorizontalAlignment="Center"
+			Margin="-132,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<ContentControl
+				Name="Transfer"
+				Grid.Row="0"
+				Grid.Column="0"
+				VerticalContentAlignment="Stretch"
+				Margin="20,0,10,0"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionTransfer}"
+				Visibility="{Binding IsTransferEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="FileBased"
+				Grid.Row="0"
+				Grid.Column="1"
+				VerticalContentAlignment="Stretch"
+				Margin="20,0,10,0"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionFileBased}"
+				Visibility="{Binding IsFilesBasedEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="ImageAndDrive"
+				Grid.Row="0"
+				Grid.Column="2"
+				VerticalContentAlignment="Stretch"
+				Margin="10,0,10,0"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionImageAndDrive}"
+				Visibility="{Binding IsImageAssistEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="UpgradAssistant"
+				Grid.Row="0"
+				Grid.Column="3"
+				VerticalContentAlignment="Stretch"
+				Margin="10,0,20,0"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionUpgradeAssistant}"
+				Visibility="{Binding IsUpgradeAssistEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="Profile"
+				Grid.Row="0"
+				Grid.Column="4"
+				VerticalContentAlignment="Stretch"
+				Margin="10,0,20,0"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionProfile}"
+				Visibility="{Binding IsProfileEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+		</Grid>
+		<popups:AppPopup
+			Placement="Center"
+			Width="620"
+			PopupAnimation="Fade"
+			AllowsTransparency="True"
+			AutomationProperties.AutomationId="EulaPopup"
+			IsOpen="{Binding IsEULAOpen, Mode=OneWay}">
+			<Canvas
+				Width="620"
+				Height="600">
+				<Border
+					Canvas.Top="15"
+					Canvas.Left="0"
+					Width="580"
+					BorderThickness="4"
+					CornerRadius="8"
+					BorderBrush="{StaticResource HorizontalLineBackgroundBrush}"
+					Background="#FFFFFFFF">
+					<Grid
+						Background="#FFFFFFFF"
+						Margin="8">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="8" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<TextBlock
+							Grid.Row="0"
+							Style="{StaticResource SmallTextMedium}"
+							Margin="0,28,0,8"
+							HorizontalAlignment="Center"
+							FontSize="20"
+							TextWrapping="Wrap"
+							Text="{x:Static p:Resources.GIP_ToUse}" />
+						<Rectangle
+							Grid.Row="1"
+							Width="100"
+							Height="4"
+							Fill="{StaticResource MainThemeBrush2}"
+							HorizontalAlignment="Left"
+							Panel.ZIndex="1" />
+						<Rectangle
+							Grid.Row="1"
+							Width="500"
+							Height="2"
+							Fill="{StaticResource HorizontalLineBackgroundBrush}"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center" />
+						<TextBlock
+							Grid.Row="2"
+							Style="{StaticResource StandardTextStyle}"
+							Margin="8,28,0,6"
+							FontWeight="Bold"
+							HorizontalAlignment="Left"
+							Text="{x:Static p:Resources.GIP_Terms}"
+							FontSize="16" />
+						<ScrollViewer
+							Grid.Row="3"
+							MaxHeight="240"
+							Background="#FFFFFFFF"
+							Margin="4">
+							<TextBlock
+								Text="{x:Static Brand:Resources.EULA}"
+								TextWrapping="Wrap"
+								Margin="0,0,4,0"
+								Background="#FFFFFFFF"
+								Padding="4" />
+						</ScrollViewer>
+						<StackPanel
+							Orientation="Horizontal"
+							Grid.Row="4"
+							HorizontalAlignment="Center"
+							Margin="0,12">
+							<Button
+								Style="{StaticResource RoundedButton}"
+								Content="{x:Static p:Resources.GIP_Agree}"
+								Margin="8,0"
+								AutomationProperties.AutomationId="EulaAgree"
+								Command="{Binding OnAccept}" />
+							<Button
+								Style="{StaticResource RoundedButton}"
+								Content="{x:Static p:Resources.GIP_DontAgree}"
+								Margin="8,0"
+								AutomationProperties.AutomationId="EulaDisagreee"
+								Command="{Binding OnDecline}" />
+						</StackPanel>
+					</Grid>
+				</Border>
+				<Button
+					Canvas.Top="0"
+					Canvas.Left="560"
+					Style="{StaticResource ImageButton}"
+					Height="40"
+					Width="40"
+					AutomationProperties.AutomationId="EulaPopupClose"
+					Command="{Binding OnDecline}">
+					<Image
+						Source="/WizardModule;component/Assets/CloseIcon.png"
+						Height="32"
+						Width="32" />
+				</Button>
+			</Canvas>
+		</popups:AppPopup>
+		<popups:AppPopup
+			Placement="Center"
+			Width="636"
+			PopupAnimation="Fade"
+			AllowsTransparency="True"
+			StaysOpen="True"
+			AutomationProperties.AutomationId="AdvancedOptionsReportsPopup"
+			IsOpen="{Binding ShowReportList, Mode=OneWay}">
+			<Canvas
+				Width="605"
+				Height="600">
+				<Border
+					Canvas.Top="15"
+					Canvas.Left="0"
+					Width="580"
+					BorderThickness="4"
+					CornerRadius="8"
+					BorderBrush="{StaticResource HorizontalLineBackgroundBrush}"
+					Background="#FFFFFFFF">
+					<StackPanel
+						Orientation="Vertical"
+						Margin="48">
+						<TextBlock
+							Style="{StaticResource LargeTextDark}"
+							Text="{x:Static p:Resources.WP_ReportList}" />
+						<Grid
+							Margin="0,12">
+							<Rectangle
+								Width="100"
+								Height="4"
+								Fill="{StaticResource MainThemeBrush2}"
+								HorizontalAlignment="Left"
+								Panel.ZIndex="1" />
+							<Rectangle
+								Width="500"
+								Height="2"
+								Fill="{StaticResource HorizontalLineBackgroundBrush}"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center" />
+						</Grid>
+						<TextBlock
+							Style="{StaticResource SmallTextMedium}"
+							Margin="30,0,0,0"
+							Text="{x:Static p:Resources.WP_PleaseSelect}" />
+						<ListView
+							Margin="30,20,30,20"
+							MaxHeight="260"
+							SelectionMode="Single"
+							HorizontalContentAlignment="Center"
+							AutomationProperties.AutomationId="AdvancedOptionsReportsList"
+							BorderBrush="{x:Null}"
+							ItemsSource="{Binding ReportsList, Mode=OneWay}"
+							SelectedItem="{Binding CurrentSelectedReport}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<StackPanel
+										Orientation="Horizontal">
+										<TextBlock
+											Style="{StaticResource MediumTextMedium}"
+											VerticalAlignment="Center"
+											MinWidth="200"
+											Text="{Binding FileName}">
+											<UIElement.InputBindings>
+												<MouseBinding
+													MouseAction="LeftDoubleClick"
+													Command="{Binding DataContext.OnOpenReport, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" />
+											</UIElement.InputBindings>
+										</TextBlock>
+									</StackPanel>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ListView>
+						<StackPanel
+							Orientation="Horizontal"
+							HorizontalAlignment="Center"
+							Margin="0,24,0,0">
+							<Button
+								Content="{x:Static p:Resources.OK}"
+								HorizontalAlignment="Center"
+								Style="{StaticResource RoundedButton}"
+								Margin="0,0,10,0"
+								AutomationProperties.AutomationId="AdvancdOptionsReportsOK"
+								Command="{Binding OnOpenReport}" />
+							<Button
+								Content="{x:Static p:Resources.CANCEL}"
+								HorizontalAlignment="Center"
+								Style="{StaticResource RoundedButton}"
+								AutomationProperties.AutomationId="AdvancdOptionsReportsCancel"
+								Command="{Binding OnCancelReportList}" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+				<Button
+					Canvas.Top="0"
+					Canvas.Left="560"
+					Style="{StaticResource ImageButton}"
+					Height="40"
+					Width="40"
+					AutomationProperties.AutomationId="AdvancedOptionsReportsClose"
+					Command="{Binding OnCancelReportList}">
+					<Image
+						Source="/WizardModule;component/Assets/CloseIcon.png"
+						Height="32"
+						Width="32" />
+				</Button>
+			</Canvas>
+		</popups:AppPopup>
+		<ScrollViewer
+			Grid.Column="1"
+			VerticalScrollBarVisibility="Auto"
+			VerticalAlignment="Top"
+			Margin="24,64,0,0"
+			Width="180"
+			Visibility="{Binding IsSidebarVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<StackPanel
+				VerticalAlignment="Top">
+				<TextBlock
+					Style="{StaticResource SmallTextMedium}"
+					Text="{x:Static p:Resources.WP_ReportsAvailable}"
+					Visibility="{Binding IsReportsVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<Button
+					Style="{StaticResource RoundedButton}"
+					Margin="2,20,0,25"
+					HorizontalAlignment="Left"
+					Content="{x:Static p:Resources.WP_ViewReports}"
+					Width="150"
+					AutomationProperties.AutomationId="AdvancedOptionsReports"
+					Command="{Binding OnReports}"
+					Visibility="{Binding IsReportsVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<StackPanel
+					Margin="0,64,0,0"
+					Visibility="{Binding IsUndoVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Text="{x:Static p:Resources.WP_UndoText}" />
+					<TextBlock
+						Margin="0,4,0,25">
+						<Hyperlink
+							Style="{StaticResource HyperlinkTextStyle}"
+							AutomationProperties.AutomationId="AdvancedOptionsUndo"
+							Command="{Binding OnUndo}">
+							<TextBlock
+								Text="{x:Static p:Resources.WP_UndoTransfer}" />
+						</Hyperlink>
+					</TextBlock>
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="1"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Center"
+			Margin="0,12"
+			VerticalAlignment="Bottom">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				AutomationProperties.AutomationId="AdvancedOptionsBack"
+				Command="{Binding OnBack}"
+				Visibility="{Binding IsBackVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<Button
+				Content="{x:Static p:Resources.NEXT}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				AutomationProperties.AutomationId="AdvancedOptionsNext"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

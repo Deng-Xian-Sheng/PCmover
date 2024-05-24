@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC2E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCmover</RootNamespace>
+    <AssemblyName>PCmover.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Discovery" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\AppColor.cs" />
+    <Compile Include="Infrastructure\ApplicationInfo.cs" />
+    <Compile Include="Infrastructure\BaseEditionData.cs" />
+    <Compile Include="Infrastructure\BindablePcmoverEngineBase.cs" />
+    <Compile Include="Infrastructure\CloudAuthentication.cs" />
+    <Compile Include="Infrastructure\CmdLine.cs" />
+    <Compile Include="Infrastructure\ComputersInfo.cs" />
+    <Compile Include="Infrastructure\ConnectionReceivedInfo.cs" />
+    <Compile Include="Infrastructure\ConnectionWizardQuestions.cs" />
+    <Compile Include="Infrastructure\CustomizationScreen.cs" />
+    <Compile Include="Infrastructure\DataProtectionApiWrapper.cs" />
+    <Compile Include="Infrastructure\DefaultPolicy.cs" />
+    <Compile Include="Infrastructure\DefaultTopLevelMenuNames.cs" />
+    <Compile Include="Infrastructure\DownloadManagerEvents.cs" />
+    <Compile Include="Infrastructure\DriveSpaceAndNeeded.cs" />
+    <Compile Include="Infrastructure\EMAdata.cs" />
+    <Compile Include="Infrastructure\EmaException.cs" />
+    <Compile Include="Infrastructure\EngineEvents.cs" />
+    <Compile Include="Infrastructure\EnginePolicy.cs" />
+    <Compile Include="Infrastructure\Events.cs" />
+    <Compile Include="Infrastructure\ExistingUsers.cs" />
+    <Compile Include="Infrastructure\FileDetail.cs" />
+    <Compile Include="Infrastructure\FileFilter.cs" />
+    <Compile Include="Infrastructure\FolderDetail.cs" />
+    <Compile Include="Infrastructure\GroupInfo.cs" />
+    <Compile Include="Infrastructure\IClientEngineLiveModule.cs" />
+    <Compile Include="Infrastructure\IClientEngineMockModule.cs" />
+    <Compile Include="Infrastructure\IClientEngineModule.cs" />
+    <Compile Include="Infrastructure\IClientEngineScrModule.cs" />
+    <Compile Include="Infrastructure\IClientEngineWcfModule.cs" />
+    <Compile Include="Infrastructure\IConnectToService.cs" />
+    <Compile Include="Infrastructure\IEditionData.cs" />
+    <Compile Include="Infrastructure\IEditionModule.cs" />
+    <Compile Include="Infrastructure\IEngineParameters.cs" />
+    <Compile Include="Infrastructure\InvalidPolicyFormatException.cs" />
+    <Compile Include="Infrastructure\InvalidPolicyVersionException.cs" />
+    <Compile Include="Infrastructure\IPCmoverEngine.cs" />
+    <Compile Include="Infrastructure\IPcmoverModule.cs" />
+    <Compile Include="Infrastructure\IReportGenerator.cs" />
+    <Compile Include="Infrastructure\IUpgradeable.cs" />
+    <Compile Include="Infrastructure\IUpgradeToUiPolicy.cs" />
+    <Compile Include="Infrastructure\LicenseInfo.cs" />
+    <Compile Include="Infrastructure\LinearGradientBrushBehavior.cs" />
+    <Compile Include="Infrastructure\MiscSettingsInfo.cs" />
+    <Compile Include="Infrastructure\OemVerification.cs" />
+    <Compile Include="Infrastructure\Parameter.cs" />
+    <Compile Include="Infrastructure\PolicyFileName.cs" />
+    <Compile Include="Infrastructure\PolicyInfo.cs" />
+    <Compile Include="Infrastructure\PrismLogger.cs" />
+    <Compile Include="Infrastructure\Properties\Resources.cs" />
+    <Compile Include="Infrastructure\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Infrastructure\QuickstepPage.cs" />
+    <Compile Include="Infrastructure\RegionNames.cs" />
+    <Compile Include="Infrastructure\Reports.cs" />
+    <Compile Include="Infrastructure\Settings.cs" />
+    <Compile Include="Infrastructure\SignPolicy.cs" />
+    <Compile Include="Infrastructure\SnapshotProgressInfo.cs" />
+    <Compile Include="Infrastructure\TaskExtensions.cs" />
+    <Compile Include="Infrastructure\TransferCompleteInfo.cs" />
+    <Compile Include="Infrastructure\TransferProgressInfo.cs" />
+    <Compile Include="Infrastructure\UIDrivePair.cs" />
+    <Compile Include="Infrastructure\UserInfo.cs" />
+    <Compile Include="Infrastructure\UserMap.cs" />
+    <Compile Include="Infrastructure\VersionInfo.cs" />
+    <Compile Include="Infrastructure\VProFeature.cs" />
+    <Compile Include="Infrastructure\VProPopupData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\Encryptor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Infrastructure\Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntelEMA\IntelEMA.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBBF3}</Project>
+      <Name>IntelEMA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Download.Contracts\Laplink.Download.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC07}</Project>
+      <Name>Laplink.Download.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.ClientEngine\Laplink.Pcmover.ClientEngine.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC09}</Project>
+      <Name>Laplink.Pcmover.ClientEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.CloudInterfaces\Laplink.Pcmover.CloudInterfaces.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0A}</Project>
+      <Name>Laplink.Pcmover.CloudInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.Contracts\Laplink.Pcmover.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0B}</Project>
+      <Name>Laplink.Pcmover.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Service.Contracts\Laplink.Service.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC10}</Project>
+      <Name>Laplink.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Popups\Laplink.Tools.Popups.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC15}</Project>
+      <Name>Laplink.Tools.Popups</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Unity\Microsoft.Practices.Unity.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC1D}</Project>
+      <Name>Microsoft.Practices.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PcmBrandUI\PcmBrandUI.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC2C}</Project>
+      <Name>PcmBrandUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism.Wpf\Prism.Wpf.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3E}</Project>
+      <Name>Prism.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism\Prism.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3C}</Project>
+      <Name>Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Interactivity\System.Windows.Interactivity.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC69}</Project>
+      <Name>System.Windows.Interactivity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Infrastructure\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

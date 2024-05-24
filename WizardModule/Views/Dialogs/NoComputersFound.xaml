@@ -1,0 +1,114 @@
+<UserControl
+	x:Class="WizardModule.Views.Dialogs.NoComputersFound" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:local="clr-namespace:WizardModule.Views" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters"
+	Name="root" xmlns:dialogs="clr-namespace:WizardModule.Views.Dialogs">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+			<converters:StringToVisibilityConverter
+				x:Key="StringConverter" />
+			<local:ConnectMethodImageConverter
+				x:Key="ImageConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel
+		Orientation="Vertical"
+		Margin="20">
+		<TextBlock
+			Style="{StaticResource MediumTextDark}"
+			Margin="0,8,0,20"
+			Text="{x:Static p:Resources.FPP_TryEach}" />
+		<StackPanel
+			Orientation="Horizontal">
+			<Image
+				Margin="0,0,12,0"
+				Height="26"
+				Source="/WizardModule;component/Assets/One.png"
+				Visibility="{Binding ElementName=Item1, Path=Text, Converter={StaticResource StringConverter}}" />
+			<TextBlock
+				Name="Item1"
+				Style="{StaticResource MediumTextDark}"
+				Text="{x:Static p:Resources.FPP_MakeSureRunning}" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Vertical"
+			Visibility="{Binding IsDownloadVisible, Converter={StaticResource VisibilityConverter}}">
+			<TextBlock
+				Name="LinkIntro"
+				Style="{StaticResource SmallTextMedium}"
+				Margin="38,0,0,0"
+				Text="{x:Static p:Resources.FPP_IfYouHavent}" />
+			<TextBlock
+				Margin="38,0,0,0"
+				Visibility="{Binding ElementName=LinkIntro, Path=Text, Converter={StaticResource StringConverter}}">
+				<Hyperlink
+					Style="{StaticResource HyperlinkTextStyle}"
+					Command="{Binding OnDownload}">
+					<TextBlock
+						Text="{x:Static Brand:Resources.FPP_Download}" />
+				</Hyperlink>
+			</TextBlock>
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal"
+			Margin="0,12,0,0">
+			<Image
+				Margin="0,0,12,0"
+				Height="26"
+				Source="/WizardModule;component/Assets/Two.png"
+				Visibility="{Binding ElementName=Item2, Path=Text, Converter={StaticResource StringConverter}}" />
+			<TextBlock
+				Name="Item2"
+				Style="{StaticResource MediumTextDark}"
+				Text="{x:Static p:Resources.FPP_VerifyConnected}" />
+		</StackPanel>
+		<TextBlock
+			Style="{StaticResource SmallTextMedium}"
+			Margin="38,0,0,0"
+			Text="{x:Static p:Resources.FPP_ConnectToWiFi}" />
+		<StackPanel
+			Orientation="Horizontal"
+			Margin="0,12,0,0"
+			Visibility="{Binding}">
+			<Image
+				Margin="0,0,12,0"
+				Height="26"
+				Source="/WizardModule;component/Assets/Three.png"
+				Visibility="{Binding ElementName=Item3, Path=Text, Converter={StaticResource StringConverter}}" />
+			<TextBlock
+				Name="Item3"
+				Style="{StaticResource MediumTextDark}"
+				Text="{x:Static p:Resources.FPP_TryRunning}" />
+		</StackPanel>
+		<TextBlock
+			Style="{StaticResource SmallTextMedium}"
+			Margin="38,0,0,0"
+			Text="{x:Static p:Resources.FPP_Sometimes}" />
+		<Grid
+			Margin="0,12,0,0"
+			Visibility="{Binding IsFTAHidden, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Margin="0,0,12,0"
+				Height="26"
+				Source="/WizardModule;component/Assets/Four.png" />
+			<TextBlock
+				Grid.Column="1"
+				Style="{StaticResource MediumTextDark}"
+				Text="{x:Static p:Resources.FPP_ContactFTA}" />
+		</Grid>
+		<Button
+			Content="{x:Static p:Resources.CLOSE}"
+			HorizontalAlignment="Center"
+			Style="{StaticResource RoundedButton}"
+			Margin="0,24,0,0"
+			Command="{Binding OnClose}" />
+	</StackPanel>
+</UserControl>

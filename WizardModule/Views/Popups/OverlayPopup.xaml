@@ -1,0 +1,75 @@
+<UserControl
+	x:Class="WizardModule.Views.Popups.OverlayPopup" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:vm="clr-namespace:WizardModule.ViewModels.Popups" xmlns:inf="clr-namespace:PCmover.Infrastructure;assembly=PCmover.Infrastructure" xmlns:popups="clr-namespace:WizardModule.Views.Popups">
+	<Canvas
+		Width="600"
+		Height="700">
+		<Border
+			Name="b"
+			Canvas.Top="15"
+			Canvas.Left="0"
+			BorderThickness="4"
+			CornerRadius="8"
+			Background="#FFFFFFFF"
+			BorderBrush="{Binding BorderBrush}">
+			<Grid
+				Background="#FFFFFFFF"
+				Margin="8">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="8" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<StackPanel
+					Orientation="Horizontal"
+					Grid.Row="0">
+					<Image
+						Width="47"
+						Source="{Binding MBIcon}" />
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontSize="20"
+						TextWrapping="Wrap"
+						Margin="20,0,0,0"
+						Text="{Binding OverlayArgs.Title}" />
+				</StackPanel>
+				<Rectangle
+					Grid.Row="1"
+					Width="100"
+					Height="4"
+					Fill="{StaticResource MainThemeBrush2}"
+					HorizontalAlignment="Left"
+					Panel.ZIndex="1" />
+				<Rectangle
+					Grid.Row="1"
+					Width="500"
+					Height="2"
+					Fill="{StaticResource HorizontalLineBackgroundBrush}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+				<ContentControl
+					Grid.Row="2"
+					Content="{Binding Content}" />
+			</Grid>
+		</Border>
+		<Button
+			Canvas.Top="0"
+			Canvas.Left="500"
+			Style="{StaticResource ImageButton}"
+			Height="40"
+			Width="40"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Top"
+			AutomationProperties.AutomationId="OverlayPopupCloseIcon"
+			Command="{Binding OnCloseOverlay}">
+			<Image
+				Source="/WizardModule;component/Assets/CloseIcon.png"
+				Height="32"
+				Width="32" />
+		</Button>
+	</Canvas>
+</UserControl>

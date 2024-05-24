@@ -1,0 +1,1083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WizardModule</RootNamespace>
+    <AssemblyName>WizardModule</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Engine\ClientEngineUiSupport.cs" />
+    <Compile Include="Engine\ClientReportParameters.cs" />
+    <Compile Include="Engine\ClientReports\ClientReport.cs" />
+    <Compile Include="Engine\ClientReports\Csv\ApplicationsCsvReport.cs" />
+    <Compile Include="Engine\ClientReports\Csv\CsvReport.cs" />
+    <Compile Include="Engine\ClientReports\Csv\SummaryCsvReport.cs" />
+    <Compile Include="Engine\ClientReports\Csv\UsersCsvReport.cs" />
+    <Compile Include="Engine\ClientReports\DynamicPdf\ApplicationsDynamicPdfReport.cs" />
+    <Compile Include="Engine\ClientReports\DynamicPdf\DynamicPdfReport.cs" />
+    <Compile Include="Engine\ClientReports\DynamicPdf\SummaryDynamicPdfReport.cs" />
+    <Compile Include="Engine\ClientReports\DynamicPdf\UsersDynamicPdfReport.cs" />
+    <Compile Include="Engine\ClientReports\IClientReportParameters.cs" />
+    <Compile Include="Engine\Name.cs" />
+    <Compile Include="Engine\NameParser.cs" />
+    <Compile Include="Engine\SetCustomPolicy.cs" />
+    <Compile Include="IWizardModuleModule.cs" />
+    <Compile Include="IWizardParameters.cs" />
+    <Compile Include="Migration\IMigrationDefinition.cs" />
+    <Compile Include="Migration\MachineHelpers.cs" />
+    <Compile Include="Migration\MigrationDefinition.cs" />
+    <Compile Include="NavigationHelper.cs" />
+    <Compile Include="PCmover\Tools\Encryptor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewModels\AdvancedOptionFileBasedViewModel.cs" />
+    <Compile Include="ViewModels\AdvancedOptionImageAndDriveViewModel.cs" />
+    <Compile Include="ViewModels\AdvancedOptionProfileViewModel.cs" />
+    <Compile Include="ViewModels\AdvancedOptionsViewModel.cs" />
+    <Compile Include="ViewModels\AdvancedOptionTransferViewModel.cs" />
+    <Compile Include="ViewModels\AdvancedOptionUpgradeAssistantViewModel.cs" />
+    <Compile Include="ViewModels\AnalyzePCPageViewModel.cs" />
+    <Compile Include="ViewModels\ChooseFilesOnlyViewModel.cs" />
+    <Compile Include="ViewModels\ChooseLetMeChooseViewModel.cs" />
+    <Compile Include="ViewModels\ChooseTransferEverythingViewModel.cs" />
+    <Compile Include="ViewModels\ChooseTransferOnlyViewModel.cs" />
+    <Compile Include="ViewModels\ConnectionHelpPageViewModel.cs" />
+    <Compile Include="ViewModels\ConnectionPageViewModel.cs" />
+    <Compile Include="ViewModels\CopyInstallerPageViewModel.cs" />
+    <Compile Include="ViewModels\CrossoverInfoPageViewModel.cs" />
+    <Compile Include="ViewModels\CustomTransferPageViewModel.cs" />
+    <Compile Include="ViewModels\DeferredUserPageViewModel.cs" />
+    <Compile Include="ViewModels\DetailButtonListViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\AddImageAssistMappingViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\AttemptingWiFiViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\IABrowseViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\MultipleComputersFoundViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\NoComputersFoundViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\NotConnectingViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\OtherComputersFoundViewModel.cs" />
+    <Compile Include="ViewModels\DownloadManagerPageViewModel.cs" />
+    <Compile Include="ViewModels\FileFilterPageViewModel.cs" />
+    <Compile Include="ViewModels\FilesBasedAnalyzePageViewModel.cs" />
+    <Compile Include="ViewModels\FilesBasedCustomizePageViewModel.cs" />
+    <Compile Include="ViewModels\FilesBasedSummaryPageViewModel.cs" />
+    <Compile Include="ViewModels\FilesBasedTransferPageViewModel.cs" />
+    <Compile Include="ViewModels\FilesBasedTransferProgressPageViewModel.cs" />
+    <Compile Include="ViewModels\FindFastestTransferTypeViewModel.cs" />
+    <Compile Include="ViewModels\FindPCPageViewModel.cs" />
+    <Compile Include="ViewModels\FindPCTimerEventArgs.cs" />
+    <Compile Include="ViewModels\GetInstalledPageViewModel.cs" />
+    <Compile Include="ViewModels\LetMeChoosePageViewModel.cs" />
+    <Compile Include="ViewModels\LicensePageViewModel.cs" />
+    <Compile Include="ViewModels\Popups\CopyInstallerData.cs" />
+    <Compile Include="ViewModels\Popups\CopyInstallerViewModel.cs" />
+    <Compile Include="ViewModels\Popups\GoogleUsernameData.cs" />
+    <Compile Include="ViewModels\Popups\GoogleUsernameViewModel.cs" />
+    <Compile Include="ViewModels\Popups\InsufficientDriveSpaceData.cs" />
+    <Compile Include="ViewModels\Popups\InsufficientDriveSpaceViewModel.cs" />
+    <Compile Include="ViewModels\Popups\InteractiveAlertViewModel.cs" />
+    <Compile Include="ViewModels\Popups\OfficeTrialViewModel.cs" />
+    <Compile Include="ViewModels\Popups\OverlayPopupViewModel.cs" />
+    <Compile Include="ViewModels\Popups\ProxyCredentialsViewModel.cs" />
+    <Compile Include="ViewModels\Popups\RebootPendingData.cs" />
+    <Compile Include="ViewModels\Popups\RebootPendingViewModel.cs" />
+    <Compile Include="ViewModels\Popups\ReconfiguratorPromptData.cs" />
+    <Compile Include="ViewModels\Popups\ReconfiguratorPromptViewModel.cs" />
+    <Compile Include="ViewModels\Popups\SelectAzureAccountData.cs" />
+    <Compile Include="ViewModels\Popups\SelectAzureAccountViewModel.cs" />
+    <Compile Include="ViewModels\Popups\UndoWarningData.cs" />
+    <Compile Include="ViewModels\Popups\UndoWarningViewModel.cs" />
+    <Compile Include="ViewModels\RecommendedTransferMethodsPageViewModel.cs" />
+    <Compile Include="ViewModels\SectionAdvancedViewModel.cs" />
+    <Compile Include="ViewModels\SectionApplicationsViewModel.cs" />
+    <Compile Include="ViewModels\SectionDocumentsViewModel.cs" />
+    <Compile Include="ViewModels\SectionUsersViewModel.cs" />
+    <Compile Include="ViewModels\SectionUsers_SelfViewModel.cs" />
+    <Compile Include="ViewModels\SelectImagePageViewModel.cs" />
+    <Compile Include="ViewModels\SelectionChanged.cs" />
+    <Compile Include="ViewModels\SelfTransferPageViewModel.cs" />
+    <Compile Include="ViewModels\SslConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\Tools.cs" />
+    <Compile Include="ViewModels\TransferCompleteDetailsPageViewModel.cs" />
+    <Compile Include="ViewModels\TransferCompletePageViewModel.cs" />
+    <Compile Include="ViewModels\TransferEverythingPageViewModel.cs" />
+    <Compile Include="ViewModels\TransferEverythingProgressPageViewModel.cs" />
+    <Compile Include="ViewModels\TransferSummaryPageViewModel.cs" />
+    <Compile Include="ViewModels\UndoPageViewModel.cs" />
+    <Compile Include="ViewModels\UsbInfoPageViewModel.cs" />
+    <Compile Include="ViewModels\WarningPageViewModel.cs" />
+    <Compile Include="ViewModels\WelcomePageViewModel.cs" />
+    <Compile Include="Views\AdvancedOptionFileBased.xaml.cs">
+      <DependentUpon>AdvancedOptionFileBased.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdvancedOptionImageAndDrive.xaml.cs">
+      <DependentUpon>AdvancedOptionImageAndDrive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdvancedOptionProfile.xaml.cs">
+      <DependentUpon>AdvancedOptionProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdvancedOptions.xaml.cs">
+      <DependentUpon>AdvancedOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdvancedOptionTransfer.xaml.cs">
+      <DependentUpon>AdvancedOptionTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdvancedOptionUpgradeAssistant.xaml.cs">
+      <DependentUpon>AdvancedOptionUpgradeAssistant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnalyzePCPage.xaml.cs">
+      <DependentUpon>AnalyzePCPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppImageConverter.cs" />
+    <Compile Include="Views\AppTooltipConverter.cs" />
+    <Compile Include="Views\ChooseFilesOnly.xaml.cs">
+      <DependentUpon>ChooseFilesOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChooseLetMeChoose.xaml.cs">
+      <DependentUpon>ChooseLetMeChoose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChooseTransferEverything.xaml.cs">
+      <DependentUpon>ChooseTransferEverything.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChooseTransferOnly.xaml.cs">
+      <DependentUpon>ChooseTransferOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AdvancedOptionFileBased.xaml.cs">
+      <DependentUpon>AdvancedOptionFileBased.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AdvancedOptionImageAndDrive.xaml.cs">
+      <DependentUpon>AdvancedOptionImageAndDrive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AdvancedOptionProfile.xaml.cs">
+      <DependentUpon>AdvancedOptionProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AdvancedOptions.xaml.cs">
+      <DependentUpon>AdvancedOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AdvancedOptionTransfer.xaml.cs">
+      <DependentUpon>AdvancedOptionTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AdvancedOptionUpgradeAssistant.xaml.cs">
+      <DependentUpon>AdvancedOptionUpgradeAssistant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\AnalyzePCPage.xaml.cs">
+      <DependentUpon>AnalyzePCPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\ChooseFilesOnly.xaml.cs">
+      <DependentUpon>ChooseFilesOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\ChooseLetMeChoose.xaml.cs">
+      <DependentUpon>ChooseLetMeChoose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\ChooseTransferEverything.xaml.cs">
+      <DependentUpon>ChooseTransferEverything.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\ChooseTransferOnly.xaml.cs">
+      <DependentUpon>ChooseTransferOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\ConnectionPage.xaml.cs">
+      <DependentUpon>ConnectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\CustomTransferPage.xaml.cs">
+      <DependentUpon>CustomTransferPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\DetailButtonList.xaml.cs">
+      <DependentUpon>DetailButtonList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\LetMeChoosePage.xaml.cs">
+      <DependentUpon>LetMeChoosePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\SectionAdvanced.xaml.cs">
+      <DependentUpon>SectionAdvanced.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\SectionApplications.xaml.cs">
+      <DependentUpon>SectionApplications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\SectionDocuments.xaml.cs">
+      <DependentUpon>SectionDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\SectionUsers.xaml.cs">
+      <DependentUpon>SectionUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Compact\TransferEverythingPage.xaml.cs">
+      <DependentUpon>TransferEverythingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConnectionHelpPage.xaml.cs">
+      <DependentUpon>ConnectionHelpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConnectMethodImageConverter.cs" />
+    <Compile Include="Views\Controls\AnimatedTabControl.cs" />
+    <Compile Include="Views\Controls\DetailButton.xaml.cs">
+      <DependentUpon>DetailButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\WPFPopup.cs" />
+    <Compile Include="Views\CopyInstallerPage.xaml.cs">
+      <DependentUpon>CopyInstallerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrossoverInfoPage.xaml.cs">
+      <DependentUpon>CrossoverInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomTransferPage.xaml.cs">
+      <DependentUpon>CustomTransferPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeferredUserPage.xaml.cs">
+      <DependentUpon>DeferredUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailButtonList.xaml.cs">
+      <DependentUpon>DetailButtonList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\AddImageAssistMapping.xaml.cs">
+      <DependentUpon>AddImageAssistMapping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\AttemptingWiFi.xaml.cs">
+      <DependentUpon>AttemptingWiFi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\IABrowse.xaml.cs">
+      <DependentUpon>IABrowse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\MultipleComputersFound.xaml.cs">
+      <DependentUpon>MultipleComputersFound.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NoComputersFound.xaml.cs">
+      <DependentUpon>NoComputersFound.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotConnecting.xaml.cs">
+      <DependentUpon>NotConnecting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\OtherComputersFound.xaml.cs">
+      <DependentUpon>OtherComputersFound.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DownloadManagerPage.xaml.cs">
+      <DependentUpon>DownloadManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EnumerateExtension.cs" />
+    <Compile Include="Views\EnumToStringConverter.cs" />
+    <Compile Include="Views\FileFilterPage.xaml.cs">
+      <DependentUpon>FileFilterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilesBasedAnalyzePage.xaml.cs">
+      <DependentUpon>FilesBasedAnalyzePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilesBasedCustomizePage.xaml.cs">
+      <DependentUpon>FilesBasedCustomizePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilesBasedSummaryPage.xaml.cs">
+      <DependentUpon>FilesBasedSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilesBasedTransferPage.xaml.cs">
+      <DependentUpon>FilesBasedTransferPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilesBasedTransferProgressPage.xaml.cs">
+      <DependentUpon>FilesBasedTransferProgressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FindFastestTransferType.xaml.cs">
+      <DependentUpon>FindFastestTransferType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FindPCPage.xaml.cs">
+      <DependentUpon>FindPCPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GetInstalledPage.xaml.cs">
+      <DependentUpon>GetInstalledPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LetMeChoosePage.xaml.cs">
+      <DependentUpon>LetMeChoosePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LicensePage.xaml.cs">
+      <DependentUpon>LicensePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\CopyInstaller.xaml.cs">
+      <DependentUpon>CopyInstaller.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\GoogleUsername.xaml.cs">
+      <DependentUpon>GoogleUsername.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\InsufficientDriveSpace.xaml.cs">
+      <DependentUpon>InsufficientDriveSpace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\InteractiveAlert.xaml.cs">
+      <DependentUpon>InteractiveAlert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\OfficeTrial.xaml.cs">
+      <DependentUpon>OfficeTrial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\OverlayPopup.xaml.cs">
+      <DependentUpon>OverlayPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ProxyCredentials.xaml.cs">
+      <DependentUpon>ProxyCredentials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\RebootPending.xaml.cs">
+      <DependentUpon>RebootPending.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ReconfiguratorPrompt.xaml.cs">
+      <DependentUpon>ReconfiguratorPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\SelectAzureAccount.xaml.cs">
+      <DependentUpon>SelectAzureAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\UndoWarning.xaml.cs">
+      <DependentUpon>UndoWarning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecommendedTransferMethodsPage.xaml.cs">
+      <DependentUpon>RecommendedTransferMethodsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResourceAppNameConverter.cs" />
+    <Compile Include="Views\ReverseGrayoutTransferrableConverter.cs" />
+    <Compile Include="Views\SectionAdvanced.xaml.cs">
+      <DependentUpon>SectionAdvanced.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionApplications.xaml.cs">
+      <DependentUpon>SectionApplications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionDocuments.xaml.cs">
+      <DependentUpon>SectionDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionUsers.xaml.cs">
+      <DependentUpon>SectionUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionUsers_Self.xaml.cs">
+      <DependentUpon>SectionUsers_Self.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectImagePage.xaml.cs">
+      <DependentUpon>SelectImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelfTransferPage.xaml.cs">
+      <DependentUpon>SelfTransferPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SSLColorConverter.cs" />
+    <Compile Include="Views\SslConfiguration.xaml.cs">
+      <DependentUpon>SslConfiguration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SSLImageConverter.cs" />
+    <Compile Include="Views\SSLIssuerConverter.cs" />
+    <Compile Include="Views\TransferCompleteDetailsPage.xaml.cs">
+      <DependentUpon>TransferCompleteDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferCompletePage.xaml.cs">
+      <DependentUpon>TransferCompletePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferEverythingPage.xaml.cs">
+      <DependentUpon>TransferEverythingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferEverythingProgressPage.xaml.cs">
+      <DependentUpon>TransferEverythingProgressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferrableToBoolConverter.cs" />
+    <Compile Include="Views\TransferrableToNullableBoolConverter.cs" />
+    <Compile Include="Views\TransferSummaryPage.xaml.cs">
+      <DependentUpon>TransferSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UndoPage.xaml.cs">
+      <DependentUpon>UndoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsbInfoPage.xaml.cs">
+      <DependentUpon>UsbInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WarningPage.xaml.cs">
+      <DependentUpon>WarningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WizardModuleModule.cs" />
+    <Compile Include="WizardParameters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientEngineModule.Infrastructure\ClientEngineModule.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBBAF}</Project>
+      <Name>ClientEngineModule.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynamicPDF.NETFramework40\DynamicPDF.NETFramework40.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBBC7}</Project>
+      <Name>DynamicPDF.NETFramework40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Download.Contracts\Laplink.Download.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC07}</Project>
+      <Name>Laplink.Download.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.ClientEngine\Laplink.Pcmover.ClientEngine.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC09}</Project>
+      <Name>Laplink.Pcmover.ClientEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.CloudInterfaces\Laplink.Pcmover.CloudInterfaces.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0A}</Project>
+      <Name>Laplink.Pcmover.CloudInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.Contracts\Laplink.Pcmover.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0B}</Project>
+      <Name>Laplink.Pcmover.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Service.Contracts\Laplink.Service.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC10}</Project>
+      <Name>Laplink.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.NativeMethods\Laplink.Tools.NativeMethods.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC14}</Project>
+      <Name>Laplink.Tools.NativeMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Popups\Laplink.Tools.Popups.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC15}</Project>
+      <Name>Laplink.Tools.Popups</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Ui.Converters\Laplink.Tools.Ui.Converters.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC16}</Project>
+      <Name>Laplink.Tools.Ui.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MahApps.Metro.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC18}</Project>
+      <Name>MahApps.Metro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Practices.Unity\Microsoft.Practices.Unity.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC1D}</Project>
+      <Name>Microsoft.Practices.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PcmBrandUI\PcmBrandUI.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC2C}</Project>
+      <Name>PcmBrandUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCmover.Infrastructure\PCmover.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC2E}</Project>
+      <Name>PCmover.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism.Wpf\Prism.Wpf.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3E}</Project>
+      <Name>Prism.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prism\Prism.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC3C}</Project>
+      <Name>Prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QRCoder\QRCoder.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC4E}</Project>
+      <Name>QRCoder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AdvancedOptionFileBased.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdvancedOptionImageAndDrive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdvancedOptionProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdvancedOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdvancedOptionTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdvancedOptionUpgradeAssistant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnalyzePCPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChooseFilesOnly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChooseLetMeChoose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChooseTransferEverything.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChooseTransferOnly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AdvancedOptionFileBased.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AdvancedOptionImageAndDrive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AdvancedOptionProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AdvancedOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AdvancedOptionTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AdvancedOptionUpgradeAssistant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\AnalyzePCPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\ChooseFilesOnly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\ChooseLetMeChoose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\ChooseTransferEverything.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\ChooseTransferOnly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\ConnectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\CustomTransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\DetailButtonList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\LetMeChoosePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\SectionAdvanced.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\SectionApplications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\SectionDocuments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\SectionUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Compact\TransferEverythingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConnectionHelpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\DetailButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CopyInstallerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CrossoverInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomTransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeferredUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailButtonList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\AddImageAssistMapping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\AttemptingWiFi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\IABrowse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\MultipleComputersFound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\NoComputersFound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\NotConnecting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\OtherComputersFound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DownloadManagerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileFilterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilesBasedAnalyzePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilesBasedCustomizePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilesBasedSummaryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilesBasedTransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilesBasedTransferProgressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FindFastestTransferType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FindPCPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GetInstalledPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LetMeChoosePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LicensePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\CopyInstaller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\GoogleUsername.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\InsufficientDriveSpace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\InteractiveAlert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\OfficeTrial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\OverlayPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\ProxyCredentials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\RebootPending.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\ReconfiguratorPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\SelectAzureAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\UndoWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecommendedTransferMethodsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionAdvanced.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionApplications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionDocuments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SectionUsers_Self.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectImagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelfTransferPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SslConfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransferCompleteDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransferCompletePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransferEverythingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransferEverythingProgressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransferSummaryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UndoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsbInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WarningPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\advicon.png" />
+    <Resource Include="assets\aos\advicon.png" />
+    <Resource Include="assets\aos\appicon.png" />
+    <Resource Include="assets\aos\applicationlistlogo.png" />
+    <Resource Include="assets\aos\boxlarge.png" />
+    <Resource Include="assets\aos\bullet_down.png" />
+    <Resource Include="assets\aos\bullet_right.png" />
+    <Resource Include="assets\aos\cable.png" />
+    <Resource Include="assets\aos\cant.png" />
+    <Resource Include="assets\aos\cant2.png" />
+    <Resource Include="assets\aos\chaticon.png" />
+    <Resource Include="assets\aos\checkboxlarge.png" />
+    <Resource Include="assets\aos\closeicon.png" />
+    <Resource Include="assets\aos\cloud.png" />
+    <Resource Include="assets\aos\computer.png" />
+    <Resource Include="assets\aos\defaultappimage.png" />
+    <Resource Include="assets\aos\disk.png" />
+    <Resource Include="assets\aos\docicon.png" />
+    <Resource Include="assets\aos\ethernetcable.png" />
+    <Resource Include="assets\aos\exclamation.png" />
+    <Resource Include="assets\aos\external.png" />
+    <Resource Include="assets\aos\file.png" />
+    <Resource Include="assets\aos\filelist.png" />
+    <Resource Include="assets\aos\foldericon.png" />
+    <Resource Include="assets\aos\four.png" />
+    <Resource Include="assets\aos\gearicon.png" />
+    <Resource Include="assets\aos\gears.png" />
+    <Resource Include="assets\aos\greenbox.png" />
+    <Resource Include="assets\aos\greencheckmark.png" />
+    <Resource Include="assets\aos\guide.png" />
+    <Resource Include="assets\aos\harddrive.png" />
+    <Resource Include="assets\aos\harddriveonscreen.png" />
+    <Resource Include="assets\aos\iconviewoff.png" />
+    <Resource Include="assets\aos\iconviewon.png" />
+    <Resource Include="assets\aos\infoicon.png" />
+    <Resource Include="assets\aos\lan.png" />
+    <Resource Include="assets\aos\larrow.png" />
+    <Resource Include="assets\aos\leftarrow.png" />
+    <Resource Include="assets\aos\leftarrowlarge.png" />
+    <Resource Include="assets\aos\licensemismatch.png" />
+    <Resource Include="assets\aos\lightning.png" />
+    <Resource Include="assets\aos\listviewoff.png" />
+    <Resource Include="assets\aos\listviewon.png" />
+    <Resource Include="assets\aos\lockscreenlogo.scale-200.png" />
+    <Resource Include="assets\aos\musicon.png" />
+    <Resource Include="assets\aos\noneicon.png" />
+    <Resource Include="assets\aos\notbox.png" />
+    <Resource Include="assets\aos\okbox.png" />
+    <Resource Include="assets\aos\okboxlarge.png" />
+    <Resource Include="assets\aos\one.jpg" />
+    <Resource Include="assets\aos\one.png" />
+    <Resource Include="assets\aos\os.png" />
+    <Resource Include="assets\aos\othicon.png" />
+    <Resource Include="assets\aos\pcchecklarge.png" />
+    <Resource Include="assets\aos\pcchecksmall.png" />
+    <Resource Include="assets\aos\pclarge.png" />
+    <Resource Include="assets\aos\pcmoverscreen.png" />
+    <Resource Include="assets\aos\phone.png" />
+    <Resource Include="assets\aos\picicon.png" />
+    <Resource Include="assets\aos\profile.png" />
+    <Resource Include="assets\aos\profilelarge.png" />
+    <Resource Include="assets\aos\radio.png" />
+    <Resource Include="assets\aos\rarrow.png" />
+    <Resource Include="assets\aos\receiver.png" />
+    <Resource Include="assets\aos\redbox.png" />
+    <Resource Include="assets\aos\redx.png" />
+    <Resource Include="assets\aos\rightarrow.png" />
+    <Resource Include="assets\aos\rightarrowlarge.png" />
+    <Resource Include="assets\aos\sender.png" />
+    <Resource Include="assets\aos\splashscreen.scale-200.png" />
+    <Resource Include="assets\aos\square150x150logo.scale-200.png" />
+    <Resource Include="assets\aos\square44x44logo.scale-200.png" />
+    <Resource Include="assets\aos\square44x44logo.targetsize-24_altform-unplated.png" />
+    <Resource Include="assets\aos\ssllocked.png" />
+    <Resource Include="assets\aos\storelogo.png" />
+    <Resource Include="assets\aos\three.png" />
+    <Resource Include="assets\aos\tip1.png" />
+    <Resource Include="assets\aos\tip2.png" />
+    <Resource Include="assets\aos\tip3.png" />
+    <Resource Include="assets\aos\tip4.png" />
+    <Resource Include="assets\aos\tip5.png" />
+    <Resource Include="assets\aos\transferchecks4.png" />
+    <Resource Include="assets\aos\transferchecks6.png" />
+    <Resource Include="assets\aos\transferfiles.png" />
+    <Resource Include="assets\aos\transfericons.png" />
+    <Resource Include="assets\aos\two.png" />
+    <Resource Include="assets\aos\unknownbox.png" />
+    <Resource Include="assets\aos\usb.png" />
+    <Resource Include="assets\aos\usbcable.png" />
+    <Resource Include="assets\aos\usricon.png" />
+    <Resource Include="assets\aos\vidicon.png" />
+    <Resource Include="assets\aos\warning.png" />
+    <Resource Include="assets\aos\welcome_pcs.png" />
+    <Resource Include="assets\aos\wide310x150logo.scale-200.png" />
+    <Resource Include="assets\aos\wifisignalicon.png" />
+    <Resource Include="assets\aos\wifismall.png" />
+    <Resource Include="assets\aos\yellowbox.png" />
+    <Resource Include="assets\aos\yellowquestionmark.png" />
+    <Resource Include="assets\appicon.png" />
+    <Resource Include="assets\appimages\3dbuilder.png" />
+    <Resource Include="assets\appimages\android.png" />
+    <Resource Include="assets\appimages\ask.png" />
+    <Resource Include="assets\appimages\ccleaner.png" />
+    <Resource Include="assets\appimages\leagueoflegends.png" />
+    <Resource Include="assets\appimages\minecraft.png" />
+    <Resource Include="assets\appimages\mts.png" />
+    <Resource Include="assets\appimages\office.png" />
+    <Resource Include="assets\appimages\omm.png" />
+    <Resource Include="assets\appimages\onedrive.png" />
+    <Resource Include="assets\appimages\other.png" />
+    <Resource Include="assets\appimages\photoshop.png" />
+    <Resource Include="assets\appimages\pulse.png" />
+    <Resource Include="assets\appimages\quicken.png" />
+    <Resource Include="assets\appimages\realtek.png" />
+    <Resource Include="assets\appimages\shockwave.png" />
+    <Resource Include="assets\appimages\skype.png" />
+    <Resource Include="assets\appimages\slack.png" />
+    <Resource Include="assets\appimages\snagit10.png" />
+    <Resource Include="assets\appimages\steam.png" />
+    <Resource Include="assets\appimages\vmix17.png" />
+    <Resource Include="assets\appimages\whatsapp.png" />
+    <Resource Include="assets\appimages\winzip.png" />
+    <Resource Include="assets\applicationlistlogo.png" />
+    <Resource Include="assets\boxlarge.png" />
+    <Resource Include="assets\bullet_down.png" />
+    <Resource Include="assets\bullet_right.png" />
+    <Resource Include="assets\cable.png" />
+    <Resource Include="assets\cant.png" />
+    <Resource Include="assets\chaticon.png" />
+    <Resource Include="assets\checkboxlarge.png" />
+    <Resource Include="assets\closeicon.png" />
+    <Resource Include="assets\cloud.png" />
+    <Resource Include="assets\computer.png" />
+    <Resource Include="assets\defaultappimage.png" />
+    <Resource Include="assets\disk.png" />
+    <Resource Include="assets\docicon.png" />
+    <Resource Include="assets\ethernetcable.png" />
+    <Resource Include="assets\exclamation.png" />
+    <Resource Include="assets\external.png" />
+    <Resource Include="assets\file.png" />
+    <Resource Include="assets\filelist.png" />
+    <Resource Include="assets\foldericon.png" />
+    <Resource Include="assets\four.png" />
+    <Resource Include="assets\gearicon.png" />
+    <Resource Include="assets\gears.png" />
+    <Resource Include="assets\greenbox.png" />
+    <Resource Include="assets\greencheckmark.png" />
+    <Resource Include="assets\guide.png" />
+    <Resource Include="assets\harddrive.png" />
+    <Resource Include="assets\harddriveonscreen.png" />
+    <Resource Include="assets\iconviewoff.png" />
+    <Resource Include="assets\iconviewon.png" />
+    <Resource Include="assets\infoicon.png" />
+    <Resource Include="assets\lan.png" />
+    <Resource Include="assets\larrow.png" />
+    <Resource Include="assets\leftarrow.png" />
+    <Resource Include="assets\leftarrowlarge.png" />
+    <Resource Include="assets\licensemismatch.png" />
+    <Resource Include="assets\lightning.png" />
+    <Resource Include="assets\listviewoff.png" />
+    <Resource Include="assets\listviewon.png" />
+    <Resource Include="assets\lockscreenlogo.scale-200.png" />
+    <Resource Include="assets\musicon.png" />
+    <Resource Include="assets\noneicon.png" />
+    <Resource Include="assets\notbox.png" />
+    <Resource Include="assets\okbox.png" />
+    <Resource Include="assets\okboxlarge.png" />
+    <Resource Include="assets\one.jpg" />
+    <Resource Include="assets\one.png" />
+    <Resource Include="assets\os.png" />
+    <Resource Include="assets\othicon.png" />
+    <Resource Include="assets\pcchecklarge.png" />
+    <Resource Include="assets\pcchecksmall.png" />
+    <Resource Include="assets\pclarge.png" />
+    <Resource Include="assets\phone.png" />
+    <Resource Include="assets\picicon.png" />
+    <Resource Include="assets\profile.png" />
+    <Resource Include="assets\profilelarge.png" />
+    <Resource Include="assets\radio.png" />
+    <Resource Include="assets\rarrow.png" />
+    <Resource Include="assets\receiver.png" />
+    <Resource Include="assets\redbox.png" />
+    <Resource Include="assets\redx.png" />
+    <Resource Include="assets\rightarrow.png" />
+    <Resource Include="assets\rightarrowlarge.png" />
+    <Resource Include="assets\rightarrowlargetb.png" />
+    <Resource Include="assets\sender.png" />
+    <Resource Include="assets\ssllocked.png" />
+    <Resource Include="assets\tb-logo24.png" />
+    <Resource Include="assets\tb-logo48.png" />
+    <Resource Include="assets\three.png" />
+    <Resource Include="assets\tip1.png" />
+    <Resource Include="assets\tip2.png" />
+    <Resource Include="assets\tip3.png" />
+    <Resource Include="assets\tip4.png" />
+    <Resource Include="assets\tip5.png" />
+    <Resource Include="assets\transferchecks4.png" />
+    <Resource Include="assets\transferchecks6.png" />
+    <Resource Include="assets\transferfiles.png" />
+    <Resource Include="assets\transfericons.png" />
+    <Resource Include="assets\two.png" />
+    <Resource Include="assets\unknownbox.png" />
+    <Resource Include="assets\usb.png" />
+    <Resource Include="assets\usbcable.png" />
+    <Resource Include="assets\usricon.png" />
+    <Resource Include="assets\vidicon.png" />
+    <Resource Include="assets\vproicon.png" />
+    <Resource Include="assets\warning.png" />
+    <Resource Include="assets\welcome_pcs.png" />
+    <Resource Include="assets\wifisignalicon.png" />
+    <Resource Include="assets\wifismall.png" />
+    <Resource Include="assets\yellowbox.png" />
+    <Resource Include="assets\yellowquestionmark.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

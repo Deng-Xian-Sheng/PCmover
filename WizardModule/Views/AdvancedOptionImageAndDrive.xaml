@@ -1,0 +1,115 @@
+<UserControl
+	x:Class="WizardModule.Views.AdvancedOptionImageAndDrive" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:WizardModule.Views" xmlns:p="clr-namespace:WizardModule.Properties">
+	<Button
+		VerticalContentAlignment="Stretch"
+		AutomationProperties.AutomationId="ImageAndDriveAssistant"
+		Style="{StaticResource PanelButton}"
+		Command="{Binding OnImageAndDrive}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="40" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Image
+				Height="30"
+				HorizontalAlignment="Left"
+				Margin="10,0,0,0"
+				Source="{Binding Path=BoxUri, Mode=OneWay}" />
+			<Button
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				Style="{StaticResource Flat}"
+				Command="{Binding OnImageAndDriveInfo}">
+				<Image
+					Height="26"
+					Source="/WizardModule;component/Assets/infoIcon.png" />
+			</Button>
+			<Grid
+				Row="1"
+				Margin="15">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="88" />
+					<RowDefinition
+						Height="10" />
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Grid.Row="0"
+					TextWrapping="WrapWithOverflow"
+					FontSize="22"
+					FontFamily="Segoe UI Light"
+					Text="{x:Static p:Resources.AOIAD_Header}" />
+				<Separator
+					Grid.Row="1"
+					Height="1"
+					Style="{StaticResource ToolBar.SeparatorStyleKey}" />
+				<Separator
+					Grid.Row="1"
+					Height="3"
+					Width="75"
+					HorizontalAlignment="Left"
+					Style="{StaticResource ToolBar.SeparatorStyleKey}"
+					Background="{StaticResource MainThemeBrush2}" />
+				<TextBlock
+					Grid.Row="2"
+					TextWrapping="Wrap"
+					FontSize="14"
+					FontFamily="Segoe UI Light"
+					Margin="0,20,0,0"
+					VerticalAlignment="Stretch"
+					Text="{x:Static p:Resources.AOIAD_Transfer}" />
+				<Grid
+					Row="3">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="*" />
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="2*" />
+						<ColumnDefinition
+							Width="*" />
+						<ColumnDefinition
+							Width="2*" />
+					</Grid.ColumnDefinitions>
+					<Image
+						Grid.Column="0"
+						Source="/WizardModule;component/Assets/HardDrive.png"
+						Height="54" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="0"
+						HorizontalAlignment="Center"
+						TextWrapping="Wrap"
+						FontSize="12"
+						FontFamily="Segoe UI Light"
+						Text="{x:Static p:Resources.AOIAD_HardDrive}" />
+					<Image
+						Grid.Column="1"
+						Source="/WizardModule;component/Assets/RightArrow.png" />
+					<Image
+						Grid.Column="2"
+						Source="/WizardModule;component/Assets/PCCheckSmall.png" />
+					<TextBlock
+						Grid.Row="1"
+						Grid.Column="2"
+						HorizontalAlignment="Center"
+						TextWrapping="Wrap"
+						FontSize="12"
+						FontFamily="Segoe UI Light"
+						Text="{x:Static p:Resources.AOIAF_ThisPC}" />
+				</Grid>
+			</Grid>
+		</Grid>
+	</Button>
+</UserControl>

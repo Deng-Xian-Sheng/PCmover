@@ -1,0 +1,199 @@
+<UserControl
+	x:Class="WizardModule.Views.FilesBasedTransferPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+			<converters:ReverseBooleanConverter
+				x:Key="ReverseBoolConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="24,0,0,0">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="2*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="5*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Style="{StaticResource LargeTextDark}"
+			Text="{x:Static p:Resources.FBTP_Which}" />
+		<StackPanel
+			Grid.Row="1"
+			Orientation="Vertical">
+			<RadioButton
+				AutomationProperties.AutomationId="FilesBasedOldComputer"
+				IsChecked="{Binding OldSelected, Mode=TwoWay}">
+				<TextBlock
+					Style="{StaticResource LargeTextDark}"
+					Text="{x:Static p:Resources.FBTP_Old}"
+					Margin="4,8,0,8" />
+			</RadioButton>
+			<Grid
+				Margin="0,16,0,0"
+				Visibility="{Binding OldSelected, Converter={StaticResource VisibilityConverter}, Mode=TwoWay}">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Style="{StaticResource StandardTextStyle}"
+					Text="{Binding BrowseTextOld}" />
+				<StackPanel
+					Grid.Row="1"
+					Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Margin="0,8,0,0"
+					Visibility="{Binding IsCloudBased, Converter={StaticResource ReverseVisibilityConverter}}">
+					<TextBox
+						mah:TextBoxHelper.Watermark="{x:Static p:Resources.FBTP_FileName}"
+						MaxWidth="400"
+						HorizontalAlignment="Left"
+						Width="400"
+						Margin="0,8"
+						VerticalContentAlignment="Center"
+						FontSize="20"
+						AutomationProperties.AutomationId="FileNameOld"
+						Text="{Binding TransferFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						ToolTip="{Binding TransferFile, Mode=OneWay}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.FBTP_Browse}"
+						Width="Auto"
+						Margin="2,8"
+						AutomationProperties.AutomationId="FileNameOldBrowse"
+						Command="{Binding OnBrowseOld}" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<StackPanel
+			Grid.Row="2"
+			Orientation="Vertical">
+			<RadioButton
+				AutomationProperties.AutomationId="FilesBasedNewComputer"
+				IsChecked="{Binding OldSelected, Converter={StaticResource ReverseBoolConverter}, Mode=TwoWay}">
+				<TextBlock
+					Style="{StaticResource LargeTextDark}"
+					Text="{x:Static p:Resources.FBTP_New}"
+					Margin="4,8,0,8" />
+			</RadioButton>
+			<Grid
+				Margin="0,16,0,0"
+				Visibility="{Binding OldSelected, Converter={StaticResource ReverseVisibilityConverter}, Mode=TwoWay}">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Style="{StaticResource StandardTextStyle}"
+					Text="{Binding BrowseTextNew}" />
+				<StackPanel
+					Grid.Row="1"
+					Orientation="Horizontal"
+					HorizontalAlignment="Center"
+					Margin="0,8,0,0"
+					Visibility="{Binding IsCloudBased, Converter={StaticResource ReverseVisibilityConverter}}">
+					<TextBox
+						mah:TextBoxHelper.Watermark="{x:Static p:Resources.FBTP_FileLocation}"
+						MaxWidth="400"
+						HorizontalAlignment="Left"
+						Width="400"
+						Margin="0,8"
+						VerticalContentAlignment="Center"
+						FontSize="20"
+						AutomationProperties.AutomationId="FileNameNew"
+						Text="{Binding TransferFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						ToolTip="{Binding TransferFile, Mode=OneWay}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.FBTP_Browse}"
+						Width="Auto"
+						Margin="2,8"
+						AutomationProperties.AutomationId="FileNameNewBrowse"
+						Command="{Binding OnBrowseNew}" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="3"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Center"
+			Margin="0,10">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				AutomationProperties.AutomationId="FBTP_Back"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="{x:Static p:Resources.NEXT}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				AutomationProperties.AutomationId="FBTP_Next"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+		<popups:AppPopup
+			Placement="Center"
+			Width="740"
+			PopupAnimation="Slide"
+			AllowsTransparency="True"
+			StaysOpen="True"
+			IsOpen="{Binding IsCloudVerificationPopupOpen, Mode=TwoWay}">
+			<Canvas
+				Width="740"
+				Height="280">
+				<Border
+					Canvas.Top="15"
+					Canvas.Left="0"
+					Width="620"
+					BorderThickness="4"
+					CornerRadius="8"
+					BorderBrush="#FFC0C0C0"
+					Background="#FFFFFFFF">
+					<Grid
+						Background="#FFFFFFFF"
+						Margin="16,8,8,8">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<mah:ProgressRing
+							Margin="12,0"
+							Width="48"
+							Height="48" />
+						<TextBlock
+							Grid.Column="1"
+							Style="{StaticResource MediumTextMedium}"
+							Margin="12,0"
+							VerticalAlignment="Center"
+							TextWrapping="Wrap"
+							Text="{x:Static p:Resources.FBTP_VerifyingCloudSettings}" />
+						<Button
+							Grid.Column="2"
+							Content="{x:Static p:Resources.CANCEL}"
+							HorizontalAlignment="Center"
+							Style="{StaticResource RoundedButton}"
+							Command="{Binding CancelCloudVerification}" />
+					</Grid>
+				</Border>
+			</Canvas>
+		</popups:AppPopup>
+	</Grid>
+</UserControl>

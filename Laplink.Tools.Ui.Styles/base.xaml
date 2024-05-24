@@ -1,0 +1,1637 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="pack://application:,,,/Laplink.Tools.Ui.Styles;component/Colors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<SolidColorBrush
+		Color="{StaticResource BackgroundColor}"
+		x:Key="BackgroundColorBrush" />
+	<SolidColorBrush
+		Color="{StaticResource MainThemeColor1}"
+		x:Key="MainThemeBrush1" />
+	<SolidColorBrush
+		Color="{StaticResource MainThemeColor2}"
+		x:Key="MainThemeBrush2" />
+	<SolidColorBrush
+		Color="{StaticResource MainThemeColor3}"
+		x:Key="MainThemeBrush3" />
+	<SolidColorBrush
+		Color="{StaticResource ErrorColor}"
+		x:Key="ErrorBrush" />
+	<SolidColorBrush
+		Color="{StaticResource AlternateTextColor}"
+		x:Key="AlternateTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource MediumTextColor}"
+		x:Key="MediumTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource DarkTextColor}"
+		x:Key="DarkTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource LightTextColor}"
+		x:Key="LightTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource VeryLightTextColor}"
+		x:Key="VeryLightTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource SubtleLineColor}"
+		x:Key="SubtleLineBrush" />
+	<SolidColorBrush
+		Color="{StaticResource GrayoutAlternateTextColor}"
+		x:Key="GrayoutAlternateTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource ButtonTextColor}"
+		x:Key="ButtonTextBrush" />
+	<SolidColorBrush
+		Color="{StaticResource ButtonTextColor}"
+		x:Key="TabControlNormalBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource Gray5}"
+		x:Key="GrayNormalBrush" />
+	<SolidColorBrush
+		Color="{StaticResource DisabledBackgroundButtonColor}"
+		x:Key="DisabledBackgroundButtonBrush" />
+	<SolidColorBrush
+		Color="{StaticResource ButtonBorderColor}"
+		x:Key="ButtonBorderBrush" />
+	<SolidColorBrush
+		Color="{StaticResource ButtonBackgroundColor}"
+		x:Key="ButtonBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource HorizontalLineBackgroundColor}"
+		x:Key="HorizontalLineBackgroundBrush" />
+	<SolidColorBrush
+		Color="{StaticResource GroupFieldColor}"
+		x:Key="GroupFieldColorBrush" />
+	<SolidColorBrush
+		Color="{StaticResource IdealForegroundColor}"
+		x:Key="AccentSelectedColorBrush" />
+	<SolidColorBrush
+		Color="{StaticResource PanelButtonHighlightColor}"
+		x:Key="PanelButtonHighlightColorBrush" />
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="TitleTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="23" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI Semilight" />
+		<Setter
+			Property="TextWrapping"
+			Value="NoWrap" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource MediumTextBrush}" />
+		<Setter
+			Property="UIElement.Opacity"
+			Value="0.85" />
+		<Setter
+			Property="TextBlock.TextAlignment"
+			Value="Left" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Left" />
+		<Setter
+			Property="Margin"
+			Value="20,0" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="LargeTextDark">
+		<Setter
+			Property="FontSize"
+			Value="24" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI Semilight" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="MediumTextDark">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type Expander}"
+		x:Key="ExpanderMediumTextDark">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type GridViewColumnHeader}"
+		BasedOn="{StaticResource {x:Type GridViewColumnHeader}}"
+		x:Key="MediumGridHeaderDark">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+		<Setter
+			Property="Margin"
+			Value="8,0" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="SemiLightColumnDark">
+		<Setter
+			Property="FontSize"
+			Value="20" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI Semilight" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="MediumTextMedium">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource MediumTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="MediumTextError">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ErrorBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="SmallTextDark">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="SmallTextMedium">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource MediumTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="SmallTextLight">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource SmallTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="SmallTextAlternate">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI Semilight" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="VerySmallTextDark">
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="VerySmallTextMedium">
+		<Setter
+			Property="FontSize"
+			Value="12" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource MediumTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="StandardTextSmall">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="StandardTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="MaxWidth"
+			Value="800" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource MainThemeBrush1}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBox}"
+		x:Key="StandardTextBoxStyle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type GroupBox}"
+		x:Key="GroupBoxStyle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type Hyperlink}"
+		x:Key="HyperlinkTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="TextDecorations"
+			Value="{x:Null}" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="TextDecorations"
+					Value="Underline" />
+			</Trigger>
+			<Trigger
+				Property="ContentElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayoutAlternateTextBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Hyperlink}"
+		x:Key="MediumHyperlinkTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="TextDecorations"
+			Value="{x:Null}" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="TextDecorations"
+					Value="Underline" />
+			</Trigger>
+			<Trigger
+				Property="ContentElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayoutAlternateTextBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Hyperlink}"
+		x:Key="LargeHyperlinkTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="20" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+		<Setter
+			Property="TextDecorations"
+			Value="Underline" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="TextDecorations"
+					Value="Underline" />
+			</Trigger>
+			<Trigger
+				Property="ContentElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayoutAlternateTextBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Hyperlink}"
+		x:Key="BoldHyperlinkTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="16" />
+		<Setter
+			Property="TextDecorations"
+			Value="{x:Null}" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="TextDecorations"
+					Value="Underline" />
+			</Trigger>
+			<Trigger
+				Property="ContentElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayoutAlternateTextBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type Hyperlink}"
+		x:Key="FooterHyperlinkTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="11" />
+		<Setter
+			Property="TextDecorations"
+			Value="{x:Null}" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+		<Style.Triggers>
+			<Trigger
+				Property="ContentElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="TextDecorations"
+					Value="Underline" />
+			</Trigger>
+			<Trigger
+				Property="ContentElement.IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayoutAlternateTextBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="HyperlinkTextLook">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="TextDecorations"
+			Value="{x:Null}" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource AlternateTextBrush}" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="TextDecorations"
+					Value="Underline" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource GrayoutAlternateTextBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="TitleStyle">
+		<Setter
+			Property="FontSize"
+			Value="20" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Top" />
+		<Setter
+			Property="Margin"
+			Value="0,0,0,16" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource MainThemeBrush1}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="FooterStyle">
+		<Setter
+			Property="FontSize"
+			Value="11" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource VeryLightTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="FooterStyleBold">
+		<Setter
+			Property="FontSize"
+			Value="11" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource VeryLightTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="ButtonTextStyle">
+		<Setter
+			Property="FontSize"
+			Value="16" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="HorizontalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Margin"
+			Value="0,8" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource ButtonTextBrush}" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="FaderStyle">
+		<Setter
+			Property="Foreground"
+			Value="#FFFFFF00" />
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Style.Resources>
+			<ResourceDictionary>
+				<Storyboard
+					x:Key="FadeStoryboard">
+					<DoubleAnimation
+						Storyboard.TargetProperty="(TextBlock.Opacity)"
+						From="0"
+						To="1"
+						Duration="0:0:0.5"
+						RepeatBehavior="Forever"
+						AutoReverse="True" />
+				</Storyboard>
+			</ResourceDictionary>
+		</Style.Resources>
+		<Style.Triggers>
+			<Trigger
+				Property="Visibility"
+				Value="Visible">
+				<TriggerBase.EnterActions>
+					<BeginStoryboard
+						Storyboard="{StaticResource FadeStoryboard}" />
+				</TriggerBase.EnterActions>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="RoundedToggleButton">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="12,4" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="2"
+						BorderThickness="1"
+						MinWidth="150"
+						MinHeight="50"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontWeight="Bold"
+							FontSize="16"
+							TextWrapping="WrapWithOverflow"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource ButtonBackgroundBrush}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="RoundedToggleButtonSmall">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="5,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="2"
+						BorderThickness="1"
+						MinWidth="50"
+						MinHeight="25"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontSize="12"
+							TextWrapping="Wrap"
+							Text="{TemplateBinding Content}"
+							Padding="6,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="#FF616161" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="#FFD07407" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="#FFC4C4C3" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="#FFC4C4C3" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="RoundedButton">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="12,4" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="2"
+						BorderThickness="1"
+						MinWidth="150"
+						MinHeight="50"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontWeight="Bold"
+							FontSize="16"
+							TextWrapping="WrapWithOverflow"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource ButtonBackgroundBrush}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="RoundedButtonSmall">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="12,0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="2"
+						BorderThickness="1"
+						MinWidth="148"
+						MinHeight="28"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontSize="14"
+							TextWrapping="Wrap"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource ButtonBackgroundBrush}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="ImageButton">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Name="border"
+						BorderThickness="0"
+						Padding="0"
+						CornerRadius="0"
+						BorderBrush="{x:Null}"
+						Background="{x:Null}">
+						<ContentPresenter
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{x:Null}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="ViewButton">
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						Background="#00FFFFFF">
+						<ContentPresenter />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="PanelButton">
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						BorderThickness="1"
+						CornerRadius="2"
+						Padding="4"
+						BorderBrush="{StaticResource ButtonBorderBrush}">
+						<ContentPresenter />
+						<FrameworkElement.Style>
+							<Style>
+								<Setter
+									Property="Background"
+									Value="#00FFFFFF" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Background"
+											Value="{StaticResource PanelButtonHighlightColorBrush}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="HighlightPanelButton">
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						BorderThickness="4"
+						CornerRadius="2"
+						Padding="4"
+						BorderBrush="{StaticResource MainThemeBrush2}">
+						<ContentPresenter />
+						<FrameworkElement.Style>
+							<Style>
+								<Setter
+									Property="Background"
+									Value="#00FFFFFF" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Background"
+											Value="{StaticResource PanelButtonHighlightColorBrush}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="ImageToggle">
+		<Setter
+			Property="FrameworkElement.OverridesDefaultStyle"
+			Value="True" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<Border
+						Name="border"
+						BorderThickness="0"
+						Padding="0"
+						CornerRadius="0"
+						BorderBrush="{x:Null}"
+						Background="{x:Null}">
+						<ContentPresenter
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{x:Null}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="SmallButton">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="8,4" />
+		<Setter
+			Property="Margin"
+			Value="8,0" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="2"
+						BorderThickness="1"
+						MinWidth="50"
+						MinHeight="18"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontSize="12"
+							TextWrapping="Wrap"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="UIElement.Opacity"
+								Value="0.35" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="Flat">
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{x:Null}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{x:Null}" />
+				<Setter
+					Property="FontWeight"
+					Value="Bold" />
+			</Trigger>
+			<Trigger
+				Property="UIElement.IsFocused"
+				Value="True">
+				<Setter
+					Property="FontWeight"
+					Value="Bold" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<LinearGradientBrush
+		EndPoint="1,0"
+		StartPoint="0,0"
+		x:Key="ProgressBarIndicatorAnimatedFill">
+		<GradientStop
+			Color="#00FFFFFF"
+			Offset="0" />
+		<GradientStop
+			Color="#60FFFFFF"
+			Offset="0.4" />
+		<GradientStop
+			Color="#60FFFFFF"
+			Offset="0.6" />
+		<GradientStop
+			Color="#00FFFFFF"
+			Offset="1" />
+	</LinearGradientBrush>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="GroupTitle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="DemiBold" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Background"
+			Value="#FFD3D3D3" />
+		<Setter
+			Property="TextBlock.Padding"
+			Value="8,0,0,4" />
+	</Style>
+	<Style
+		TargetType="{x:Type Border}"
+		x:Key="GroupBorder">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderBrush"
+			Value="#FF000000" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Border.CornerRadius"
+			Value="0" />
+		<Setter
+			Property="Border.Padding"
+			Value="0" />
+		<Setter
+			Property="Margin"
+			Value="0,12,0,0" />
+	</Style>
+	<Style
+		TargetType="{x:Type RadioButton}"
+		x:Key="RadioButtonStyle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Margin"
+			Value="8,4" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
+		TargetType="{x:Type DataGridColumnHeader}"
+		x:Key="DatagridColumnStyle">
+		<Setter
+			Property="BorderThickness"
+			Value="2" />
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="SemiBold" />
+		<Setter
+			Property="Width"
+			Value="auto" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Setter
+			Property="MinWidth"
+			Value="100" />
+		<Setter
+			Property="Margin"
+			Value="0" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource {x:Type DataGridCell}}"
+		TargetType="{x:Type DataGridCell}"
+		x:Key="DataGridCellStyle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Left" />
+		<Style.Triggers>
+			<Trigger
+				Property="DataGridCell.IsSelected"
+				Value="True">
+				<Setter
+					Property="Foreground"
+					Value="{StaticResource DarkTextBrush}" />
+				<Setter
+					Property="Background"
+					Value="{StaticResource GroupFieldColorBrush}" />
+				<Setter
+					Property="BorderBrush"
+					Value="{StaticResource GroupFieldColorBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type DataGrid}"
+		x:Key="DataGridStyle">
+		<Setter
+			Property="DataGrid.ColumnHeaderStyle"
+			Value="{StaticResource DatagridColumnStyle}" />
+		<Setter
+			Property="DataGrid.CellStyle"
+			Value="{StaticResource DataGridCellStyle}" />
+		<Setter
+			Property="DataGrid.AutoGenerateColumns"
+			Value="False" />
+		<Setter
+			Property="DataGrid.CanUserAddRows"
+			Value="False" />
+		<Setter
+			Property="DataGrid.CanUserResizeRows"
+			Value="False" />
+		<Setter
+			Property="DataGrid.GridLinesVisibility"
+			Value="None" />
+		<Setter
+			Property="DataGrid.RowHeaderWidth"
+			Value="0" />
+		<Setter
+			Property="BorderBrush"
+			Value="#FF000000" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Background"
+			Value="#FFFFFFFF" />
+	</Style>
+</ResourceDictionary>

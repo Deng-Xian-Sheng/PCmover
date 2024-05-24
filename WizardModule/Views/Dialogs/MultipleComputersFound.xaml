@@ -1,0 +1,65 @@
+<UserControl
+	x:Class="WizardModule.Views.Dialogs.MultipleComputersFound" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:local="clr-namespace:WizardModule.Views" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters"
+	Name="root" xmlns:dialogs="clr-namespace:WizardModule.Views.Dialogs">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<local:ConnectMethodImageConverter
+				x:Key="ImageConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel
+		Orientation="Vertical"
+		Margin="20">
+		<TextBlock
+			Style="{StaticResource SmallTextMedium}"
+			Margin="30,0,0,0"
+			Text="{x:Static p:Resources.FPP_MoreThanOne}" />
+		<TextBlock
+			Style="{StaticResource SmallTextMedium}"
+			Margin="30,0,0,0"
+			Text="{x:Static p:Resources.FPP_PleaseSelect}" />
+		<ListView
+			Margin="30,20,30,20"
+			MaxHeight="260"
+			HorizontalContentAlignment="Center"
+			BorderBrush="{x:Null}"
+			ItemsSource="{Binding Machines}"
+			SelectedItem="{Binding CurrentSelectedMachine}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<StackPanel
+						Orientation="Horizontal">
+						<Image
+							HorizontalAlignment="Center"
+							Width="26"
+							Margin="0,0,15,0"
+							Source="{Binding Method, Mode=OneWay, Converter={StaticResource ImageConverter}}" />
+						<TextBlock
+							Style="{StaticResource MediumTextMedium}"
+							VerticalAlignment="Center"
+							MinWidth="200"
+							Text="{Binding DisplayName}" />
+					</StackPanel>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListView>
+		<StackPanel
+			Orientation="Horizontal"
+			HorizontalAlignment="Center"
+			Margin="0,24,0,0">
+			<Button
+				Content="{x:Static p:Resources.OK}"
+				HorizontalAlignment="Center"
+				Style="{StaticResource RoundedButton}"
+				Margin="0,0,10,0"
+				Command="{Binding OnClose}" />
+			<Button
+				Content="{x:Static p:Resources.CANCEL}"
+				HorizontalAlignment="Center"
+				Style="{StaticResource RoundedButton}"
+				Command="{Binding OnCancel}" />
+		</StackPanel>
+	</StackPanel>
+</UserControl>

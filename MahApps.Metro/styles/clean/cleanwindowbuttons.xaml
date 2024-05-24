@@ -1,0 +1,102 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Buttons.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		BasedOn="{StaticResource LightMetroWindowButtonStyle}"
+		TargetType="{x:Type Button}"
+		x:Key="LightCleanWindowCloseButtonStyle">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource CleanWindowCloseButtonBackgroundBrush}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource WhiteBrush}" />
+			</Trigger>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource CleanWindowCloseButtonPressedBackgroundBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		BasedOn="{StaticResource DarkMetroWindowButtonStyle}"
+		TargetType="{x:Type Button}"
+		x:Key="DarkCleanWindowCloseButtonStyle">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource CleanWindowCloseButtonBackgroundBrush}" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource WhiteBrush}" />
+			</Trigger>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource CleanWindowCloseButtonPressedBackgroundBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		BasedOn="{StaticResource MetroWindowButtonStyle}"
+		TargetType="{x:Type Button}"
+		x:Key="CleanWindowButtonStyle">
+		<Style.Triggers>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="{DynamicResource AccentColorBrush}" />
+				<Setter
+					Property="Foreground"
+					Value="#FFFFFFFF" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource IdealForegroundDisabledBrush}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		BasedOn="{StaticResource CleanWindowButtonStyle}"
+		TargetType="{x:Type Button}"
+		x:Key="CleanCloseWindowButtonStyle">
+		<Style.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="#EB2F2F" />
+				<Setter
+					Property="Foreground"
+					Value="{DynamicResource WhiteBrush}" />
+			</Trigger>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					Property="Background"
+					Value="#7C0000" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

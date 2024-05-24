@@ -1,0 +1,135 @@
+<UserControl
+	x:Class="PCmover.Views.Authentication" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:PCmover.ViewModels" xmlns:p="clr-namespace:PCmover.Properties" xmlns:vm="clr-namespace:PCmover.ViewModels" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:views="clr-namespace:PCmover.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Canvas
+		Width="500"
+		Height="600">
+		<Border
+			Canvas.Top="15"
+			Canvas.Left="0"
+			Width="480"
+			BorderThickness="4"
+			CornerRadius="8"
+			Background="#FFFFFFFF"
+			BorderBrush="{Binding BorderBrush}">
+			<Grid
+				Background="#FFFFFFFF"
+				Margin="8">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="8" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid
+					MinHeight="50">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<TextBlock
+						Grid.Column="1"
+						Style="{StaticResource SmallTextMedium}"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontSize="20"
+						TextWrapping="Wrap"
+						Text="{x:Static p:Resources.Login}"
+						Margin="0,0,0,0" />
+				</Grid>
+				<Rectangle
+					Grid.Row="1"
+					Width="100"
+					Height="4"
+					Fill="#FFFFA500"
+					HorizontalAlignment="Left"
+					Panel.ZIndex="1" />
+				<Rectangle
+					Grid.Row="1"
+					Width="500"
+					Height="2"
+					Fill="#FFC0C0C0"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center" />
+				<StackPanel
+					Grid.Row="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center">
+					<TextBlock
+						Text="{x:Static p:Resources.Username}"
+						VerticalAlignment="Center"
+						Margin="0,0,8,0"
+						Style="{StaticResource SmallTextMedium}" />
+					<TextBox
+						Width="256"
+						Margin="12,0,0,4"
+						BorderBrush="#FF000000"
+						CaretBrush="#FF000000"
+						HorizontalAlignment="Left"
+						Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+					<TextBlock
+						Text="{x:Static p:Resources.Password}"
+						VerticalAlignment="Center"
+						Margin="0,0,8,0"
+						Style="{StaticResource SmallTextMedium}" />
+					<PasswordBox
+						Name="txtPassword"
+						Width="256"
+						Margin="12,0,0,4"
+						BorderBrush="#FF000000"
+						CaretBrush="#FF000000"
+						HorizontalAlignment="Left" />
+					<TextBlock
+						Text="{x:Static p:Resources.Domain}"
+						VerticalAlignment="Center"
+						Margin="0,0,8,0"
+						Style="{StaticResource SmallTextMedium}" />
+					<TextBox
+						Width="256"
+						Margin="12,0,0,4"
+						BorderBrush="#FF000000"
+						CaretBrush="#FF000000"
+						HorizontalAlignment="Left"
+						Text="{Binding Domain, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+					<TextBlock
+						Text="{x:Static p:Resources.LoginFailed}"
+						Foreground="#FFFF0000"
+						VerticalAlignment="Center"
+						Margin="0,10,0,10"
+						Style="{StaticResource SmallTextMedium}"
+						Visibility="{Binding LogonFailure, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				</StackPanel>
+				<StackPanel
+					Orientation="Horizontal"
+					Grid.Row="3"
+					HorizontalAlignment="Center"
+					Margin="0,12">
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.lblOK}"
+						Margin="8,0"
+						IsDefault="True"
+						Command="{Binding OnLoginOK}"
+						CommandParameter="{Binding ElementName=txtPassword}" />
+					<Button
+						Style="{StaticResource RoundedButton}"
+						Content="{x:Static p:Resources.lblCancel}"
+						Margin="8,0"
+						IsCancel="True"
+						Command="{Binding OnLoginCancel}" />
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Canvas>
+</UserControl>

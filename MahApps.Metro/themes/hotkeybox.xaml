@@ -1,0 +1,125 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls" xmlns:Converters="clr-namespace:MahApps.Metro.Converters">
+	<Style
+		TargetType="{x:Type Controls:HotKeyBox}"
+		x:Key="{x:Type Controls:HotKeyBox}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource ControlBackgroundBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource TextBoxBorderBrush}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="Controls:ControlsHelper.ContentCharacterCasing"
+			Value="Upper" />
+		<Setter
+			Property="Controls:ControlsHelper.FocusBorderBrush"
+			Value="{DynamicResource TextBoxFocusBorderBrush}" />
+		<Setter
+			Property="Controls:ControlsHelper.MouseOverBorderBrush"
+			Value="{DynamicResource TextBoxMouseOverBorderBrush}" />
+		<Setter
+			Property="Controls:TextBoxHelper.ButtonFontSize"
+			Value="{DynamicResource ClearTextButtonFontSize}" />
+		<Setter
+			Property="Controls:TextBoxHelper.Watermark"
+			Value="{Binding Path=Watermark, Mode=OneWay, RelativeSource={RelativeSource Self}}" />
+		<Setter
+			Property="FontFamily"
+			Value="{DynamicResource ContentFontFamily}" />
+		<Setter
+			Property="FontSize"
+			Value="{DynamicResource ContentFontSize}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource TextBrush}" />
+		<Setter
+			Property="MinHeight"
+			Value="26" />
+		<Setter
+			Property="Padding"
+			Value="0" />
+		<Setter
+			Property="HorizontalScrollBarVisibility"
+			Value="Hidden" />
+		<Setter
+			Property="VerticalScrollBarVisibility"
+			Value="Hidden" />
+		<Setter
+			Property="UIElement.SnapsToDevicePixels"
+			Value="True" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Controls:HotKeyBox}">
+					<TextBox
+						Name="PART_TextBox"
+						MinHeight="{TemplateBinding MinHeight}"
+						Padding="{TemplateBinding Padding}"
+						HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+						VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+						Controls:ControlsHelper.FocusBorderBrush="{TemplateBinding Controls:FocusBorderBrush}"
+						Controls:ControlsHelper.MouseOverBorderBrush="{TemplateBinding Controls:MouseOverBorderBrush}"
+						Controls:TextBoxHelper.ButtonContent="{TemplateBinding Controls:ButtonContent}"
+						Controls:TextBoxHelper.ButtonContentTemplate="{TemplateBinding Controls:ButtonContentTemplate}"
+						Controls:TextBoxHelper.ButtonFontFamily="{TemplateBinding Controls:ButtonFontFamily}"
+						Controls:TextBoxHelper.ButtonFontSize="{TemplateBinding Controls:ButtonFontSize}"
+						Controls:TextBoxHelper.ButtonWidth="{TemplateBinding Controls:ButtonWidth}"
+						Controls:TextBoxHelper.ButtonsAlignment="{TemplateBinding Controls:ButtonsAlignment}"
+						Controls:TextBoxHelper.ClearTextButton="{TemplateBinding Controls:ClearTextButton}"
+						Controls:TextBoxHelper.IsWaitingForData="{TemplateBinding Controls:IsWaitingForData}"
+						Controls:TextBoxHelper.SelectAllOnFocus="{TemplateBinding Controls:SelectAllOnFocus}"
+						Controls:TextBoxHelper.UseFloatingWatermark="{TemplateBinding Controls:UseFloatingWatermark}"
+						Controls:TextBoxHelper.Watermark="{TemplateBinding Controls:Watermark}"
+						Controls:TextBoxHelper.WatermarkAlignment="{TemplateBinding Controls:WatermarkAlignment}"
+						Controls:TextBoxHelper.WatermarkTrimming="{TemplateBinding Controls:WatermarkTrimming}"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Focusable="{TemplateBinding Focusable}"
+						FontFamily="{TemplateBinding FontFamily}"
+						FontSize="{TemplateBinding FontSize}"
+						Foreground="{TemplateBinding Foreground}"
+						HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
+						IsTabStop="{TemplateBinding IsTabStop}"
+						SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+						Text="{TemplateBinding Controls:Text}"
+						Validation.ErrorTemplate="{TemplateBinding ErrorTemplate}"
+						VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="Controls:ControlsHelper.ContentCharacterCasing"
+							Value="Normal">
+							<Setter
+								TargetName="PART_TextBox"
+								Property="Text"
+								Value="{Binding Path=Text, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+						</Trigger>
+						<Trigger
+							Property="Controls:ControlsHelper.ContentCharacterCasing"
+							Value="Upper">
+							<Setter
+								TargetName="PART_TextBox"
+								Property="Text"
+								Value="{Binding Path=Text, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={Converters:ToUpperConverter}}" />
+						</Trigger>
+						<Trigger
+							Property="Controls:ControlsHelper.ContentCharacterCasing"
+							Value="Lower">
+							<Setter
+								TargetName="PART_TextBox"
+								Property="Text"
+								Value="{Binding Path=Text, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={Converters:ToLowerConverter}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Validation.ErrorTemplate"
+			Value="{DynamicResource ValidationErrorTemplate}" />
+	</Style>
+</ResourceDictionary>

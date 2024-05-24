@@ -1,0 +1,214 @@
+<UserControl
+	x:Class="WizardModule.Views.Compact.SectionApplications" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:WizardModule.Views" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:p="clr-namespace:WizardModule.Properties"
+	Name="root" xmlns:compact="clr-namespace:WizardModule.Views.Compact">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<local:AppImageConverter
+				x:Key="ImageConverter" />
+			<local:AppTooltipConverter
+				x:Key="TooltipConverter" />
+			<Style
+				TargetType="{x:Type ListView}"
+				x:Key="AppGridViewStyle">
+				<Setter
+					Property="Background"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="FontSize"
+					Value="12" />
+				<Setter
+					Property="BorderBrush"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="HorizontalAlignment"
+					Value="Center" />
+			</Style>
+			<DataTemplate
+				x:Key="IconTemplate">
+				<Button
+					BorderThickness="0"
+					FontWeight="Thin"
+					Padding="0"
+					HorizontalContentAlignment="Left"
+					Command="{Binding ElementName=root, Path=DataContext.OnSelected}"
+					CommandParameter="{Binding}"
+					Background="{x:Null}"
+					BorderBrush="{x:Null}">
+					<StackPanel
+						Orientation="Horizontal">
+						<CheckBox
+							VerticalAlignment="Center"
+							Margin="0,4,0,0"
+							IsEnabled="False"
+							IsChecked="{Binding Selected, Mode=TwoWay}" />
+						<TextBlock
+							TextTrimming="CharacterEllipsis"
+							TextWrapping="Wrap"
+							VerticalAlignment="Center"
+							TextAlignment="Center"
+							Style="{StaticResource SmallTextDark}"
+							Text="{Binding AppName, Mode=OneWay}" />
+					</StackPanel>
+					<FrameworkElement.ToolTip>
+						<TextBlock
+							Style="{StaticResource MediumTextMedium}"
+							Text="{Binding Data, Mode=OneWay, Converter={StaticResource TooltipConverter}}" />
+					</FrameworkElement.ToolTip>
+				</Button>
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Orientation="Vertical">
+			<RadioButton
+				Name="ToggleGreen"
+				Margin="48,4">
+				<Control.Template>
+					<ControlTemplate>
+						<ToggleButton
+							HorizontalContentAlignment="Left"
+							IsChecked="{Binding IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Content="{Binding Content, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</ControlTemplate>
+				</Control.Template>
+				<StackPanel
+					Orientation="Horizontal">
+					<Image
+						Source="/WizardModule;component/Assets/OkBox.png"
+						Width="22"
+						Margin="4,0" />
+					<TextBlock
+						Text="{x:Static p:Resources.SAPP_Confirmed}"
+						VerticalAlignment="Top"
+						Style="{StaticResource SemiLightColumnDark}"
+						Margin="4,0,0,0" />
+					<TextBlock
+						Style="{StaticResource SemiLightColumnDark}"
+						VerticalAlignment="Top"
+						Margin="12,0,0,2">(<Run
+							Text="{Binding GreenSelected, Mode=OneWay}" /> <Run
+							Text="{x:Static p:Resources.TEPP_Of}" /> <Run
+							Text="{Binding GreenApps.Count, Mode=OneWay}" />)</TextBlock>
+				</StackPanel>
+			</RadioButton>
+			<RadioButton
+				Name="ToggleYellow"
+				Margin="48,4">
+				<Control.Template>
+					<ControlTemplate>
+						<ToggleButton
+							HorizontalContentAlignment="Left"
+							IsChecked="{Binding IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Content="{Binding Content, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</ControlTemplate>
+				</Control.Template>
+				<StackPanel
+					Grid.Row="1"
+					Orientation="Horizontal">
+					<Image
+						Source="/WizardModule;component/Assets/UnknownBox.png"
+						Width="22"
+						Margin="4,0" />
+					<TextBlock
+						Text="{x:Static p:Resources.SAPP_Likely}"
+						VerticalAlignment="Top"
+						Style="{StaticResource SemiLightColumnDark}"
+						Margin="4,0,0,0" />
+					<TextBlock
+						Style="{StaticResource SemiLightColumnDark}"
+						VerticalAlignment="Top"
+						Margin="12,0,0,2">(<Run
+							Text="{Binding YellowSelected, Mode=OneWay}" /> <Run
+							Text="{x:Static p:Resources.TEPP_Of}" /> <Run
+							Text="{Binding YellowApps.Count, Mode=OneWay}" />)</TextBlock>
+				</StackPanel>
+			</RadioButton>
+			<RadioButton
+				Name="ToggleRed"
+				Margin="48,4">
+				<Control.Template>
+					<ControlTemplate>
+						<ToggleButton
+							HorizontalContentAlignment="Left"
+							IsChecked="{Binding IsChecked, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+							Content="{Binding Content, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					</ControlTemplate>
+				</Control.Template>
+				<StackPanel
+					Grid.Column="2"
+					Orientation="Horizontal">
+					<Image
+						Source="/WizardModule;component/Assets/NotBox.png"
+						Width="22"
+						Margin="4,0" />
+					<TextBlock
+						Text="{x:Static p:Resources.SAPP_NotIncluded}"
+						VerticalAlignment="Top"
+						Style="{StaticResource SemiLightColumnDark}"
+						Margin="4,0,0,0" />
+					<TextBlock
+						Style="{StaticResource SemiLightColumnDark}"
+						VerticalAlignment="Top"
+						Margin="12,0,0,0">(<Run
+							Text="{Binding RedSelected, Mode=OneWay}" /> <Run
+							Text="{x:Static p:Resources.TEPP_Of}" /> <Run
+							Text="{Binding RedApps.Count, Mode=OneWay}" />)</TextBlock>
+				</StackPanel>
+			</RadioButton>
+		</StackPanel>
+		<ListView
+			Grid.Row="1"
+			Style="{StaticResource AppGridViewStyle}"
+			ItemTemplate="{StaticResource IconTemplate}"
+			ItemsSource="{Binding GreenApps}"
+			Visibility="{Binding IsChecked, ElementName=ToggleGreen, Converter={StaticResource VisibilityConverter}}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListView>
+		<ListView
+			Grid.Row="1"
+			Style="{StaticResource AppGridViewStyle}"
+			ItemTemplate="{StaticResource IconTemplate}"
+			ItemsSource="{Binding YellowApps}"
+			Visibility="{Binding IsChecked, ElementName=ToggleYellow, Converter={StaticResource VisibilityConverter}}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListView>
+		<ListView
+			Grid.Row="1"
+			Style="{StaticResource AppGridViewStyle}"
+			ItemTemplate="{StaticResource IconTemplate}"
+			ItemsSource="{Binding RedApps}"
+			Visibility="{Binding IsChecked, ElementName=ToggleRed, Converter={StaticResource VisibilityConverter}}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListView>
+		<CheckBox
+			Grid.Row="2"
+			IsChecked="{Binding ShowMatchingApplications, Mode=TwoWay}">
+			<TextBlock
+				Text="{x:Static p:Resources.SAPP_ShowMatching}"
+				Style="{StaticResource MediumTextMedium}" />
+		</CheckBox>
+	</Grid>
+</UserControl>

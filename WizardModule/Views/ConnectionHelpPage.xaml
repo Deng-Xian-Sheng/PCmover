@@ -1,0 +1,119 @@
+<UserControl
+	x:Class="WizardModule.Views.ConnectionHelpPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:controls="clr-namespace:WizardModule.Views.Controls" xmlns:local="clr-namespace:WizardModule.Views">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Orientation="Vertical"
+			MaxWidth="600">
+			<TextBlock
+				Text="Connection Help"
+				Style="{StaticResource TitleStyle}" />
+			<TextBlock
+				TextWrapping="Wrap"
+				HorizontalAlignment="Left"
+				Margin="0,16,0,0"
+				Text="Make sure PCmover is running on both PCs."
+				FontWeight="Bold"
+				FontSize="16" />
+			<TextBlock
+				TextWrapping="Wrap"
+				HorizontalAlignment="Center"
+				Margin="0,4,0,0"
+				Text="This is the most common problem when PCs can't connect. You can download it from www.laplink.com/PCmover." />
+			<Line
+				Margin="24,0"
+				Stroke="#FF000000"
+				Fill="#FF000000" />
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="2*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					TextWrapping="Wrap"
+					Margin="0,16,0,0"
+					Text="If PCmover is running on both PCs:" />
+				<StackPanel
+					Grid.Row="1"
+					Orientation="Vertical">
+					<TextBlock
+						TextWrapping="Wrap"
+						Text="Verify your PCs are connected."
+						FontWeight="Bold" />
+					<TextBlock
+						TextWrapping="Wrap"
+						Text="If using WiFi, both PCs must be on the same network. Or, connect the computers using a LapLink USB cable or Ethernet cable." />
+				</StackPanel>
+				<Grid
+					Row="1"
+					Column="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="32" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="Auto" />
+						<RowDefinition
+							Height="Auto" />
+					</Grid.RowDefinitions>
+					<Image
+						Grid.RowSpan="2"
+						Width="20"
+						Source="/WizardModule;component/Assets/WifiSignalIcon.png" />
+					<TextBlock
+						Grid.Column="1"
+						TextWrapping="Wrap"
+						Margin="0,16,0,0"
+						Text="This PC is connected to:" />
+					<TextBlock
+						Grid.Column="1"
+						Grid.Row="1"
+						TextWrapping="Wrap"
+						Text="{Binding NetworkName, Mode=OneWay}" />
+				</Grid>
+				<StackPanel
+					Grid.Row="2"
+					Orientation="Vertical">
+					<TextBlock
+						TextWrapping="Wrap"
+						Margin="0,16,0,0"
+						Text="Try running this step on the other PC."
+						FontWeight="Bold" />
+					<TextBlock
+						TextWrapping="Wrap"
+						Text="Sometimes PCs can start a connection in only one direction." />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="1"
+			HorizontalAlignment="Center"
+			Margin="0,0,0,10">
+			<Button
+				Content="BACK"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="NEXT"
+				Margin="5,0,5,0"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

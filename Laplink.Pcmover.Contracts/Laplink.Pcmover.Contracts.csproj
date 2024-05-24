@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Laplink.Pcmover.Contracts</RootNamespace>
+    <AssemblyName>Laplink.Pcmover.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityFailureReason.cs" />
+    <Compile Include="ActivityInfo.cs" />
+    <Compile Include="ActivityPhase.cs" />
+    <Compile Include="ActivityState.cs" />
+    <Compile Include="ActivityStateExtensions.cs" />
+    <Compile Include="ActivityType.cs" />
+    <Compile Include="AppInventoryActivityPhase.cs" />
+    <Compile Include="AppInventoryAmount.cs" />
+    <Compile Include="AppInventoryStatus.cs" />
+    <Compile Include="ApplicationData.cs" />
+    <Compile Include="AppUpdateData.cs" />
+    <Compile Include="AuthorizationInfo.cs" />
+    <Compile Include="AuthorizationRequestData.cs" />
+    <Compile Include="BuildChangeListsActivityPhase.cs" />
+    <Compile Include="CategoryDefinition.cs" />
+    <Compile Include="CategoryGroups.cs" />
+    <Compile Include="CategoryParameters.cs" />
+    <Compile Include="ClientReportPolicyData.cs" />
+    <Compile Include="ConnectableMachine.cs" />
+    <Compile Include="ConnectingActivityFailureReason.cs" />
+    <Compile Include="ConnectionPolicyData.cs" />
+    <Compile Include="ConnectionPolicyMethods.cs" />
+    <Compile Include="ContainerData.cs" />
+    <Compile Include="ContainerInfo.cs" />
+    <Compile Include="ContainerStats.cs" />
+    <Compile Include="ContractConstants.cs" />
+    <Compile Include="CountDetail.cs" />
+    <Compile Include="CreationFailedReason.cs" />
+    <Compile Include="CustomizationAffects.cs" />
+    <Compile Include="CustomizationData.cs" />
+    <Compile Include="CustomizationResult.cs" />
+    <Compile Include="DiscoveredMachineStatus.cs" />
+    <Compile Include="DistinguishedName.cs" />
+    <Compile Include="DriveData.cs" />
+    <Compile Include="DrivePair.cs" />
+    <Compile Include="DriveSpaceData.cs" />
+    <Compile Include="DriveSpaceRequired.cs" />
+    <Compile Include="EngineLogData.cs" />
+    <Compile Include="EnginePolicyData.cs" />
+    <Compile Include="ExpandSnapshotActivityParameters.cs" />
+    <Compile Include="ExpandSnapshotActivityPhase.cs" />
+    <Compile Include="FileConnectionPolicyData.cs" />
+    <Compile Include="FileTransferMethodInfo.cs" />
+    <Compile Include="FillTaskData.cs" />
+    <Compile Include="FillTaskResult.cs" />
+    <Compile Include="FinishTransferData.cs" />
+    <Compile Include="GetApplicationsParameters.cs" />
+    <Compile Include="GetSnapshotActivityFailureReason.cs" />
+    <Compile Include="GetSnapshotActivityPhase.cs" />
+    <Compile Include="ImageFolderMapping.cs" />
+    <Compile Include="ImageMapData.cs" />
+    <Compile Include="InitPcmoverData.cs" />
+    <Compile Include="InteractiveCustomizationPolicyData.cs" />
+    <Compile Include="InteractivePolicyData.cs" />
+    <Compile Include="IPcmoverControl.cs" />
+    <Compile Include="IPcmoverControlCallback.cs" />
+    <Compile Include="IPcmoverMonitor.cs" />
+    <Compile Include="IPcmoverMonitorCallback.cs" />
+    <Compile Include="IPcmoverQuery.cs" />
+    <Compile Include="ItemDefinition.cs" />
+    <Compile Include="ItemFilterData.cs" />
+    <Compile Include="ItemType.cs" />
+    <Compile Include="ITransferrable.cs" />
+    <Compile Include="ITransferrableContainer.cs" />
+    <Compile Include="ListenActivityFailureReason.cs" />
+    <Compile Include="ListenActivityPhase.cs" />
+    <Compile Include="ListenActivityPhaseExtensions.cs" />
+    <Compile Include="MachineData.cs" />
+    <Compile Include="MachineDriveInfo.cs" />
+    <Compile Include="MachineType.cs" />
+    <Compile Include="MapiProfile.cs" />
+    <Compile Include="MapiProfileMapping.cs" />
+    <Compile Include="MigrationItemsEnabled.cs" />
+    <Compile Include="MigrationItemsOption.cs" />
+    <Compile Include="MigrationItemsPolicyData.cs" />
+    <Compile Include="MigrationTypeOption.cs" />
+    <Compile Include="MigrationTypePolicyData.cs" />
+    <Compile Include="MiscSettingData.cs" />
+    <Compile Include="MiscSettingsData.cs" />
+    <Compile Include="MiscSettingsGroupData.cs" />
+    <Compile Include="MonitorChangeType.cs" />
+    <Compile Include="NetworkConnectionPolicyData.cs" />
+    <Compile Include="NetworkInfo.cs" />
+    <Compile Include="NetworkStatsData.cs" />
+    <Compile Include="NetworkTransferMethodInfo.cs" />
+    <Compile Include="PcmoverEdition.cs" />
+    <Compile Include="PcmoverProperties.cs" />
+    <Compile Include="PcmoverState.cs" />
+    <Compile Include="PcmoverStateExtensions.cs" />
+    <Compile Include="PcmoverStatusInfo.cs" />
+    <Compile Include="PcmTaskData.cs" />
+    <Compile Include="PcmTaskType.cs" />
+    <Compile Include="PolicyData.cs" />
+    <Compile Include="ProductType.cs" />
+    <Compile Include="ProgressInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicProperties.cs" />
+    <Compile Include="ReportData.cs" />
+    <Compile Include="ReportFormat.cs" />
+    <Compile Include="ReportGenerator.cs" />
+    <Compile Include="ReportItems.cs" />
+    <Compile Include="ReportType.cs" />
+    <Compile Include="RequestedPage.cs" />
+    <Compile Include="SaveMovingVanActivityPhase.cs" />
+    <Compile Include="SecurityProductsData.cs" />
+    <Compile Include="SelectedReason.cs" />
+    <Compile Include="SerialNumberInfo.cs" />
+    <Compile Include="SerialNumberInfoResult.cs" />
+    <Compile Include="SettingsPolicyData.cs" />
+    <Compile Include="SpInfoBox_Method.cs" />
+    <Compile Include="SpInfoBox_Type.cs" />
+    <Compile Include="SSLFlags.cs" />
+    <Compile Include="SslInfo.cs" />
+    <Compile Include="SSLState.cs" />
+    <Compile Include="StandardFaultsAttribute.cs" />
+    <Compile Include="TaskAction.cs" />
+    <Compile Include="TaskAlertData.cs" />
+    <Compile Include="TaskStats.cs" />
+    <Compile Include="TaskSummaryData.cs" />
+    <Compile Include="TestParameterData.cs" />
+    <Compile Include="TestResultData.cs" />
+    <Compile Include="TransferAction.cs" />
+    <Compile Include="TransferActivityFailureReason.cs" />
+    <Compile Include="TransferActivityParameters.cs" />
+    <Compile Include="TransferActivityPhase.cs" />
+    <Compile Include="TransferCompletePolicyData.cs" />
+    <Compile Include="TransferContainerData.cs" />
+    <Compile Include="TransferItemResult.cs" />
+    <Compile Include="TransferMethodData.cs" />
+    <Compile Include="TransferMethodType.cs" />
+    <Compile Include="TransferMethodTypeExtensions.cs" />
+    <Compile Include="TransferProcessResult.cs" />
+    <Compile Include="Transferrable.cs" />
+    <Compile Include="TransferrableCategoryDefinition.cs" />
+    <Compile Include="TransferrableContainerData.cs" />
+    <Compile Include="TransferrableContainerInfo.cs" />
+    <Compile Include="TransferrableItemDefinition.cs" />
+    <Compile Include="TransferSafety.cs" />
+    <Compile Include="TransferSpeeds.cs" />
+    <Compile Include="TransferStatus.cs" />
+    <Compile Include="UiCallbackCode.cs" />
+    <Compile Include="UiExceptionType.cs" />
+    <Compile Include="UndoActivityFailureReason.cs" />
+    <Compile Include="UndoActivityPhase.cs" />
+    <Compile Include="USBState.cs" />
+    <Compile Include="UserDetail.cs" />
+    <Compile Include="UserMapping.cs" />
+    <Compile Include="UserMappings.cs" />
+    <Compile Include="UserMapSettings.cs" />
+    <Compile Include="UserType.cs" />
+    <Compile Include="ValidateType.cs" />
+    <Compile Include="ValidationErrorCode.cs" />
+    <Compile Include="ValidationResult.cs" />
+    <Compile Include="VanPasswordPolicyData.cs" />
+    <Compile Include="WindowsVersionData.cs" />
+    <Compile Include="WinUpgradeTransferMethodInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Laplink.Service.Contracts\Laplink.Service.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC10}</Project>
+      <Name>Laplink.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

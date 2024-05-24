@@ -1,0 +1,71 @@
+﻿using System;
+
+namespace ceTe.DynamicPDF.PageElements.BarCoding
+{
+	// Token: 0x0200075B RID: 1883
+	public enum DataMatrixSymbolSize
+	{
+		// Token: 0x04002985 RID: 10629
+		Auto,
+		// Token: 0x04002986 RID: 10630
+		R10xC10,
+		// Token: 0x04002987 RID: 10631
+		R12xC12,
+		// Token: 0x04002988 RID: 10632
+		R14xC14,
+		// Token: 0x04002989 RID: 10633
+		R16xC16,
+		// Token: 0x0400298A RID: 10634
+		R18xC18,
+		// Token: 0x0400298B RID: 10635
+		R20xC20,
+		// Token: 0x0400298C RID: 10636
+		R22xC22,
+		// Token: 0x0400298D RID: 10637
+		R24xC24,
+		// Token: 0x0400298E RID: 10638
+		R26xC26,
+		// Token: 0x0400298F RID: 10639
+		R32xC32,
+		// Token: 0x04002990 RID: 10640
+		R36xC36,
+		// Token: 0x04002991 RID: 10641
+		R40xC40,
+		// Token: 0x04002992 RID: 10642
+		R44xC44,
+		// Token: 0x04002993 RID: 10643
+		R48xC48,
+		// Token: 0x04002994 RID: 10644
+		R52xC52,
+		// Token: 0x04002995 RID: 10645
+		R64xC64,
+		// Token: 0x04002996 RID: 10646
+		R72xC72,
+		// Token: 0x04002997 RID: 10647
+		R80xC80,
+		// Token: 0x04002998 RID: 10648
+		R88xC88,
+		// Token: 0x04002999 RID: 10649
+		R96xC96,
+		// Token: 0x0400299A RID: 10650
+		R104xC104,
+		// Token: 0x0400299B RID: 10651
+		R120xC120,
+		// Token: 0x0400299C RID: 10652
+		R132xC132,
+		// Token: 0x0400299D RID: 10653
+		R144xC144,
+		// Token: 0x0400299E RID: 10654
+		R8xC18,
+		// Token: 0x0400299F RID: 10655
+		R8xC32,
+		// Token: 0x040029A0 RID: 10656
+		R12xC26,
+		// Token: 0x040029A1 RID: 10657
+		R12xC36,
+		// Token: 0x040029A2 RID: 10658
+		R16xC36,
+		// Token: 0x040029A3 RID: 10659
+		R16xC48
+	}
+}

@@ -1,0 +1,743 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="RoundedButton">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="12,4" />
+		<Setter
+			Property="UIElement.Effect">
+			<Setter.Value>
+				<DropShadowEffect
+					Color="Black"
+					Direction="310"
+					ShadowDepth="3"
+					BlurRadius="5"
+					Opacity="0.6" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="12"
+						BorderThickness="1"
+						MinWidth="150"
+						MinHeight="50"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontWeight="Bold"
+							FontSize="16"
+							TextWrapping="WrapWithOverflow"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource ButtonBackgroundBrush}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="RoundedButtonSmall">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="12,0" />
+		<Setter
+			Property="UIElement.Effect">
+			<Setter.Value>
+				<DropShadowEffect
+					Color="Black"
+					Direction="310"
+					ShadowDepth="2"
+					BlurRadius="5"
+					Opacity="0.6" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="8"
+						MinWidth="148"
+						MinHeight="28"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontSize="14"
+							TextWrapping="Wrap"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource ButtonBackgroundBrush}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="SmallButton">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="8,4" />
+		<Setter
+			Property="Margin"
+			Value="8,0" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="UIElement.Effect">
+			<Setter.Value>
+				<DropShadowEffect
+					Color="Black"
+					Direction="310"
+					ShadowDepth="2"
+					BlurRadius="5"
+					Opacity="0.6" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="8"
+						BorderThickness="1"
+						MinWidth="48"
+						MinHeight="18"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontSize="12"
+							TextWrapping="Wrap"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="UIElement.Opacity"
+								Value="0.35" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="RoundedToggleButton">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="12,4" />
+		<Setter
+			Property="UIElement.Effect">
+			<Setter.Value>
+				<DropShadowEffect
+					Color="Black"
+					Direction="310"
+					ShadowDepth="3"
+					BlurRadius="5"
+					Opacity="0.6" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="8"
+						BorderThickness="1"
+						MinWidth="150"
+						MinHeight="50"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontWeight="Bold"
+							FontSize="16"
+							TextWrapping="WrapWithOverflow"
+							Text="{TemplateBinding Content}"
+							Padding="8,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource ButtonBorderBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource ButtonBackgroundBrush}" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="{StaticResource DisabledBackgroundButtonBrush}" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type ToggleButton}"
+		x:Key="RoundedToggleButtonSmall">
+		<Setter
+			Property="HorizontalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="VerticalContentAlignment"
+			Value="Center" />
+		<Setter
+			Property="Padding"
+			Value="5,0" />
+		<Setter
+			Property="UIElement.Effect">
+			<Setter.Value>
+				<DropShadowEffect
+					Color="Black"
+					Direction="310"
+					ShadowDepth="3"
+					BlurRadius="5"
+					Opacity="0.6" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type ToggleButton}">
+					<FrameworkTemplate.Resources>
+						<ResourceDictionary>
+							<Storyboard
+								x:Key="ButtonDownAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="1"
+									Duration="0:0:0.05" />
+							</Storyboard>
+							<Storyboard
+								x:Key="ButtonUpAnimation">
+								<DoubleAnimation
+									Storyboard.TargetName="text"
+									Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+									To="0"
+									Duration="0:0:0.05" />
+							</Storyboard>
+						</ResourceDictionary>
+					</FrameworkTemplate.Resources>
+					<Border
+						Name="border"
+						CornerRadius="8"
+						BorderThickness="1"
+						MinWidth="50"
+						MinHeight="25"
+						BorderBrush="{StaticResource MainThemeBrush2}"
+						Background="{StaticResource MainThemeBrush2}">
+						<TextBlock
+							Name="text"
+							FontFamily="Segoe UI"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Foreground="#FFFFFFFF"
+							FontSize="12"
+							TextWrapping="Wrap"
+							Text="{TemplateBinding Content}"
+							Padding="6,0">
+							<UIElement.RenderTransform>
+								<TranslateTransform />
+							</UIElement.RenderTransform>
+						</TextBlock>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="IsPressed"
+							Value="True">
+							<TriggerBase.EnterActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonDownAnimation}" />
+							</TriggerBase.EnterActions>
+							<TriggerBase.ExitActions>
+								<BeginStoryboard
+									Storyboard="{StaticResource ButtonUpAnimation}" />
+							</TriggerBase.ExitActions>
+						</Trigger>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="#FF616161" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="#FFD07407" />
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+						<Trigger
+							Property="IsEnabled"
+							Value="False">
+							<Setter
+								TargetName="border"
+								Property="BorderBrush"
+								Value="#FFC4C4C3" />
+							<Setter
+								TargetName="border"
+								Property="Background"
+								Value="#FFC4C4C3" />
+							<Setter
+								TargetName="border"
+								Property="UIElement.Effect"
+								Value="{x:Null}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="PanelButton">
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						BorderThickness="1"
+						CornerRadius="16"
+						Padding="4"
+						BorderBrush="{StaticResource ButtonBorderBrush}">
+						<ContentPresenter />
+						<FrameworkElement.Style>
+							<Style>
+								<Setter
+									Property="Background"
+									Value="#00FFFFFF" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Background"
+											Value="{StaticResource PanelButtonHighlightColorBrush}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="HighlightPanelButton">
+		<Setter
+			Property="Background"
+			Value="{x:Null}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{x:Null}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						BorderThickness="4"
+						CornerRadius="16"
+						Padding="4"
+						BorderBrush="{StaticResource MainThemeBrush2}">
+						<ContentPresenter />
+						<FrameworkElement.Style>
+							<Style>
+								<Setter
+									Property="Background"
+									Value="#00FFFFFF" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Background"
+											Value="{StaticResource PanelButtonHighlightColorBrush}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+							<Setter
+								Property="FrameworkElement.Cursor"
+								Value="Hand" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="GroupTitle">
+		<Setter
+			Property="FontSize"
+			Value="14" />
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="DemiBold" />
+		<Setter
+			Property="TextWrapping"
+			Value="Wrap" />
+		<Setter
+			Property="Foreground"
+			Value="{StaticResource DarkTextBrush}" />
+		<Setter
+			Property="VerticalAlignment"
+			Value="Center" />
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="TextBlock.Padding"
+			Value="0,0,0,4" />
+	</Style>
+	<Style
+		TargetType="{x:Type Border}"
+		x:Key="GroupBorder">
+		<Setter
+			Property="Background"
+			Value="{StaticResource GroupFieldColorBrush}" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderThickness"
+			Value="0" />
+		<Setter
+			Property="Border.CornerRadius"
+			Value="12" />
+		<Setter
+			Property="Border.Padding"
+			Value="12,8" />
+		<Setter
+			Property="Margin"
+			Value="0,12,0,0" />
+	</Style>
+</ResourceDictionary>

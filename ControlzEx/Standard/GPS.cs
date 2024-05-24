@@ -1,0 +1,29 @@
+﻿using System;
+
+namespace ControlzEx.Standard
+{
+	// Token: 0x02000096 RID: 150
+	internal enum GPS
+	{
+		// Token: 0x0400064B RID: 1611
+		DEFAULT,
+		// Token: 0x0400064C RID: 1612
+		HANDLERPROPERTIESONLY,
+		// Token: 0x0400064D RID: 1613
+		READWRITE,
+		// Token: 0x0400064E RID: 1614
+		TEMPORARY = 4,
+		// Token: 0x0400064F RID: 1615
+		FASTPROPERTIESONLY = 8,
+		// Token: 0x04000650 RID: 1616
+		OPENSLOWITEM = 16,
+		// Token: 0x04000651 RID: 1617
+		DELAYCREATION = 32,
+		// Token: 0x04000652 RID: 1618
+		BESTEFFORT = 64,
+		// Token: 0x04000653 RID: 1619
+		NO_OPLOCK = 128,
+		// Token: 0x04000654 RID: 1620
+		MASK_VALID = 255
+	}
+}

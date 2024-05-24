@@ -1,0 +1,124 @@
+<UserControl
+	x:Class="WizardModule.Views.Compact.DetailButtonList" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:controls="clr-namespace:WizardModule.Views.Controls" xmlns:compact="clr-namespace:WizardModule.Views.Compact">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="12*" />
+		</Grid.RowDefinitions>
+		<ScrollViewer
+			Grid.Row="1">
+			<WrapPanel
+				Orientation="Horizontal"
+				HorizontalAlignment="Center"
+				Margin="24,8"
+				MaxWidth="800">
+				<StackPanel>
+					<controls:DetailButton
+						Source="/WizardModule;component/Assets/AppIcon.png"
+						MinWidth="360"
+						IsApplicationMode="True"
+						Title="{x:Static p:Resources.DBL_Applications}"
+						Command="{Binding OnApplicationsSelected}"
+						GreenCount="{Binding GreenApplicationCount, Mode=OneWay}"
+						YellowCount="{Binding YellowApplicationCount, Mode=OneWay}"
+						RedCount="{Binding RedApplicationCount, Mode=OneWay}"
+						GreenSelectedCount="{Binding GreenSelectedApplicationCount, Mode=OneWay}"
+						YellowSelectedCount="{Binding YellowSelectedApplicationCount, Mode=OneWay}"
+						RedSelectedCount="{Binding RedSelectedApplicationCount, Mode=OneWay}"
+						Size="{Binding TotalApplicationSize, Mode=OneWay}"
+						IsEnabled="{Binding IsApplicationTransferEnabled, Mode=OneWay}"
+						Visibility="{Binding ShowAppButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+					<controls:DetailButton
+						Source="/WizardModule;component/Assets/AppIcon.png"
+						MinWidth="360"
+						IsUpgradeMode="True"
+						Title="{x:Static p:Resources.DBL_AppsNotAvailable}"
+						Command="{Binding OnAppsUpgradeSelected}"
+						Visibility="{Binding ShowAppButtonUnavalable, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				</StackPanel>
+				<controls:DetailButton
+					Source="/WizardModule;component/Assets/MusIcon.png"
+					MinWidth="360"
+					IsFileMode="True"
+					Title="{x:Static p:Resources.DBL_Music}"
+					Command="{Binding OnMusicSelected}"
+					FolderCount="{Binding MusicFolderCount, Mode=OneWay}"
+					Size="{Binding FormattedMusicSize, Mode=OneWay}"
+					FileCount="{Binding MusicFileCount, Mode=OneWay}"
+					Visibility="{Binding ShowMusicButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<controls:DetailButton
+					Source="/WizardModule;component/Assets/DocIcon.png"
+					MinWidth="360"
+					IsFileMode="True"
+					Title="{x:Static p:Resources.DBL_Documents}"
+					Command="{Binding OnDocumentsSelected}"
+					FolderCount="{Binding DocumentsFolderCount, Mode=OneWay}"
+					Size="{Binding FormattedDocumentsSize, Mode=OneWay}"
+					FileCount="{Binding DocumentsFileCount, Mode=OneWay}"
+					Visibility="{Binding ShowDocsButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<controls:DetailButton
+					Source="/WizardModule;component/Assets/OthIcon.png"
+					MinWidth="360"
+					IsFileMode="True"
+					Title="{x:Static p:Resources.DBL_Other}"
+					Command="{Binding OnOtherSelected}"
+					FolderCount="{Binding OtherFolderCount, Mode=OneWay}"
+					Size="{Binding FormattedOtherSize, Mode=OneWay}"
+					FileCount="{Binding OtherFileCount, Mode=OneWay}"
+					Visibility="{Binding ShowOtherButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<controls:DetailButton
+					Source="/WizardModule;component/Assets/PicIcon.png"
+					MinWidth="360"
+					IsFileMode="True"
+					Title="{x:Static p:Resources.DBL_Pictures}"
+					Command="{Binding OnPicturesSelected}"
+					FolderCount="{Binding PicturesFolderCount, Mode=OneWay}"
+					Size="{Binding FormattedPicturesSize, Mode=OneWay}"
+					FileCount="{Binding PicturesFileCount, Mode=OneWay}"
+					Visibility="{Binding ShowPicsButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<Grid
+					IsEnabled="{Binding IsUserMappingEnabled, Mode=OneWay}">
+					<controls:DetailButton
+						Source="/WizardModule;component/Assets/UsrIcon.png"
+						MinWidth="360"
+						IsUsersMode="True"
+						Title="{x:Static p:Resources.DBL_Users}"
+						Command="{Binding OnUsersSelected}"
+						UsersCount="{Binding UsersCount, Mode=OneWay}"
+						Visibility="{Binding ShowUserButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+					<controls:DetailButton
+						Source="/WizardModule;component/Assets/UsrIcon.png"
+						MinWidth="360"
+						IsUpgradeMode="True"
+						Title="{x:Static p:Resources.DBL_UsersNotAvailable}"
+						Command="{Binding OnUsersUpgradeSelected}"
+						Visibility="{Binding ShowUserOnlyButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				</Grid>
+				<controls:DetailButton
+					Source="/WizardModule;component/Assets/VidIcon.png"
+					MinWidth="360"
+					IsFileMode="True"
+					Title="{x:Static p:Resources.DBL_Videos}"
+					Command="{Binding OnVideosSelected}"
+					FolderCount="{Binding VideoFolderCount, Mode=OneWay}"
+					Size="{Binding FormattedVideoSize, Mode=OneWay}"
+					FileCount="{Binding VideoFileCount, Mode=OneWay}"
+					Visibility="{Binding ShowVideoButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<controls:DetailButton
+					Source="/WizardModule;component/Assets/AdvIcon.png"
+					MinWidth="360"
+					Title="{x:Static p:Resources.DBL_Advanced}"
+					Command="{Binding OnAdvancedSelected}"
+					Visibility="{Binding ShowAdvancedButton, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			</WrapPanel>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

@@ -1,0 +1,119 @@
+<UserControl
+	x:Class="WizardModule.Views.Popups.OfficeTrial" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:vm="clr-namespace:WizardModule.ViewModels.Popups" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:popups="clr-namespace:WizardModule.Views.Popups">
+	<Canvas
+		Width="605"
+		Height="600">
+		<Border
+			Canvas.Top="15"
+			Canvas.Left="0"
+			Width="580"
+			BorderThickness="4"
+			CornerRadius="8"
+			BorderBrush="#FFC0C0C0"
+			Background="#FFFFFFFF">
+			<StackPanel
+				Orientation="Vertical"
+				Margin="48,24">
+				<TextBlock
+					Style="{StaticResource LargeTextDark}"
+					Text="{x:Static p:Resources.MicrosoftOfficeTrial}" />
+				<Grid
+					Margin="0,12">
+					<Rectangle
+						Width="100"
+						Height="4"
+						Fill="{StaticResource MainThemeBrush2}"
+						HorizontalAlignment="Left"
+						Panel.ZIndex="1" />
+					<Rectangle
+						Width="500"
+						Height="2"
+						Fill="{StaticResource HorizontalLineBackgroundBrush}"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center" />
+				</Grid>
+				<TextBlock
+					TextWrapping="Wrap"
+					Style="{StaticResource MediumTextDark}"
+					FontSize="16"
+					Text="{Binding OfficeTrialMessage}" />
+				<ListView
+					Margin="12,8"
+					BorderBrush="{x:Null}"
+					ItemsSource="{Binding AppList}">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<TextBlock
+								Style="{StaticResource MediumTextMedium}"
+								Text="{Binding Name}" />
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ListView>
+				<TextBlock
+					TextWrapping="Wrap"
+					Style="{StaticResource MediumTextDark}"
+					FontSize="16"
+					Text="{x:Static p:Resources.OfficeTrial2}"
+					Margin="0,12" />
+				<TextBlock
+					TextWrapping="Wrap"
+					Style="{StaticResource MediumTextDark}"
+					FontSize="16"
+					Text="{x:Static p:Resources.OfficeTrial3}" />
+				<TextBlock
+					TextWrapping="Wrap"
+					Style="{StaticResource MediumTextDark}"
+					FontSize="16"
+					Text="{x:Static p:Resources.OfficeTrial4}"
+					Margin="0,12,0,0" />
+				<TextBlock>
+					<Hyperlink
+						CommandParameter="{x:Static Brand:Resources.URL_OfficeHelp}"
+						Style="{StaticResource HyperlinkTextStyle}"
+						Command="{Binding OnOfficeHelp}">
+						<TextBlock
+							Text="{x:Static Brand:Resources.URL_OfficeHelp}"
+							FontSize="16" />
+					</Hyperlink>
+				</TextBlock>
+				<TextBlock
+					TextWrapping="Wrap"
+					Style="{StaticResource MediumTextDark}"
+					FontSize="16"
+					Text="{x:Static p:Resources.OfficeTrial5}"
+					Margin="0,12,0,0" />
+				<TextBlock>
+					<Hyperlink
+						Style="{StaticResource HyperlinkTextStyle}"
+						Command="{Binding OnOfficeHelp}"
+						CommandParameter="{Binding OnlineSupport}">
+						<TextBlock
+							FontSize="16"
+							Text="{Binding OnlineSupportDisplayURL}" />
+					</Hyperlink>
+				</TextBlock>
+				<ToggleButton
+					Content="{x:Static p:Resources.OK}"
+					Style="{StaticResource RoundedToggleButton}"
+					Margin="0,24,0,0"
+					MaxHeight="52"
+					HorizontalAlignment="Center"
+					IsChecked="{Binding PopupData.IsOpen}" />
+			</StackPanel>
+		</Border>
+		<ToggleButton
+			Canvas.Top="-4"
+			Canvas.Left="556"
+			Height="47"
+			Width="44"
+			Background="{x:Null}"
+			IsChecked="{Binding PopupData.IsOpen}"
+			BorderBrush="{x:Null}"
+			Foreground="{x:Null}">
+			<Image
+				Source="/WizardModule;component/Assets/CloseIcon.png"
+				Height="32"
+				Width="32" />
+		</ToggleButton>
+	</Canvas>
+</UserControl>

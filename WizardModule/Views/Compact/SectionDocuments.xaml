@@ -1,0 +1,297 @@
+<UserControl
+	x:Class="WizardModule.Views.Compact.SectionDocuments" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:local="clr-namespace:WizardModule.Views" xmlns:inf="clr-namespace:PCmover.Infrastructure;assembly=PCmover.Infrastructure" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters"
+	Name="root" xmlns:compact="clr-namespace:WizardModule.Views.Compact">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+			<converters:ReverseBooleanConverter
+				x:Key="ReverseBoolConverter" />
+			<converters:FileSizeConverter
+				x:Key="FileSizeConverter" />
+			<local:TransferrableToBoolConverter
+				x:Key="TransferrableConverter" />
+			<local:ReverseGrayoutTransferrableConverter
+				x:Key="ReverseGrayoutTransferrableConverter" />
+			<converters:MultiNullVisibilityConverter
+				x:Key="MultiNullConverter" />
+			<converters:ReverseMultiNullVisibilityConverter
+				x:Key="ReverseMultiNullConverter" />
+			<converters:AllTrueBoolToVisibilityConverter
+				HiddenVisibility="Collapsed"
+				x:Key="MultiBoolConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="140" />
+		</Grid.RowDefinitions>
+		<Border
+			BorderBrush="{StaticResource SubtleLineBrush}"
+			Margin="8"
+			BorderThickness="2"
+			CornerRadius="12"
+			Padding="8"
+			Background="#FFFFFFFF">
+			<Grid
+				HorizontalAlignment="Stretch">
+				<TreeView
+					Name="treeView"
+					VirtualizingPanel.IsVirtualizing="True"
+					VirtualizingPanel.VirtualizationMode="Standard"
+					ScrollViewer.IsDeferredScrollingEnabled="True"
+					ItemsSource="{Binding Folders}">
+					<i:Interaction.Triggers>
+						<i:EventTrigger
+							EventName="SelectedItemChanged">
+							<i:InvokeCommandAction
+								Command="{Binding OnFolderItemChanged}"
+								CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}" />
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<VirtualizingStackPanel
+								IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<HierarchicalDataTemplate
+								DataType="{x:Type inf:FolderDetail}"
+								ItemsSource="{Binding TreeItems}"
+								x:Key="{DataTemplateKey {x:Type inf:FolderDetail}}">
+								<StackPanel
+									Orientation="Horizontal">
+									<CheckBox
+										Margin="4,0,0,0"
+										IsTabStop="False"
+										IsChecked="{Binding Transferrable, Mode=TwoWay, Converter={StaticResource TransferrableConverter}}"
+										ToolTip="{Binding FullPath, Mode=OneWay}"
+										Command="{Binding ElementName=root, Path=DataContext.OnFolderSelectedChanged}"
+										CommandParameter="{Binding}"
+										IsEnabled="{Binding ElementName=root, Path=DataContext.IsReadOnly, Mode=OneWay, Converter={StaticResource ReverseVisibilityConverter}}" />
+									<Image
+										Width="20"
+										Height="20"
+										Margin="0,0,4,0"
+										Source="/WizardModule;component/Assets/FolderIcon.png"
+										VerticalAlignment="Center" />
+									<TextBlock
+										VerticalAlignment="Center"
+										Text="{Binding DisplayName, Mode=OneWay}" />
+									<TextBlock
+										Margin="16,0,0,0"
+										VerticalAlignment="Center">(<Run
+											Text="{Binding SelectedSize, Mode=OneWay, Converter={StaticResource FileSizeConverter}}" />)</TextBlock>
+								</StackPanel>
+							</HierarchicalDataTemplate>
+							<DataTemplate
+								DataType="{x:Type inf:FileDetail}"
+								x:Key="{DataTemplateKey {x:Type inf:FileDetail}}">
+								<StackPanel
+									Orientation="Horizontal"
+									Margin="4,0,0,0">
+									<CheckBox
+										IsTabStop="False"
+										IsChecked="{Binding Selected, Mode=TwoWay, Converter={StaticResource TransferrableConverter}}"
+										Command="{Binding ElementName=root, Path=DataContext.OnFileSelectedChanged}"
+										CommandParameter="{Binding}"
+										IsEnabled="{Binding ElementName=root, Path=DataContext.IsReadOnly, Mode=OneWay, Converter={StaticResource ReverseVisibilityConverter}}" />
+									<TextBlock
+										Text="{Binding Name, Mode=OneWay}" />
+									<TextBlock
+										Margin="16,0,0,0">(<Run
+											Text="{Binding SelectedSize, Mode=OneWay, Converter={StaticResource FileSizeConverter}}" />)</TextBlock>
+								</StackPanel>
+							</DataTemplate>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</TreeView>
+			</Grid>
+		</Border>
+		<Border
+			Grid.Row="1"
+			Margin="8"
+			BorderBrush="{StaticResource SubtleLineBrush}"
+			BorderThickness="2"
+			CornerRadius="12"
+			Padding="8,8,12,8"
+			Background="#FFFFFFFF">
+			<ScrollViewer>
+				<Grid>
+					<Grid>
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource ReverseMultiNullConverter}">
+								<Binding
+									Path="SelectedFolder"
+									UpdateSourceTrigger="PropertyChanged" />
+								<Binding
+									Path="SelectedFile"
+									UpdateSourceTrigger="PropertyChanged" />
+							</MultiBinding>
+						</UIElement.Visibility>
+						<TextBlock
+							Style="{StaticResource SmallTextMedium}"
+							Text="{x:Static p:Resources.SD_Select}"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Margin="60,0"
+							TextAlignment="Center" />
+					</Grid>
+					<Grid>
+						<UIElement.Visibility>
+							<MultiBinding
+								Converter="{StaticResource MultiNullConverter}">
+								<Binding
+									Path="SelectedFolder"
+									UpdateSourceTrigger="PropertyChanged" />
+								<Binding
+									Path="SelectedFile"
+									UpdateSourceTrigger="PropertyChanged" />
+							</MultiBinding>
+						</UIElement.Visibility>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								MinHeight="120"
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="80" />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							Grid.ColumnSpan="2"
+							Style="{StaticResource SmallTextMedium}"
+							Text="{x:Static p:Resources.SD_YouCanRedirect}"
+							VerticalAlignment="Center"
+							Margin="4,16,0,16"
+							Visibility="{Binding CanRedirect, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+						<TextBlock
+							Grid.ColumnSpan="2"
+							Style="{StaticResource SmallTextMedium}"
+							Text="{x:Static p:Resources.SD_CantRedirect}"
+							VerticalAlignment="Center"
+							Margin="4,16,0,16"
+							Visibility="{Binding CanRedirect, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+						<TextBlock
+							Grid.Row="1"
+							Style="{StaticResource SmallTextMedium}"
+							Text="{x:Static p:Resources.SD_Path}"
+							VerticalAlignment="Center"
+							Margin="4,0,0,0" />
+						<TextBox
+							Grid.Row="1"
+							Grid.Column="1"
+							HorizontalAlignment="Stretch"
+							IsReadOnly="True"
+							Margin="12,0,0,4"
+							BorderBrush="#FF000000"
+							CaretBrush="#FF000000"
+							Background="#F4F4F4"
+							Text="{Binding SelectedFolder.FullPath, Mode=OneWay}"
+							Visibility="{Binding IsSelectedFolder, Converter={StaticResource VisibilityConverter}, Mode=OneWay}"
+							ToolTip="{Binding SelectedFolder.FullPath, Mode=OneWay}" />
+						<TextBox
+							Grid.Row="1"
+							Grid.Column="1"
+							HorizontalAlignment="Stretch"
+							IsReadOnly="True"
+							Margin="12,0,0,4"
+							BorderBrush="#FF000000"
+							CaretBrush="#FF000000"
+							Background="#F4F4F4"
+							Text="{Binding SelectedFile.FullPath, Mode=OneWay}"
+							Visibility="{Binding IsSelectedFolder, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}"
+							ToolTip="{Binding SelectedFile.FullPath, Mode=OneWay}" />
+						<Grid
+							Row="2"
+							ColumnSpan="2"
+							Visibility="{Binding CanRedirect, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="80" />
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+							<TextBlock
+								Style="{StaticResource SmallTextMedium}"
+								Text="{x:Static p:Resources.SD_Target}"
+								VerticalAlignment="Center"
+								Margin="4,0,0,0" />
+							<TextBox
+								Grid.Column="1"
+								HorizontalAlignment="Stretch"
+								Margin="12,0,0,4"
+								BorderBrush="#FF000000"
+								CaretBrush="#FF000000"
+								IsReadOnly="{Binding CanRedirect, Converter={StaticResource ReverseBoolConverter}, Mode=OneWay}"
+								Text="{Binding FolderTarget, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								Visibility="{Binding IsSelectedFolder, Converter={StaticResource VisibilityConverter}, Mode=OneWay}"
+								ToolTip="{Binding FolderTarget, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+							<TextBox
+								Grid.Column="1"
+								HorizontalAlignment="Stretch"
+								Margin="12,0,0,4"
+								BorderBrush="#FF000000"
+								CaretBrush="#FF000000"
+								IsReadOnly="{Binding CanRedirect, Converter={StaticResource ReverseBoolConverter}, Mode=OneWay}"
+								Text="{Binding FileTarget, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								Visibility="{Binding IsSelectedFolder, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}"
+								ToolTip="{Binding FileTarget, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+						</Grid>
+						<TextBlock
+							Grid.Row="2"
+							Grid.ColumnSpan="2"
+							Style="{StaticResource SmallTextMedium}"
+							TextWrapping="Wrap"
+							HorizontalAlignment="Stretch"
+							Margin="4,20,0,4"
+							Text="{Binding SelectedFile.NotSelectableText, Mode=OneWay}"
+							Visibility="{Binding CanRedirect, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+						<TextBlock
+							Grid.Row="3"
+							Grid.ColumnSpan="2"
+							Style="{StaticResource SmallTextMedium}"
+							Text="{x:Static p:Resources.SD_Specify}"
+							Margin="4,24,0,0"
+							Visibility="{Binding CanRedirect, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+						<StackPanel
+							Orientation="Horizontal"
+							Grid.Row="4"
+							Margin="0,10"
+							Grid.ColumnSpan="2"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Bottom"
+							Visibility="{Binding CanRedirect, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+							<Button
+								Style="{StaticResource RoundedButtonSmall}"
+								Margin="8,0"
+								Content="{x:Static p:Resources.SD_Apply}"
+								Command="{Binding OnApply}" />
+							<Button
+								Style="{StaticResource RoundedButtonSmall}"
+								Margin="8,0"
+								Content="{x:Static p:Resources.SD_Restore}"
+								Command="{Binding OnRestore}" />
+						</StackPanel>
+					</Grid>
+				</Grid>
+			</ScrollViewer>
+		</Border>
+	</Grid>
+</UserControl>

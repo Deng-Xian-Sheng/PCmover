@@ -1,0 +1,31 @@
+﻿using System;
+
+namespace ControlzEx.Standard
+{
+	// Token: 0x02000055 RID: 85
+	internal enum ABMsg
+	{
+		// Token: 0x040004EA RID: 1258
+		ABM_NEW,
+		// Token: 0x040004EB RID: 1259
+		ABM_REMOVE,
+		// Token: 0x040004EC RID: 1260
+		ABM_QUERYPOS,
+		// Token: 0x040004ED RID: 1261
+		ABM_SETPOS,
+		// Token: 0x040004EE RID: 1262
+		ABM_GETSTATE,
+		// Token: 0x040004EF RID: 1263
+		ABM_GETTASKBARPOS,
+		// Token: 0x040004F0 RID: 1264
+		ABM_ACTIVATE,
+		// Token: 0x040004F1 RID: 1265
+		ABM_GETAUTOHIDEBAR,
+		// Token: 0x040004F2 RID: 1266
+		ABM_SETAUTOHIDEBAR,
+		// Token: 0x040004F3 RID: 1267
+		ABM_WINDOWPOSCHANGED,
+		// Token: 0x040004F4 RID: 1268
+		ABM_SETSTATE
+	}
+}

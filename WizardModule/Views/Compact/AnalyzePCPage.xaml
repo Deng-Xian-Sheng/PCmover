@@ -1,0 +1,173 @@
+<UserControl
+	x:Class="WizardModule.Views.Compact.AnalyzePCPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:local="clr-namespace:WizardModule.Views" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:compact="clr-namespace:WizardModule.Views.Compact">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+			<local:SSLColorConverter
+				x:Key="ColorConverter" />
+			<local:SSLImageConverter
+				x:Key="ImageConverter" />
+			<converters:ReverseBooleanConverter
+				x:Key="ReverseBoolConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			HorizontalAlignment="Center"
+			VerticalAlignment="Top"
+			Margin="0,48,0,0">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image
+				Source="/WizardModule;component/Assets/PCcheckLarge.png"
+				Height="68"
+				Visibility="{Binding IsImageAssistMigration, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+			<Image
+				Source="/WizardModule;component/Assets/HardDriveOnScreen.png"
+				Height="68"
+				Visibility="{Binding IsImageAssistMigration, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<Image
+				Grid.Column="1"
+				Source="/WizardModule;component/Assets/RightArrow.png"
+				Margin="8,0"
+				Height="28" />
+			<Image
+				Grid.Column="2"
+				Source="/WizardModule;component/Assets/PCcheckLarge.png"
+				Height="68" />
+			<TextBlock
+				Grid.Row="1"
+				Text="{x:Static p:Resources.strOtherPC}"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Bottom" />
+			<TextBlock
+				Grid.Row="2"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Bottom"
+				Margin="70,0"
+				Text="{Binding OtherPC, Mode=OneWay, FallbackValue=Cindys PC}" />
+			<TextBlock
+				Grid.Row="1"
+				Text="{x:Static p:Resources.strThisPC}"
+				Grid.Column="2"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Bottom" />
+			<TextBlock
+				Grid.Row="2"
+				Grid.Column="2"
+				HorizontalAlignment="Center"
+				Style="{StaticResource SmallTextMedium}"
+				VerticalAlignment="Top"
+				Text="{Binding ThisPC, Mode=OneWay, FallbackValue=xHP Pavilion X19}" />
+		</Grid>
+		<StackPanel
+			Grid.Row="1"
+			Orientation="Horizontal"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Visibility="{Binding IsBusy, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<Controls:ProgressRing
+				Width="48"
+				Margin="0,0,28,0"
+				HorizontalAlignment="Right"
+				IsActive="{Binding IsBusy}" />
+			<StackPanel
+				Orientation="Vertical"
+				HorizontalAlignment="Center">
+				<TextBlock
+					Text="{x:Static p:Resources.APCO_Retrieving}"
+					Style="{DynamicResource MediumTextDark}" />
+				<TextBlock
+					Style="{DynamicResource SmallTextDark}"
+					Text="{Binding APCO_Determining}" />
+				<StackPanel
+					Orientation="Horizontal"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Visibility="{Binding IsImageAssistMigration, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}">
+					<TextBlock
+						Text="{x:Static p:Resources.APCO_Processed}"
+						Style="{DynamicResource SmallTextDark}" />
+					<TextBlock
+						Style="{DynamicResource SmallTextDark}"
+						Margin="4,0"
+						Text="{Binding NumItems, StringFormat={}{0:#,0}}" />
+					<TextBlock
+						Text="{x:Static p:Resources.APCO_Items}"
+						Style="{DynamicResource SmallTextDark}" />
+				</StackPanel>
+				<TextBlock
+					Style="{DynamicResource SmallTextDark}"
+					VerticalAlignment="Center"
+					Text="{Binding IAProgress, Mode=OneWay}"
+					Visibility="{Binding IsImageAssistMigration, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			</StackPanel>
+		</StackPanel>
+		<TextBlock
+			Grid.Row="2"
+			Style="{StaticResource SmallTextDark}"
+			TextWrapping="Wrap"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Margin="0,0,0,32">
+			<Hyperlink
+				Style="{StaticResource HyperlinkTextStyle}"
+				FontSize="24"
+				Command="{Binding OnCustomTransfer}">
+				<Run
+					Text="{x:Static p:Resources.APCO_Custom}" />
+			</Hyperlink>
+		</TextBlock>
+		<StackPanel
+			Grid.Row="3"
+			Orientation="Horizontal"
+			HorizontalAlignment="Center"
+			Margin="0,0,0,12">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				MaxHeight="52"
+				VerticalAlignment="Bottom"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="{x:Static p:Resources.APCO_TransferEverything}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				MaxHeight="52"
+				VerticalAlignment="Bottom"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

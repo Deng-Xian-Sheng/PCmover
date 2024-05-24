@@ -1,0 +1,89 @@
+﻿using System;
+
+namespace ceTe.DynamicPDF.PageElements.BarCoding
+{
+	// Token: 0x02000755 RID: 1877
+	public enum AztecSymbolSize
+	{
+		// Token: 0x04002948 RID: 10568
+		Auto,
+		// Token: 0x04002949 RID: 10569
+		Full,
+		// Token: 0x0400294A RID: 10570
+		Compact,
+		// Token: 0x0400294B RID: 10571
+		Rune,
+		// Token: 0x0400294C RID: 10572
+		R15xC15Compact,
+		// Token: 0x0400294D RID: 10573
+		R19xC19Compact,
+		// Token: 0x0400294E RID: 10574
+		R19xC19,
+		// Token: 0x0400294F RID: 10575
+		R23xC23Compact,
+		// Token: 0x04002950 RID: 10576
+		R23xC23,
+		// Token: 0x04002951 RID: 10577
+		R27xC27Compact,
+		// Token: 0x04002952 RID: 10578
+		R27xC27,
+		// Token: 0x04002953 RID: 10579
+		R31xC31,
+		// Token: 0x04002954 RID: 10580
+		R37xC37,
+		// Token: 0x04002955 RID: 10581
+		R41xC41,
+		// Token: 0x04002956 RID: 10582
+		R45xC45,
+		// Token: 0x04002957 RID: 10583
+		R49xC49,
+		// Token: 0x04002958 RID: 10584
+		R53xC53,
+		// Token: 0x04002959 RID: 10585
+		R57xC57,
+		// Token: 0x0400295A RID: 10586
+		R61xC61,
+		// Token: 0x0400295B RID: 10587
+		R67xC67,
+		// Token: 0x0400295C RID: 10588
+		R71xC71,
+		// Token: 0x0400295D RID: 10589
+		R75xC75,
+		// Token: 0x0400295E RID: 10590
+		R79xC79,
+		// Token: 0x0400295F RID: 10591
+		R83xC83,
+		// Token: 0x04002960 RID: 10592
+		R87xC87,
+		// Token: 0x04002961 RID: 10593
+		R91xC91,
+		// Token: 0x04002962 RID: 10594
+		R95xC95,
+		// Token: 0x04002963 RID: 10595
+		R101xC101,
+		// Token: 0x04002964 RID: 10596
+		R105xC105,
+		// Token: 0x04002965 RID: 10597
+		R109xC109,
+		// Token: 0x04002966 RID: 10598
+		R113xC113,
+		// Token: 0x04002967 RID: 10599
+		R117xC117,
+		// Token: 0x04002968 RID: 10600
+		R121xC121,
+		// Token: 0x04002969 RID: 10601
+		R125xC125,
+		// Token: 0x0400296A RID: 10602
+		R131xC131,
+		// Token: 0x0400296B RID: 10603
+		R135xC135,
+		// Token: 0x0400296C RID: 10604
+		R139xC139,
+		// Token: 0x0400296D RID: 10605
+		R143xC143,
+		// Token: 0x0400296E RID: 10606
+		R147xC147,
+		// Token: 0x0400296F RID: 10607
+		R151xC151
+	}
+}

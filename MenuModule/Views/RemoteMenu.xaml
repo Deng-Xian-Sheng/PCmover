@@ -1,0 +1,66 @@
+<UserControl
+	x:Class="MenuModule.Views.RemoteMenu" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:prism="http://prismlibrary.com/"
+	prism:ViewModelLocator.AutoWireViewModel="True" xmlns:views="clr-namespace:MenuModule.Views">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			Text="Remote Menu"
+			FontSize="20"
+			Margin="0,10" />
+		<ListView
+			Grid.Row="1"
+			Margin="30,20,30,20"
+			MaxHeight="260"
+			HorizontalContentAlignment="Center"
+			BorderBrush="{x:Null}"
+			ItemsSource="{Binding Endpoints, Mode=OneWay}"
+			SelectedItem="{Binding CurrentSelectedEndpointAddress}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="150" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							Style="{StaticResource MediumTextMedium}"
+							VerticalAlignment="Center"
+							Margin="0,0,20,0"
+							Text="{Binding Address.Uri.Host}" />
+						<TextBlock
+							Grid.Column="1"
+							Style="{StaticResource MediumTextMedium}"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Left"
+							Text="{Binding Address}" />
+					</Grid>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListView>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="2">
+			<Button
+				Grid.Column="0"
+				Content="Connect"
+				Width="100"
+				Margin="0,10"
+				Command="{Binding OnConnect}" />
+			<Button
+				Grid.Column="0"
+				Content="Cancel"
+				Width="100"
+				Margin="10,10,0,10"
+				Command="{Binding OnCancel}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

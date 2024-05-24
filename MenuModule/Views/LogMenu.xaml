@@ -1,0 +1,178 @@
+<UserControl
+	x:Class="MenuModule.Views.LogMenu" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:MenuModule.Views" xmlns:inf="clr-namespace:PCmover.Infrastructure;assembly=PCmover.Infrastructure">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="12" />
+			<RowDefinition
+				Height="28" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="*" />
+		</Grid.ColumnDefinitions>
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="0"
+			Text="What To Log" />
+		<StackPanel
+			Grid.Row="2"
+			Grid.Column="0">
+			<CheckBox
+				Name="StartupSequence"
+				Content="Startup Sequence"
+				IsChecked="{Binding WhatStartup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="NetworkActivity"
+				Content="Network Activity"
+				IsChecked="{Binding WhatNetwork, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Snapshot"
+				Content="Snapshot"
+				IsChecked="{Binding WhatSnapshot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="BuildMovingJournals"
+				Content="Build Moving Journals"
+				IsChecked="{Binding WhatBuild, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="FillMovingVan"
+				Content="Fill Moving Van"
+				IsChecked="{Binding WhatFill, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="UnloadMovingVan"
+				Content="Unload Moving Van"
+				IsChecked="{Binding WhatUnload, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Progress"
+				Content="Progress"
+				IsChecked="{Binding WhatProgress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Users"
+				Content="Users"
+				IsChecked="{Binding WhatUsers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Applications"
+				Content="Applications"
+				IsChecked="{Binding WhatApps, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Wizard"
+				Content="Wizard"
+				IsChecked="{Binding WhatWizard, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Threads"
+				Content="Threads"
+				IsChecked="{Binding WhatThread, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</StackPanel>
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="1"
+			Text="Detail" />
+		<StackPanel
+			Grid.Row="2"
+			Grid.Column="1">
+			<CheckBox
+				Name="Errors"
+				Content="Errors"
+				IsChecked="{Binding DetailErrors, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Status"
+				Content="Status"
+				IsChecked="{Binding DetailStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Verbose"
+				Content="Verbose"
+				IsChecked="{Binding DetailVerbose, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</StackPanel>
+		<TextBlock
+			Grid.Row="1"
+			Grid.Column="2"
+			Text="Method" />
+		<StackPanel
+			Grid.Row="2"
+			Grid.Column="2">
+			<CheckBox
+				Name="PopupDialog"
+				Content="Pop-up Dialog"
+				IsChecked="{Binding MethodPopup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="TextFile"
+				Content="Text File"
+				IsChecked="{Binding MethodFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="CSVFile"
+				Content="CSV File"
+				IsChecked="{Binding MethodCsv, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<CheckBox
+				Name="Thread"
+				Content="Thread"
+				IsChecked="{Binding MethodThread, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+		</StackPanel>
+		<Grid
+			Row="3"
+			ColumnSpan="3"
+			Margin="0,12">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Text="Log File Name"
+				VerticalAlignment="Center" />
+			<TextBox
+				Grid.Column="1"
+				HorizontalAlignment="Stretch"
+				Margin="8,0,4,0"
+				Text="{Binding LogFileName, Mode=TwoWay}" />
+			<Button
+				Grid.Column="2"
+				Content="..."
+				HorizontalAlignment="Left"
+				Margin="0,0,8,0"
+				Width="24"
+				Command="{Binding OnBrowse}" />
+		</Grid>
+		<Button
+			Grid.Row="4"
+			Grid.Column="1"
+			Content="View Log File"
+			Width="100"
+			Margin="0,10"
+			Command="{Binding OnViewLogFile}" />
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="5"
+			Grid.ColumnSpan="3"
+			Margin="0,12"
+			HorizontalAlignment="Center">
+			<Button
+				Content="Apply"
+				Width="100"
+				Command="{Binding OnApply}" />
+			<Button
+				Content="Apply and Exit"
+				Width="100"
+				Margin="8,0"
+				Command="{Binding OnApplyExit}" />
+			<Button
+				Content="Cancel"
+				Width="100"
+				Command="{Binding OnCancel}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

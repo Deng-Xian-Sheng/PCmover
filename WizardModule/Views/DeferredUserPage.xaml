@@ -1,0 +1,101 @@
+<UserControl
+	x:Class="WizardModule.Views.DeferredUserPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Name="MainGrid"
+		Background="#00FFFFFF">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="120" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			VerticalAlignment="Bottom"
+			HorizontalAlignment="Center"
+			MaxWidth="800"
+			Margin="0,20,0,0">
+			<Image
+				Source="/WizardModule;component/Assets/PCLarge.png"
+				Height="100" />
+			<Image
+				Source="/WizardModule;component/Assets/UsrIcon.png"
+				Height="64" />
+		</Grid>
+		<TextBlock
+			Grid.Row="1"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Style="{StaticResource MediumTextMedium}"
+			Text="{x:Static p:Resources.DUP_Description}"
+			MaxWidth="700"
+			Visibility="{Binding ShowWelcome, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="1"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Visibility="{Binding ShowInventory, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<mah:ProgressRing
+				Width="48"
+				Margin="0,0,28,0"
+				HorizontalAlignment="Right"
+				IsActive="True" />
+			<TextBlock
+				Text="{x:Static p:Resources.FBTPP_Scanning}"
+				Style="{StaticResource MediumTextMedium}" />
+		</StackPanel>
+		<Grid
+			Row="1"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			Visibility="{Binding ShowProgress, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Text="{x:Static p:Resources.FBTPP_Unloading}"
+				Margin="0,0,0,8"
+				Style="{StaticResource MediumTextMedium}" />
+			<ProgressBar
+				Grid.Row="1"
+				Height="40"
+				Width="640"
+				Value="{Binding Progress, Mode=OneWay}" />
+		</Grid>
+		<StackPanel
+			Grid.Row="2"
+			HorizontalAlignment="Center"
+			Margin="0,12"
+			Orientation="Horizontal">
+			<Button
+				Content="{x:Static p:Resources.POSTPONE}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Command="{Binding OnPostpone}" />
+			<Button
+				Content="{x:Static p:Resources.NEXT}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				Command="{Binding OnNext}" />
+			<Button
+				Content="{x:Static p:Resources.CANCEL}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Command="{Binding OnCancel}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

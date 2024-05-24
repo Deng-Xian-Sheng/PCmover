@@ -1,0 +1,17 @@
+﻿using System;
+
+namespace Microsoft.WindowsAPICodePack.Shell
+{
+	// Token: 0x02000166 RID: 358
+	internal enum SICHINTF
+	{
+		// Token: 0x04000658 RID: 1624
+		SICHINT_DISPLAY,
+		// Token: 0x04000659 RID: 1625
+		SICHINT_CANONICAL = 268435456,
+		// Token: 0x0400065A RID: 1626
+		SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 536870912,
+		// Token: 0x0400065B RID: 1627
+		SICHINT_ALLFIELDS = -2147483648
+	}
+}

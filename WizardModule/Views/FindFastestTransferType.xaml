@@ -1,0 +1,349 @@
+<UserControl
+	x:Class="WizardModule.Views.FindFastestTransferType" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:ReverseBooleanConverter
+				x:Key="ReverseBoolConverter" />
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+			<converters:ReverseBoolToVisibilityConverter
+				x:Key="ReverseVisibilityConverter" />
+			<Style
+				TargetType="{x:Type ToggleButton}"
+				x:Key="hidden">
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ToggleButton}">
+							<Border
+								BorderThickness="0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Margin="8,0">
+								<ContentPresenter />
+							</Border>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		MaxWidth="700">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="70" />
+			<RowDefinition
+				Height="2*" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<TextBlock
+			FontSize="16"
+			FontFamily="Segoe UI Semilight"
+			TextWrapping="Wrap"
+			Margin="0,10,0,0"
+			Text="{x:Static p:Resources.FFTT_Desc}" />
+		<ScrollViewer
+			VerticalScrollBarVisibility="Auto"
+			Grid.Row="1">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="50" />
+					<RowDefinition
+						Height="Auto" />
+					<RowDefinition
+						Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="50" />
+					<ColumnDefinition
+						Width="150" />
+					<ColumnDefinition
+						Width="150" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Border
+					Grid.Row="0"
+					Grid.ColumnSpan="4"
+					Grid.RowSpan="2"
+					Background="#FFFFFFFF"
+					BorderThickness="1"
+					BorderBrush="{StaticResource MainThemeBrush1}" />
+				<Border
+					Grid.Row="2"
+					Grid.ColumnSpan="4"
+					Grid.RowSpan="4"
+					BorderThickness="1,0,1,0"
+					BorderBrush="{StaticResource MainThemeBrush1}" />
+				<Border
+					Grid.Row="6"
+					Grid.ColumnSpan="4"
+					Grid.RowSpan="2"
+					Background="#FFFFFFFF"
+					BorderThickness="1"
+					BorderBrush="{StaticResource MainThemeBrush1}" />
+				<Border
+					Grid.Row="8"
+					Grid.ColumnSpan="4"
+					Grid.RowSpan="2"
+					BorderThickness="1,0,1,1"
+					BorderBrush="{StaticResource MainThemeBrush1}" />
+				<Image
+					Grid.Row="0"
+					Grid.Column="0"
+					Height="26"
+					Source="/WizardModule;component/Assets/One.png" />
+				<TextBlock
+					Grid.Row="0"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					FontSize="16"
+					FontFamily="Segoe UI Semilight"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					Text="{x:Static p:Resources.FFTT_USB}" />
+				<TextBlock
+					Grid.Row="0"
+					Grid.Column="3"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,15,0">
+					<Hyperlink
+						Style="{StaticResource HyperlinkTextStyle}"
+						Command="{Binding OnGetCable}">
+						<Run
+							Text="{x:Static p:Resources.FFTT_GetUSB}"
+							FontSize="14"
+							FontFamily="Segoe UI Semibold" />
+					</Hyperlink>
+				</TextBlock>
+				<RadioButton
+					Grid.Row="1"
+					Grid.Column="1"
+					Content="{x:Static p:Resources.strYes}"
+					GroupName="A"
+					DataContext="{Binding Questions}"
+					IsChecked="{Binding UsbCableYes, Mode=TwoWay}" />
+				<RadioButton
+					Grid.Row="1"
+					Grid.Column="2"
+					Content="{x:Static p:Resources.strNo}"
+					GroupName="A"
+					DataContext="{Binding Questions}"
+					IsChecked="{Binding UsbCableNo, Mode=TwoWay}" />
+				<Image
+					Grid.Row="2"
+					Grid.Column="0"
+					Height="26"
+					Source="/WizardModule;component/Assets/Two.png" />
+				<TextBlock
+					Grid.Row="2"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					FontSize="16"
+					FontFamily="Segoe UI Semilight"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					Text="{x:Static p:Resources.FFTT_YesEthernetPort}"
+					DataContext="{Binding Questions}"
+					Visibility="{Binding EthernetPortLocal, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<TextBlock
+					Grid.Row="2"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					FontSize="16"
+					FontFamily="Segoe UI Semilight"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					Text="{x:Static p:Resources.FFTT_NoEthernetPort}"
+					DataContext="{Binding Questions}"
+					Visibility="{Binding EthernetPortLocal, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+				<RadioButton
+					Grid.Row="3"
+					Grid.Column="1"
+					Content="{x:Static p:Resources.strYes}"
+					GroupName="B"
+					DataContext="{Binding Questions}"
+					IsChecked="{Binding EthernetPortRemoteYes, Mode=TwoWay}"
+					Command="{Binding Path=DataContext.OnSetCableVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+				<RadioButton
+					Grid.Row="3"
+					Grid.Column="2"
+					Content="{x:Static p:Resources.strNo}"
+					GroupName="B"
+					DataContext="{Binding Questions}"
+					IsChecked="{Binding EthernetPortRemoteNo, Mode=TwoWay}"
+					Command="{Binding Path=DataContext.OnSetCableVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}" />
+				<Grid
+					Row="4"
+					ColumnSpan="4"
+					Visibility="{Binding EthernetCableVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="50" />
+						<RowDefinition
+							Height="50" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="50" />
+						<ColumnDefinition
+							Width="150" />
+						<ColumnDefinition
+							Width="150" />
+						<ColumnDefinition
+							Width="*" />
+					</Grid.ColumnDefinitions>
+					<TextBlock
+						Grid.Column="1"
+						Grid.ColumnSpan="3"
+						FontSize="16"
+						FontFamily="Segoe UI Semilight"
+						TextWrapping="Wrap"
+						VerticalAlignment="Center"
+						Text="{x:Static p:Resources.FFTT_EthernetCable}" />
+					<RadioButton
+						Grid.Row="2"
+						Grid.Column="1"
+						Content="{x:Static p:Resources.strYes}"
+						GroupName="C"
+						DataContext="{Binding Questions}"
+						IsChecked="{Binding EthernetCableYes, Mode=TwoWay}" />
+					<RadioButton
+						Grid.Row="2"
+						Grid.Column="2"
+						Content="{x:Static p:Resources.strNo}"
+						GroupName="C"
+						DataContext="{Binding Questions}"
+						IsChecked="{Binding EthernetCableNo, Mode=TwoWay}" />
+				</Grid>
+				<Image
+					Grid.Row="6"
+					Grid.Column="0"
+					Height="26"
+					Source="/WizardModule;component/Assets/Three.png" />
+				<TextBlock
+					Grid.Row="6"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					FontSize="16"
+					FontFamily="Segoe UI Semilight"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					Text="{x:Static p:Resources.FFTT_YesWiFi}"
+					DataContext="{Binding Questions}"
+					Visibility="{Binding WiFiLocal, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<TextBlock
+					Grid.Row="6"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					FontSize="16"
+					FontFamily="Segoe UI Semilight"
+					TextWrapping="Wrap"
+					VerticalAlignment="Center"
+					Text="{x:Static p:Resources.FFTT_NoWiFi}"
+					DataContext="{Binding Questions}"
+					Visibility="{Binding WiFiLocal, Converter={StaticResource ReverseVisibilityConverter}, Mode=OneWay}" />
+				<RadioButton
+					Grid.Row="7"
+					Grid.Column="1"
+					Content="{x:Static p:Resources.strYes}"
+					GroupName="E"
+					DataContext="{Binding Questions}"
+					IsChecked="{Binding WiFiRemoteYes, Mode=TwoWay}" />
+				<RadioButton
+					Grid.Row="7"
+					Grid.Column="2"
+					Content="{x:Static p:Resources.strNo}"
+					GroupName="E"
+					DataContext="{Binding Questions}"
+					IsChecked="{Binding WiFiRemoteNo, Mode=TwoWay}" />
+				<Image
+					Grid.Row="8"
+					Grid.Column="0"
+					Height="26"
+					Source="/WizardModule;component/Assets/Four.png"
+					Visibility="{Binding ShowFileBased, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<DockPanel
+					LastChildFill="True"
+					Grid.Row="8"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					Height="50"
+					Visibility="{Binding ShowFileBased, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<TextBlock
+						DockPanel.Dock="Top"
+						FontSize="16"
+						FontFamily="Segoe UI Semilight"
+						TextWrapping="Wrap"
+						VerticalAlignment="Center"
+						Text="{x:Static p:Resources.FFTT_External}"
+						Visibility="{Binding ShowFileBased, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				</DockPanel>
+				<DockPanel
+					LastChildFill="True"
+					Grid.Row="9"
+					Grid.Column="1"
+					Height="50"
+					Visibility="{Binding ShowFileBased, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<RadioButton
+						DockPanel.Dock="Top"
+						Content="{x:Static p:Resources.strYes}"
+						GroupName="F"
+						DataContext="{Binding Questions}"
+						IsChecked="{Binding ExternalUsbDriveYes, Mode=TwoWay}" />
+				</DockPanel>
+				<DockPanel
+					LastChildFill="True"
+					Grid.Row="9"
+					Grid.Column="2"
+					Height="50"
+					Visibility="{Binding ShowFileBased, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<RadioButton
+						DockPanel.Dock="Top"
+						Content="{x:Static p:Resources.strNo}"
+						GroupName="F"
+						DataContext="{Binding Questions}"
+						IsChecked="{Binding ExternalUsbDriveNo, Mode=TwoWay}" />
+				</DockPanel>
+			</Grid>
+		</ScrollViewer>
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="2"
+			HorizontalAlignment="Center"
+			Margin="0,10"
+			VerticalAlignment="Bottom">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="{x:Static p:Resources.FFTT_Recommendations}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				Command="{Binding OnGetRecommendations}" />
+		</StackPanel>
+	</Grid>
+</UserControl>

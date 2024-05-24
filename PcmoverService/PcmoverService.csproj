@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PcmoverService</RootNamespace>
+    <AssemblyName>PcmoverService</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CertificateServer\CertificateService.cs" />
+    <Compile Include="CertificateServer\ICertificateService.cs" />
+    <Compile Include="Laplink\Pcmover\Service\AppInventoryActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\AppProfileZipFile.cs" />
+    <Compile Include="Laplink\Pcmover\Service\AuthorizeTaskHelper.cs" />
+    <Compile Include="Laplink\Pcmover\Service\BuildChangeListsActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\CreateAnyMachineActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\CreateImageMachineActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\DiscoveryActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\DistinguishedName.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ExpandSnapshotActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\FileTransferActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\GenerateReportsActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\GetSnapshotActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\IMachineActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ImageTransferActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ITaskActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ITransferMethodActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ITransferMethodsActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ITransferParametersActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ListenActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\LoadMovingJournalActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmoverControlCallbackStateData.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmoverManager.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmoverObjectComparer.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmoverObjectHandleManager.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmoverObjectWrapper.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmoverServiceHost.cs" />
+    <Compile Include="Laplink\Pcmover\Service\PcmProtocolBase.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ProgressEventsHandler.cs" />
+    <Compile Include="Laplink\Pcmover\Service\RegFreeCOMObject.cs" />
+    <Compile Include="Laplink\Pcmover\Service\SaveMovingVanActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\SaveSnapshotActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceFileTransferMethod.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceImageTransferMethod.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceMachine.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceMachineComparer.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceMachineHandleManager.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceNetworkTransferMethod.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceTask.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceTaskComparer.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceTaskHandleManager.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceTransferMethod.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceUsbTransferMethod.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ServiceWinUpgradeTransferMethod.cs" />
+    <Compile Include="Laplink\Pcmover\Service\SuspendSleep.cs" />
+    <Compile Include="Laplink\Pcmover\Service\TransferActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\UiCallbacksHandler.cs" />
+    <Compile Include="Laplink\Pcmover\Service\UndoActivity.cs" />
+    <Compile Include="Laplink\Pcmover\Service\UserData.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ValidationCode.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ValidationCodeTransfer.cs" />
+    <Compile Include="Laplink\Pcmover\Service\ValidationCodeUse.cs" />
+    <Compile Include="PcmComLib\AlertPolicy.cs" />
+    <Compile Include="PcmComLib\ALERT_TYPE.cs" />
+    <Compile Include="PcmComLib\AppCallbacks.cs" />
+    <Compile Include="PcmComLib\AppInventory.cs" />
+    <Compile Include="PcmComLib\APPINVENTORY_STATE.cs" />
+    <Compile Include="PcmComLib\AppProfile.cs" />
+    <Compile Include="PcmComLib\AppSelCustomization.cs" />
+    <Compile Include="PcmComLib\AppSelMatch.cs" />
+    <Compile Include="PcmComLib\AppUpdateInfo.cs" />
+    <Compile Include="PcmComLib\BrandEnginePolicy.cs" />
+    <Compile Include="PcmComLib\CHANGE_PROCESS_ERROR.cs" />
+    <Compile Include="PcmComLib\CommandPacket.cs" />
+    <Compile Include="PcmComLib\CommandType.cs" />
+    <Compile Include="PcmComLib\ConnectionMethod.cs" />
+    <Compile Include="PcmComLib\ConnectionPolicy.cs" />
+    <Compile Include="PcmComLib\CONNECTION_POLICY_METHODS.cs" />
+    <Compile Include="PcmComLib\DiscoveryCallbacks.cs" />
+    <Compile Include="PcmComLib\DonePolicy.cs" />
+    <Compile Include="PcmComLib\DriveMatch.cs" />
+    <Compile Include="PcmComLib\DriveSizeMap.cs" />
+    <Compile Include="PcmComLib\DriveSpaceRequiredMap.cs" />
+    <Compile Include="PcmComLib\EnginePolicy.cs" />
+    <Compile Include="PcmComLib\ENUM_APPSEL_STAGE.cs" />
+    <Compile Include="PcmComLib\ENUM_INFOVALIDATION.cs" />
+    <Compile Include="PcmComLib\ENUM_TASK_TYPE.cs" />
+    <Compile Include="PcmComLib\ENUM_TRANSFERMETHOD.cs" />
+    <Compile Include="PcmComLib\ENUM_TTID.cs" />
+    <Compile Include="PcmComLib\EXPAND_CONDITIONS.cs" />
+    <Compile Include="PcmComLib\FileConnectionPolicy.cs" />
+    <Compile Include="PcmComLib\FileNamePolicy.cs" />
+    <Compile Include="PcmComLib\FileTransferMethod.cs" />
+    <Compile Include="PcmComLib\FillPacket.cs" />
+    <Compile Include="PcmComLib\FillVanTask.cs" />
+    <Compile Include="PcmComLib\IAlertPolicy.cs" />
+    <Compile Include="PcmComLib\IAppCallbacks.cs" />
+    <Compile Include="PcmComLib\IAppInventory.cs" />
+    <Compile Include="PcmComLib\IAppProfile.cs" />
+    <Compile Include="PcmComLib\IAppSelCustomization.cs" />
+    <Compile Include="PcmComLib\IAppSelMatch.cs" />
+    <Compile Include="PcmComLib\IAppUpdateInfo.cs" />
+    <Compile Include="PcmComLib\IBrandEnginePolicy.cs" />
+    <Compile Include="PcmComLib\ICommandPacket.cs" />
+    <Compile Include="PcmComLib\IConnectionMethod.cs" />
+    <Compile Include="PcmComLib\IConnectionPolicy.cs" />
+    <Compile Include="PcmComLib\IDiscoveryCallbacks.cs" />
+    <Compile Include="PcmComLib\IDonePolicy.cs" />
+    <Compile Include="PcmComLib\IDriveMatch.cs" />
+    <Compile Include="PcmComLib\IDriveSizeMap.cs" />
+    <Compile Include="PcmComLib\IDriveSpaceRequiredMap.cs" />
+    <Compile Include="PcmComLib\IEnginePolicy.cs" />
+    <Compile Include="PcmComLib\IFileConnectionPolicy.cs" />
+    <Compile Include="PcmComLib\IFileNamePolicy.cs" />
+    <Compile Include="PcmComLib\IFileTransferMethod.cs" />
+    <Compile Include="PcmComLib\IFillPacket.cs" />
+    <Compile Include="PcmComLib\IFillVanTask.cs" />
+    <Compile Include="PcmComLib\IImagePolicy.cs" />
+    <Compile Include="PcmComLib\ILeafFilter.cs" />
+    <Compile Include="PcmComLib\ILeafFilters.cs" />
+    <Compile Include="PcmComLib\IMachine.cs" />
+    <Compile Include="PcmComLib\ImagePolicy.cs" />
+    <Compile Include="PcmComLib\IMigItemsCustomization.cs" />
+    <Compile Include="PcmComLib\IMigrationStatus.cs" />
+    <Compile Include="PcmComLib\IMigTypeCustomization.cs" />
+    <Compile Include="PcmComLib\IMiscSetting.cs" />
+    <Compile Include="PcmComLib\IMiscSettings.cs" />
+    <Compile Include="PcmComLib\IMiscSettingsGroup.cs" />
+    <Compile Include="PcmComLib\IMiscSettingsGroups.cs" />
+    <Compile Include="PcmComLib\INetUser.cs" />
+    <Compile Include="PcmComLib\INetUserMgr.cs" />
+    <Compile Include="PcmComLib\INetworkTransferMethod.cs" />
+    <Compile Include="PcmComLib\IPasswordPolicy.cs" />
+    <Compile Include="PcmComLib\IPCmoverApp.cs" />
+    <Compile Include="PcmComLib\IPCmoverObject.cs" />
+    <Compile Include="PcmComLib\IPcmProtocol.cs" />
+    <Compile Include="PcmComLib\IPcmStringList.cs" />
+    <Compile Include="PcmComLib\IPcmTask.cs" />
+    <Compile Include="PcmComLib\IPcmUICallbacks.cs" />
+    <Compile Include="PcmComLib\IPolicy.cs" />
+    <Compile Include="PcmComLib\IPolicySettings.cs" />
+    <Compile Include="PcmComLib\IProgressBase.cs" />
+    <Compile Include="PcmComLib\IProgressCallbacks.cs" />
+    <Compile Include="PcmComLib\IRegistrationPolicy.cs" />
+    <Compile Include="PcmComLib\IRegistrationServer.cs" />
+    <Compile Include="PcmComLib\IRemoteMachine.cs" />
+    <Compile Include="PcmComLib\IReportPolicy.cs" />
+    <Compile Include="PcmComLib\IReportsPolicy.cs" />
+    <Compile Include="PcmComLib\IStartPolicy.cs" />
+    <Compile Include="PcmComLib\IStringMap.cs" />
+    <Compile Include="PcmComLib\ITaskItemRoot.cs" />
+    <Compile Include="PcmComLib\ITransferMethod.cs" />
+    <Compile Include="PcmComLib\ITreeBranch.cs" />
+    <Compile Include="PcmComLib\ITreeBranches.cs" />
+    <Compile Include="PcmComLib\ITreeImpl.cs" />
+    <Compile Include="PcmComLib\ITreeNode.cs" />
+    <Compile Include="PcmComLib\ITreeRoot.cs" />
+    <Compile Include="PcmComLib\ITreeRoots.cs" />
+    <Compile Include="PcmComLib\ITreeStats.cs" />
+    <Compile Include="PcmComLib\IUnloadVanTask.cs" />
+    <Compile Include="PcmComLib\IUSBTransferMethod.cs" />
+    <Compile Include="PcmComLib\IUserMapCustomization.cs" />
+    <Compile Include="PcmComLib\IUserMatch.cs" />
+    <Compile Include="PcmComLib\IUserMatchMgr.cs" />
+    <Compile Include="PcmComLib\IVirtualPhysicalMapping.cs" />
+    <Compile Include="PcmComLib\LeafFilter.cs" />
+    <Compile Include="PcmComLib\LeafFilters.cs" />
+    <Compile Include="PcmComLib\Machine.cs" />
+    <Compile Include="PcmComLib\MACHINE_DETAIL.cs" />
+    <Compile Include="PcmComLib\MigItemsCustomization.cs" />
+    <Compile Include="PcmComLib\MIGITEMS_ENABLED.cs" />
+    <Compile Include="PcmComLib\MIGITEMS_OPTIONS.cs" />
+    <Compile Include="PcmComLib\MigrationStatus.cs" />
+    <Compile Include="PcmComLib\MIGRATION_SAFETY.cs" />
+    <Compile Include="PcmComLib\MigTypeCustomization.cs" />
+    <Compile Include="PcmComLib\MIGTYPE_OPTION.cs" />
+    <Compile Include="PcmComLib\MiscSetting.cs" />
+    <Compile Include="PcmComLib\MiscSettings.cs" />
+    <Compile Include="PcmComLib\MiscSettingsGroup.cs" />
+    <Compile Include="PcmComLib\MiscSettingsGroups.cs" />
+    <Compile Include="PcmComLib\MS_ACTIVE_STATE.cs" />
+    <Compile Include="PcmComLib\MS_STATE.cs" />
+    <Compile Include="PcmComLib\NetUser.cs" />
+    <Compile Include="PcmComLib\NetUserMgr.cs" />
+    <Compile Include="PcmComLib\NetworkStats.cs" />
+    <Compile Include="PcmComLib\NetworkTransferMethod.cs" />
+    <Compile Include="PcmComLib\PasswordPolicy.cs" />
+    <Compile Include="PcmComLib\PCmoverApp.cs" />
+    <Compile Include="PcmComLib\PcmProtocol.cs" />
+    <Compile Include="PcmComLib\PcmStringList.cs" />
+    <Compile Include="PcmComLib\PcmTask.cs" />
+    <Compile Include="PcmComLib\PcmUICallbacks.cs" />
+    <Compile Include="PcmComLib\Policy.cs" />
+    <Compile Include="PcmComLib\PolicySettings.cs" />
+    <Compile Include="PcmComLib\ProgressBase.cs" />
+    <Compile Include="PcmComLib\ProgressCallbacks.cs" />
+    <Compile Include="PcmComLib\RegistrationPolicy.cs" />
+    <Compile Include="PcmComLib\RegistrationServer.cs" />
+    <Compile Include="PcmComLib\RemoteMachine.cs" />
+    <Compile Include="PcmComLib\ReportPolicy.cs" />
+    <Compile Include="PcmComLib\ReportsPolicy.cs" />
+    <Compile Include="PcmComLib\REPORT_FORMAT.cs" />
+    <Compile Include="PcmComLib\REPORT_GENERATOR.cs" />
+    <Compile Include="PcmComLib\REPORT_TYPE.cs" />
+    <Compile Include="PcmComLib\SELECTED_REASON.cs" />
+    <Compile Include="PcmComLib\SSL_FLAGS.cs" />
+    <Compile Include="PcmComLib\SSL_STATE.cs" />
+    <Compile Include="PcmComLib\StartPolicy.cs" />
+    <Compile Include="PcmComLib\StringMap.cs" />
+    <Compile Include="PcmComLib\TaskItemRoot.cs" />
+    <Compile Include="PcmComLib\TASK_FILES.cs" />
+    <Compile Include="PcmComLib\TransferMethod.cs" />
+    <Compile Include="PcmComLib\TreeBranch.cs" />
+    <Compile Include="PcmComLib\TreeBranches.cs" />
+    <Compile Include="PcmComLib\TreeImpl.cs" />
+    <Compile Include="PcmComLib\TreeNode.cs" />
+    <Compile Include="PcmComLib\TreeRoot.cs" />
+    <Compile Include="PcmComLib\TreeRoots.cs" />
+    <Compile Include="PcmComLib\TreeStats.cs" />
+    <Compile Include="PcmComLib\TREE_STATUS.cs" />
+    <Compile Include="PcmComLib\TriBool.cs" />
+    <Compile Include="PcmComLib\TRIBOOL_VALUE.cs" />
+    <Compile Include="PcmComLib\UI_CALLBACK_CODE.cs" />
+    <Compile Include="PcmComLib\UI_EXCEPTION_TYPE.cs" />
+    <Compile Include="PcmComLib\UnloadVanTask.cs" />
+    <Compile Include="PcmComLib\USBTransferMethod.cs" />
+    <Compile Include="PcmComLib\USB_STATE.cs" />
+    <Compile Include="PcmComLib\UserMapCustomization.cs" />
+    <Compile Include="PcmComLib\UserMatch.cs" />
+    <Compile Include="PcmComLib\UserMatchMgr.cs" />
+    <Compile Include="PcmComLib\VirtualPhysicalMapping.cs" />
+    <Compile Include="PcmComLib\__MIDL___MIDL_itf_PcmCom_0000_0000_0008.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Laplink.Discovery.Infrastructure\Laplink.Discovery.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC06}</Project>
+      <Name>Laplink.Discovery.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Download.Contracts\Laplink.Download.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC07}</Project>
+      <Name>Laplink.Download.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Pcmover.Contracts\Laplink.Pcmover.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0B}</Project>
+      <Name>Laplink.Pcmover.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.PcmoverService.Infrastructure\Laplink.PcmoverService.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC0F}</Project>
+      <Name>Laplink.PcmoverService.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Service.Contracts\Laplink.Service.Contracts.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC10}</Project>
+      <Name>Laplink.Service.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers.WcfFramework\Laplink.Tools.Helpers.WcfFramework.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC13}</Project>
+      <Name>Laplink.Tools.Helpers.WcfFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers.Wcf\Laplink.Tools.Helpers.Wcf.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC12}</Project>
+      <Name>Laplink.Tools.Helpers.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.Helpers\Laplink.Tools.Helpers.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC11}</Project>
+      <Name>Laplink.Tools.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laplink.Tools.NativeMethods\Laplink.Tools.NativeMethods.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC14}</Project>
+      <Name>Laplink.Tools.NativeMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mscorlib\mscorlib.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC99}</Project>
+      <Name>mscorlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service.Infrastructure\Service.Infrastructure.csproj">
+      <Project>{5B85FB4E-B60D-4C72-A54F-5D07B06CBC63}</Project>
+      <Name>Service.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

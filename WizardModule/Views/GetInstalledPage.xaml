@@ -1,0 +1,268 @@
+<UserControl
+	x:Class="WizardModule.Views.GetInstalledPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:Brand="clr-namespace:PcmBrandUI.Properties;assembly=PcmBrandUI" xmlns:views="clr-namespace:WizardModule.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		HorizontalAlignment="Stretch">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<popups:AppPopup
+			Placement="Center"
+			Width="620"
+			PopupAnimation="Fade"
+			AllowsTransparency="True"
+			IsOpen="{Binding IsEULAOpen, Mode=TwoWay}">
+			<Canvas
+				Width="620"
+				Height="600">
+				<Border
+					Canvas.Top="15"
+					Canvas.Left="0"
+					Width="580"
+					BorderThickness="4"
+					CornerRadius="8"
+					BorderBrush="#FFC0C0C0"
+					Background="#FFFFFFFF">
+					<Grid
+						Background="#FFFFFFFF"
+						Margin="8">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="8" />
+							<RowDefinition
+								Height="Auto" />
+							<RowDefinition
+								Height="*" />
+							<RowDefinition
+								Height="Auto" />
+						</Grid.RowDefinitions>
+						<TextBlock
+							Grid.Row="0"
+							Style="{StaticResource SmallTextMedium}"
+							Margin="0,28,0,8"
+							HorizontalAlignment="Center"
+							FontSize="20"
+							TextWrapping="Wrap"
+							Text="{x:Static p:Resources.GIP_ToUse}" />
+						<Rectangle
+							Grid.Row="1"
+							Width="100"
+							Height="4"
+							Fill="{StaticResource MainThemeBrush2}"
+							HorizontalAlignment="Left"
+							Panel.ZIndex="1" />
+						<Rectangle
+							Grid.Row="1"
+							Width="500"
+							Height="2"
+							Fill="{StaticResource HorizontalLineBackgroundBrush}"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center" />
+						<TextBlock
+							Grid.Row="2"
+							Style="{StaticResource StandardTextStyle}"
+							Margin="8,28,0,6"
+							FontWeight="Bold"
+							HorizontalAlignment="Left"
+							Text="{x:Static p:Resources.GIP_Terms}"
+							FontSize="16" />
+						<ScrollViewer
+							Grid.Row="3"
+							MaxHeight="240"
+							Background="#FFFFFFFF"
+							Margin="4">
+							<TextBlock
+								Text="{x:Static Brand:Resources.EULA}"
+								TextWrapping="Wrap"
+								Margin="0,0,4,0"
+								Background="#FFFFFFFF"
+								Padding="4" />
+						</ScrollViewer>
+						<StackPanel
+							Orientation="Horizontal"
+							Grid.Row="4"
+							HorizontalAlignment="Center"
+							Margin="0,12">
+							<Button
+								Style="{StaticResource RoundedButton}"
+								Content="{x:Static p:Resources.GIP_Agree}"
+								Margin="8,0"
+								Command="{Binding OnAccept}" />
+							<Button
+								Style="{StaticResource RoundedButton}"
+								Content="{x:Static p:Resources.GIP_DontAgree}"
+								Margin="8,0"
+								Command="{Binding OnDecline}" />
+						</StackPanel>
+					</Grid>
+				</Border>
+				<Button
+					Canvas.Top="0"
+					Canvas.Left="560"
+					Style="{StaticResource ImageButton}"
+					Height="40"
+					Width="40"
+					Command="{Binding OnDecline}">
+					<Image
+						Source="/WizardModule;component/Assets/CloseIcon.png"
+						Height="32"
+						Width="32" />
+				</Button>
+			</Canvas>
+		</popups:AppPopup>
+		<ScrollViewer
+			VerticalScrollBarVisibility="Auto"
+			Grid.Row="0">
+			<StackPanel
+				Orientation="Vertical"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center">
+				<TextBlock
+					Style="{StaticResource StandardTextStyle}"
+					FontSize="20"
+					FontWeight="Bold"
+					Text="{x:Static p:Resources.GIP_Run}"
+					HorizontalAlignment="Center" />
+				<TextBlock
+					Style="{StaticResource StandardTextStyle}"
+					Margin="0,8"
+					Text="{x:Static p:Resources.GIP_Go}"
+					HorizontalAlignment="Center" />
+				<TextBlock
+					Style="{StaticResource StandardTextStyle}"
+					Foreground="{StaticResource AlternateTextBrush}"
+					Margin="0,0,0,8"
+					Text="{x:Static p:Resources.GIP_Cable}"
+					HorizontalAlignment="Center" />
+				<TextBlock
+					Style="{StaticResource StandardTextStyle}"
+					MaxWidth="700"
+					HorizontalAlignment="Center"
+					Visibility="{Binding IsDownloadVisible, Converter={StaticResource VisibilityConverter}}">
+					<Run
+						Text="{x:Static Brand:Resources.GIP_Download}" /> <Run
+						Text="{x:Static Brand:Resources.FPP_Download}" /></TextBlock>
+			</StackPanel>
+		</ScrollViewer>
+		<Grid
+			Row="1"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Text="{x:Static p:Resources.GIP_OldPC}"
+				HorizontalAlignment="Center"
+				Style="{StaticResource StandardTextStyle}" />
+			<TextBlock
+				Grid.Column="1"
+				Text="{x:Static p:Resources.GIP_NewPC}"
+				HorizontalAlignment="Center"
+				Style="{StaticResource StandardTextStyle}" />
+			<Image
+				Grid.Row="1"
+				Source="/WizardModule;component/Assets/computer.png"
+				Margin="24,0" />
+			<Image
+				Grid.Row="1"
+				Source="pack://application:,,/PcmBrandUI;Component/Resources/PCmoverScreen.png"
+				HorizontalAlignment="Center"
+				Width="102" />
+			<Image
+				Grid.Row="1"
+				Grid.Column="1"
+				Source="/WizardModule;component/Assets/computer.png"
+				Margin="24,0" />
+			<Image
+				Grid.Row="1"
+				Grid.Column="1"
+				Source="pack://application:,,/PcmBrandUI;Component/Resources/PCmoverScreen.png"
+				HorizontalAlignment="Center"
+				Width="102" />
+		</Grid>
+		<TextBlock
+			Grid.Row="2"
+			HorizontalAlignment="Center"
+			Style="{StaticResource StandardTextStyle}"
+			Text="{x:Static p:Resources.GIP_WhenYouProceed}"
+			VerticalAlignment="Center" />
+		<StackPanel
+			Orientation="Horizontal"
+			Grid.Row="3"
+			HorizontalAlignment="Center"
+			Margin="0,0,0,8">
+			<Button
+				Content="{x:Static p:Resources.BACK}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				Command="{Binding OnBack}" />
+			<Button
+				Content="{x:Static p:Resources.NEXT}"
+				Style="{StaticResource RoundedButton}"
+				Margin="8,0"
+				IsDefault="True"
+				Command="{Binding OnNext}" />
+		</StackPanel>
+		<Grid
+			Row="4"
+			HorizontalAlignment="Right"
+			Margin="0,-8,-8,-16">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<StackPanel
+				Orientation="Horizontal"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Bottom"
+				Visibility="{Binding IsSerialNumberVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+				<TextBlock
+					Text="{x:Static p:Resources.LP_SerialNumber}"
+					Margin="0,0,8,0"
+					Style="{StaticResource VerySmallTextMedium}" />
+				<TextBlock
+					Style="{StaticResource VerySmallTextMedium}"
+					Text="{Binding SerialNumber, Mode=OneWay}" />
+			</StackPanel>
+			<TextBlock
+				Grid.Row="1"
+				VerticalAlignment="Bottom"
+				Margin="16,0,8,0"
+				HorizontalAlignment="Center"
+				Visibility="{Binding IsSerialNumberVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+				<Hyperlink
+					Style="{StaticResource FooterHyperlinkTextStyle}"
+					Command="{Binding OnChangeSerialNumber}">
+					<Run
+						Text="{x:Static p:Resources.FPP_ChangeSerialNumber}" />
+				</Hyperlink>
+			</TextBlock>
+		</Grid>
+	</Grid>
+</UserControl>

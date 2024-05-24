@@ -1,0 +1,153 @@
+<UserControl
+	x:Class="WizardModule.Views.Compact.AdvancedOptions" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:wizCtl="clr-namespace:WizardModule.Views.Controls" xmlns:popups="clr-namespace:Laplink.Tools.Popups;assembly=Laplink.Tools.Popups" xmlns:viewModels="clr-namespace:WizardModule.ViewModels" xmlns:p="clr-namespace:WizardModule.Properties" xmlns:inf="clr-namespace:PCmover.Infrastructure;assembly=PCmover.Infrastructure" xmlns:converters="clr-namespace:Laplink.Tools.Ui.Converters;assembly=Laplink.Tools.Ui.Converters" xmlns:regions="http://prismlibrary.com/" xmlns:compact="clr-namespace:WizardModule.Views.Compact">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:BoolToVisibilityConverter
+				x:Key="VisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<ScrollViewer
+		VerticalScrollBarVisibility="Auto">
+		<StackPanel
+			Orientation="Vertical"
+			Background="{StaticResource BackgroundColorBrush}">
+			<ContentControl
+				Name="Transfer"
+				Height="48"
+				Margin="8"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionTransfer}"
+				Visibility="{Binding IsTransferEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="FileBased"
+				Height="48"
+				Margin="8"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionFileBased}"
+				Visibility="{Binding IsFilesBasedEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="ImageAndDrive"
+				Height="48"
+				Margin="8"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionImageAndDrive}"
+				Visibility="{Binding IsImageAssistEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="UpgradAssistant"
+				Height="48"
+				Margin="8"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionUpgradeAssistant}"
+				Visibility="{Binding IsUpgradeAssistEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<ContentControl
+				Name="Profile"
+				Height="48"
+				Margin="8"
+				regions:RegionManager.RegionName="{x:Static inf:RegionNames.RegionProfile}"
+				Visibility="{Binding IsProfileEnabled, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+			<StackPanel
+				Margin="12,24,0,0"
+				Visibility="{Binding IsSidebarVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+				<StackPanel
+					Margin="0,12,0,0"
+					Visibility="{Binding IsUndoVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
+					<TextBlock
+						Style="{StaticResource SmallTextMedium}"
+						Text="{x:Static p:Resources.WP_UndoText}" />
+					<TextBlock
+						Margin="0,4">
+						<Hyperlink
+							Style="{StaticResource HyperlinkTextStyle}"
+							Command="{Binding OnUndo}">
+							<TextBlock
+								Text="{x:Static p:Resources.WP_UndoTransfer}" />
+						</Hyperlink>
+					</TextBlock>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel
+				Orientation="Horizontal"
+				HorizontalAlignment="Center"
+				Margin="0,12"
+				VerticalAlignment="Bottom">
+				<Button
+					Content="{x:Static p:Resources.BACK}"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					Command="{Binding OnBack}"
+					Visibility="{Binding IsBackVisible, Converter={StaticResource VisibilityConverter}, Mode=OneWay}" />
+				<Button
+					Content="{x:Static p:Resources.NEXT}"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					IsDefault="True"
+					Command="{Binding OnNext}" />
+				<Button
+					Content="Controlled Reboot"
+					Margin="88,0"
+					Command="{Binding ControlledRebootCommand}"
+					Visibility="{Binding ControlledRebootVisibility, Mode=OneWay}" />
+				<TextBlock
+					Text="Waiting"
+					Margin="8,0"
+					Visibility="{Binding WaitingVisibility}" />
+				<TextBlock
+					Text="Reconnected"
+					Margin="8,0"
+					Visibility="{Binding ReconnectedVisibility}" />
+			</StackPanel>
+			<StackPanel
+				Orientation="Horizontal"
+				HorizontalAlignment="Center"
+				Margin="0,12"
+				VerticalAlignment="Bottom"
+				Visibility="Collapsed">
+				<Button
+					Content="Test Popup"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					Command="{Binding TestPopupCommand}" />
+				<Button
+					Content="Test WPFPopup"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					Command="{Binding TestWpfPopupCommand}" />
+				<Button
+					Content="Test AppPopup"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					Command="{Binding TestAppPopupCommand}" />
+				<Button
+					Content="Test MessageBox"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					Command="{Binding TestMessageBoxCommand}" />
+				<Button
+					Content="Test WPFMessageBox"
+					Style="{StaticResource RoundedButton}"
+					Margin="8,0"
+					Command="{Binding TestWpfMessageBoxCommand}" />
+			</StackPanel>
+			<Popup
+				Placement="Center"
+				IsOpen="{Binding IsTestPopupOpen}">
+				<Button
+					Content="Regular Popup"
+					Background="#FFFF0000"
+					Command="{Binding ClosePopupCommand}" />
+			</Popup>
+			<wizCtl:WPFPopup
+				Placement="Center"
+				IsOpen="{Binding IsTestWpfPopupOpen}">
+				<Button
+					Content="Wpf Popup"
+					Background="#FF00FFFF"
+					Command="{Binding CloseWpfPopupCommand}" />
+			</wizCtl:WPFPopup>
+			<popups:AppPopup
+				Placement="Center"
+				IsOpen="{Binding IsTestAppPopupOpen}">
+				<Button
+					Content="App Popup"
+					Background="#FFFFFF00"
+					Command="{Binding CloseAppPopupCommand}" />
+			</popups:AppPopup>
+		</StackPanel>
+	</ScrollViewer>
+</UserControl>
